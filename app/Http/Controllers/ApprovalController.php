@@ -17,10 +17,10 @@ class ApprovalController extends Controller
 
     public function showExtractions(Request $request)
     {
-        $extractions = Extraction::orderBy('created_at', 'desc')
+        $extractions = Extraction::orderBy('created_at', 'asc')
             ->with('submission.user')
             ->whereNull('site_id')
-            ->paginate();
+            ->paginate(1);
 
         return view('extractions', compact('extractions'));
     }

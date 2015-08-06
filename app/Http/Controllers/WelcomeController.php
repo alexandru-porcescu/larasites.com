@@ -10,7 +10,7 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $sites = Site::orderBy('created_at', 'desc')->paginate();
+        $sites = Site::orderBy('created_at', 'desc')->whereNotNull('approved_at')->paginate();
 
         return view('welcome', compact('sites'));
     }

@@ -45,7 +45,7 @@ class ExtractSubmission extends Job implements SelfHandling, ShouldQueue
 
         if ($response->getStatusCode() === 200) {
             $data = json_decode($response->getBody(), true);
-            $url = $data['url'];
+            $url = $data['provider_url'];
 
             if (Extraction::where('url', $url)->count() === 0) {
                 $extraction = new Extraction;
