@@ -34,6 +34,8 @@ class SubmitController extends Controller
             'url' => 'required|url|unique:submissions|unique:extractions',
             'protocol' => 'in:http,https',
         ], [
+            'url.required' => 'You need to type something in here first.',
+            'url.unique' => 'That url has already been submitted.',
             'protocol.in' => 'The url protocol is not supported, please use http or https.'
         ]);
 
