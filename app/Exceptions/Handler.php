@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Auth;
+use Raven_Client;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
