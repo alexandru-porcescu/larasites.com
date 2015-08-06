@@ -12,4 +12,14 @@ class Site extends Model
      * @var array
      */
     protected $dates = ['approved_at'];
+
+    public function scopeApproved($q)
+    {
+        return $q->whereNotNull('approved_at');
+    }
+
+    public function scopeLatest($q)
+    {
+        return $q->orderBy('approved_at', 'desc');
+    }
 }
