@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Submission;
+use App\Jobs\ExtractSubmission;
 use App\Http\Controllers\Controller;
 
 class SubmitController extends Controller
@@ -34,6 +35,10 @@ class SubmitController extends Controller
         $submission->user_id = Auth::user()->id;
 
         $submission->save();
+
+        $this->dispatchFrom(ExtractSubmission::class, $request, [
+            'submission' => $submission
+        ]);
 
         return redirect('submit/thanks');
     }

@@ -10,4 +10,9 @@ class Submission extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function extraction()
+    {
+        return $this->hasOne(Extraction::class);
+    }
 }
