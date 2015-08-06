@@ -10,7 +10,7 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $sites = Site::approved()->latest()->paginate();
+        $sites = Site::approved()->latest()->take(15)->get();
 
         return view('welcome', compact('sites'));
     }

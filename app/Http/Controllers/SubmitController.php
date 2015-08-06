@@ -13,7 +13,7 @@ class SubmitController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['showThanks']]);
     }
 
     public function showSubmitForm(Request $request)
@@ -49,7 +49,7 @@ class SubmitController extends Controller
         return redirect('submit/thanks');
     }
 
-    public function showThankyouPage()
+    public function showThanks()
     {
         return view('thankyou');
     }
