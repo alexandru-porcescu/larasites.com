@@ -27,12 +27,14 @@ class SubmitController extends Controller
 
         $input = [
             'url' => base_url($request->input('url')),
-            'scheme' => $url['scheme'],
+            'protocol' => array_get($url, 'scheme'),
         ];
 
         $validator = Validator::make($input, [
             'url' => 'required|url|unique:submissions|unique:extractions',
-            'scheme' => 'in:http,https',
+            'protocol' => 'in:http,https',
+        ], [
+            'protocol.in' => 'The url protocol is not supported, please use http or https.'
         ]);
 
         if ($validator->fails()) {
