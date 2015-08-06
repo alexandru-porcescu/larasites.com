@@ -37,4 +37,9 @@ class User extends Model implements AuthenticatableContract
      * @var array
      */
     protected $dates = ['authenticated_at'];
+
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }
