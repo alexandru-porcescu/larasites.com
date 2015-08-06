@@ -15,6 +15,10 @@ class Robots
      */
     public function handle($request, Closure $next)
     {
+        if ($request->is('auth')) {
+            return $next($request);
+        }
+
         switch (app()->environment()) {
             case 'production':
                 if ($request->is('robots.txt')) {

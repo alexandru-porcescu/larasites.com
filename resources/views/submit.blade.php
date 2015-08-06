@@ -15,9 +15,12 @@
             <br>
             <p><h5>{!! Html::link('/', 'Larasites.com') !!}</h5></p>
             <hr>
-            {!! Form::open() !!}
-            <div class="form-group">
-                {!! Form::input('url', 'url', null, ['class' => 'form-control', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => 'eg. http://laravel.com']) !!}
+            {!! Form::open(['method' => 'post', 'url' => '/submit/submit']) !!}
+            <div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
+                {!! Form::text('url', null, ['class' => 'form-control', 'autofocus' => 'autofocus', 'placeholder' => 'eg. http://laravel.com']) !!}
+                @if ($errors->has('url'))
+                    <p class="help-block">{{ $errors->first('url') }}</p>
+                @endif
             </div>
             {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
             {!! Form::close() !!}
