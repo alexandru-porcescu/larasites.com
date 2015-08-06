@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Socialite;
 use App\User;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -41,6 +42,8 @@ class AuthController extends Controller
         $user->authenticated_at = Carbon::now();
         $user->save();
 
-        return $user;
+        Auth::login($user);
+
+        return redirect()->intended('/');
     }
 }
