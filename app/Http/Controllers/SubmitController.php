@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Submission;
+use Validator;
 use App\Jobs\ExtractSubmission;
 use App\Http\Controllers\Controller;
 
@@ -22,23 +23,24 @@ class SubmitController extends Controller
 
     public function submitSubmitForm(Request $request)
     {
-        $messages = [
-            'unique' => 'That url has already been submitted.',
+        $input = [
+            'url' => base_url($request->input('url')),
         ];
 
-        $this->validate($request, [
+        $validator = Validator::make($input, [
             'url' => 'required|url|unique:submissions',
-        ], $messages);
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
 
         $submission = new Submission;
-        $submission->url = $request->input('url');
+        $submission->url = $input['url'];
+        $submission->original_url = $request->input('url');
         $submission->user_id = Auth::user()->id;
 
         $submission->save();
-
-        $this->dispatchFrom(ExtractSubmission::class, $request, [
-            'submission' => $submission
-        ]);
 
         return redirect('submit/thanks');
     }

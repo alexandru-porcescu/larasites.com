@@ -21,5 +21,4 @@ Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('submit/thanks', 'SubmitController@showThankyouPage');
 
-Route::get('queue', 'ApprovalController@showExtractions');
-Route::post('queue/approve', 'ApprovalController@submitApproval');
+Route::get('submissions', 'SubmissionsController@showSubmissions');
