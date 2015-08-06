@@ -16,7 +16,11 @@ class SubmissionsController extends Controller
 
     public function showSubmissions(Request $request)
     {
-        $submissions = Submission::orderBy('created_at', 'desc')->with('user')->paginate();
+        $submissions = Submission::orderBy('created_at', 'desc')
+            ->has('extraction')
+            ->with('user', 'extraction')
+            ->take(10)
+            ->get();
 
         return view('submissions', compact('submissions'));
     }
