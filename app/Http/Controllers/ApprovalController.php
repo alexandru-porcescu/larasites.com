@@ -7,7 +7,7 @@ use App\Extraction;
 use App\Site;
 use App\Http\Controllers\Controller;
 
-class ExtractionController extends Controller
+class ApprovalController extends Controller
 {
     public function __construct()
     {
@@ -17,10 +17,12 @@ class ExtractionController extends Controller
 
     public function showExtractions(Request $request)
     {
-        return Extraction::paginate();
+        $extractions = Extraction::orderBy('created_at', 'desc')->paginate();
+
+        return view('extractions', compact('extractions'));
     }
 
-    public function submitExtraction(Request $request)
+    public function submitApproval(Request $request)
     {
         //
     }
