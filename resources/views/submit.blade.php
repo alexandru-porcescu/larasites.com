@@ -14,7 +14,7 @@
             {!! Form::open() !!}
             <div class="form-group">
                 <label for="url">URL</label>
-                {!! Form::input('url', 'url', null, ['class' => 'form-control', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => 'eg. http://laravel.com']) !!}
+                {!! Form::input('url', 'url', null, ['id' => 'url', 'class' => 'form-control', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => 'eg. http://laravel.com']) !!}
             </div>
             {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
             {!! Form::close() !!}
