@@ -5,6 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Submit a site | Larasites.com</title>
+        <meta name="description" content="Showcasing the best websites built with Laravel & Lumen.">
+        <meta name="keywords" content="laravel, php, framework, web, artisans, larasites">
+        <link rel="canonical" href="https://www.larasites.com">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     </head>
     <body>
