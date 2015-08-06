@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Auth;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -27,6 +28,19 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
+        $client = new Raven_Client(config('services.sentry.dsn'));
+
+        if (Auth::user()) {
+            $client->user_context(['id' => Auth::user()->id]);
+        }
+
+        $client->captureException($e, [
+            'curl_method' => 'async',
+            'tags' => [
+                'environment' => app()->environment()
+            ]
+        ]);
+
         return parent::report($e);
     }
 

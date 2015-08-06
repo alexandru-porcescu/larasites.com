@@ -45,4 +45,8 @@ return [
         'key' => env('EMBEDLY_KEY')
     ],
 
+    'sentry' => [
+        'dsn' => env('SENTRY_DSN')
+    ],
+
 ];
