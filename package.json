@@ -4,10 +4,8 @@
       "pretest": "phplint 'app/**/*.php' 'database/**/*.php' 'tests/**/*.php' 'resources/views/**/*.php'",
       "test": "vendor/bin/phpunit"
   },
-  "devDependencies": {
-    "gulp": "^3.8.8"
-  },
   "dependencies": {
+    "gulp": "^3.8.8",
     "bootstrap-sass": "^3.0.0",
     "laravel-elixir": "^3.0.0",
     "phplint": "^1.5.2"
