@@ -144,6 +144,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -195,6 +196,8 @@ return [
 
         // Application aliases...
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Html'      => Illuminate\Html\HtmlFacade::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
 
     ],
 
