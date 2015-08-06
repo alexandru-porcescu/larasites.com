@@ -23,4 +23,4 @@ Route::get('logout', function () {
     return redirect('/');
 });
 
-Route::get('/submit', 'SubmitController@showSubmitForm');
+Route::get('submit', 'SubmitController@showSubmitForm');
