@@ -23,6 +23,5 @@ Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('submit/thanks', 'SubmitController@showThankyouPage');
 
-Route::get('queue', function () {
-    return \App\Extraction::all();
-});
+Route::get('queue', 'ExtractionController@showExtractions');
+Route::post('queue/approve', 'ExtractionController@submitExtraction');
