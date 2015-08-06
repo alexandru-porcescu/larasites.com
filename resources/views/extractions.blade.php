@@ -16,8 +16,7 @@
         <div class="container">
             @foreach ($extractions as $extraction)
                 <p>{!! Html::image(array_get($extraction->data, 'favicon_url')) !!}</p>
-                <p><h4>{!! Html::link($extraction->url, null, ['target' => '_blank']) !!}</h4></p>
-                <p><b>{{ array_get($extraction->data, 'title') }}</b></p>
+                <p><b>{{ array_get($extraction->data, 'title') }}</b> — {!! Html::link($extraction->url, null, ['target' => '_blank']) !!}</p>
                 <p>{{ array_get($extraction->data, 'description') }}</p>
                 {!! Form::submit('Approve', ['class' => 'btn btn-default']) !!}
                 <hr>
