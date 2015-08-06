@@ -18,10 +18,12 @@
                 <p>{!! Html::image(array_get($extraction->data, 'favicon_url')) !!}</p>
                 <p><b>{{ array_get($extraction->data, 'title') }}</b> — {!! Html::link($extraction->url, null, ['target' => '_blank']) !!}</p>
                 <p>{{ array_get($extraction->data, 'description') }}</p>
+                <!--
                 @foreach (array_get($extraction->data, 'favicon_colors', []) as $color)
                     <div style="background-color: rgb({{ $color['color'][0]}}, {{ $color['color'][1]}}, {{ $color['color'][2]}}); width: 50px; height: 50px; display: inline-block;"></div>
                 @endforeach
-                <br>
+                -->
+                <p>Submitted by {!! Html::link('https://twitter.com/@' . $extraction->submission->user->twitter_nickname, '@' . $extraction->submission->user->twitter_nickname) !!}</p>
                 {!! Form::submit('Approve', ['class' => 'btn btn-default']) !!}
                 <hr>
             @endforeach
