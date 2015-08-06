@@ -15,16 +15,33 @@
         <br>
         <div class="container">
             @foreach ($extractions as $extraction)
+                {!! Form::open(['method' => 'post', 'url' => 'queue/approve']) !!}
+
+                {!! Form::hidden('extraction_id', $extraction->id) !!}
+
                 <p>{!! Html::image(array_get($extraction->data, 'favicon_url')) !!}</p>
+                {!! Form::hidden('favicon_url', array_get($extraction->data, 'favicon_url')) !!}
+
                 <p><b>{{ array_get($extraction->data, 'title') }}</b> — {!! Html::link($extraction->url, null, ['target' => '_blank']) !!}</p>
+                {!! Form::hidden('url', array_get($extraction->data, 'url')) !!}
+                {!! Form::hidden('title', array_get($extraction->data, 'title')) !!}
+
                 <p>{{ array_get($extraction->data, 'description') }}</p>
-                <!--
+                {!! Form::hidden('description', array_get($extraction->data, 'description')) !!}
+
                 @foreach (array_get($extraction->data, 'favicon_colors', []) as $color)
-                    <div style="background-color: rgb({{ $color['color'][0]}}, {{ $color['color'][1]}}, {{ $color['color'][2]}}); width: 50px; height: 50px; display: inline-block;"></div>
+                    <label>
+                        <input name="color" type="radio" value="{{ $color['color'][0]}},{{ $color['color'][1]}},{{ $color['color'][2]}}">
+                            <span style="background-color: rgb({{ $color['color'][0]}}, {{ $color['color'][1]}}, {{ $color['color'][2]}}); width: 20px; height: 20px; display: inline-block;"></span>
+                        </input>
+                    </label>
                 @endforeach
-                -->
+
                 <p>Submitted by {!! Html::link('https://twitter.com/@' . $extraction->submission->user->twitter_nickname, '@' . $extraction->submission->user->twitter_nickname) !!}</p>
+
                 {!! Form::submit('Approve', ['class' => 'btn btn-default']) !!}
+
+                {!! Form::close() !!}
                 <hr>
             @endforeach
         </div>

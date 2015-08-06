@@ -27,6 +27,23 @@ class ApprovalController extends Controller
 
     public function submitApproval(Request $request)
     {
-        //
+        $extraction = Extraction::findOrFail($request->input('extraction_id'));
+
+        $color = explode(',', $request->input('color'));
+
+        $site = new Site;
+        $site->url = $request->input('url');
+        $site->title = $request->input('title');
+        $site->description = $request->input('description');
+        $site->favicon_url = $request->input('favicon_url');
+        $site->red = $color[0];
+        $site->green = $color[1];
+        $site->blue = $color[2];
+        $site->save();
+
+        $extraction->site_id = $site->id;
+        $extraction->save();
+
+        return redirect()->action('ApprovalController@showExtractions');
     }
 }

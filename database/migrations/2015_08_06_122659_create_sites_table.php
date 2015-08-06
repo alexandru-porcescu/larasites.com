@@ -16,7 +16,11 @@ class CreateSitesTable extends Migration
             $table->increments('id');
             $table->string('url');
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
+            $table->string('favicon_url');
+            $table->integer('red');
+            $table->integer('green');
+            $table->integer('blue');
             $table->timestamps();
         });
     }

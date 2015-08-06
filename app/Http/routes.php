@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@showWelcome');
 
 Route::get('auth', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/callback', 'Auth\AuthController@handleProviderCallback');
@@ -24,4 +22,4 @@ Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('submit/thanks', 'SubmitController@showThankyouPage');
 
 Route::get('queue', 'ApprovalController@showExtractions');
-Route::post('queue/approve', 'ApprovalController@submitExtraction');
+Route::post('queue/approve', 'ApprovalController@submitApproval');

@@ -17,6 +17,12 @@
             <hr>
             <p>{!! Html::link('/submit', 'Submit a site', ['class' => 'btn btn-default']) !!}</p>
             <hr>
+            @foreach ($sites as $site)
+                <p>{!! Html::image($site->favicon_url, null, ['width' => 32, 'height' => 32]) !!}</p>
+                <p>{!! Html::link($site->url, $site->title) !!}</p>
+                <p>{{ $site->description }}</p>
+                <hr>
+            @endforeach
             <p class="text-muted">Made by {!! Html::link('http://www.wearenext.co.za', 'Next') !!} in Cape Town</p>
         </div>
     </body>
