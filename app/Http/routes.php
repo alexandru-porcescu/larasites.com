@@ -17,10 +17,6 @@ Route::get('/', function () {
 
 Route::get('auth', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/callback', 'Auth\AuthController@handleProviderCallback');
-
-Route::get('logout', function () {
-    Auth::logout();
-    return redirect('/');
-});
+Route::get('logout', 'Auth\AuthController@logout');
 
 Route::get('submit', 'SubmitController@showSubmitForm');

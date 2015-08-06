@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use Socialite;
 use App\User;
-use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -45,5 +45,12 @@ class AuthController extends Controller
         Auth::login($user);
 
         return redirect()->intended('/');
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+
+        return redirect('/');
     }
 }
