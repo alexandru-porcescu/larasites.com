@@ -22,3 +22,11 @@ Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('submit/thanks', 'SubmitController@showThanks');
 
 Route::get('submissions', 'SubmissionsController@showSubmissions');
+
+Route::get('terms-conditions', function () {
+    return view('terms-conditions');
+});
+
+Route::get('privacy-policy', function () {
+    return view('privacy-policy');
+});
