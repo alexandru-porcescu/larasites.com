@@ -16,6 +16,7 @@ class CreateSubmissionsTable extends Migration
             $table->increments('id');
             $table->string('url');
             $table->integer('user_id');
+            $table->boolean('is_duplicate')->default(false);
             $table->timestamps();
         });
     }

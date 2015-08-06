@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('twitter_nickname');
             $table->string('twitter_avatar');
             $table->timestamps();
+            $table->boolean('is_admin')->default(false);
             $table->datetime('authenticated_at')->nullable();
         });
     }

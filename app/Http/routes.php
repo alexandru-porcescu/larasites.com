@@ -22,3 +22,7 @@ Route::get('logout', 'Auth\AuthController@logout');
 Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('submit/thanks', 'SubmitController@showThankyouPage');
+
+Route::get('queue', function () {
+    return \App\Extraction::all();
+});

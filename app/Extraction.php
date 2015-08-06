@@ -10,4 +10,14 @@ class Extraction extends Model
     {
         return $this->belongsTo(Submission::class);
     }
+
+    public function site()
+    {
+        return $this->belongsTo(Site::class);
+    }
+
+    public function getDataAttribute()
+    {
+        return json_decode($this->body, true);
+    }
 }

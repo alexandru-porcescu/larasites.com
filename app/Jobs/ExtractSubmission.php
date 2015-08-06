@@ -44,10 +44,19 @@ class ExtractSubmission extends Job implements SelfHandling, ShouldQueue
         ]);
 
         if ($response->getStatusCode() === 200) {
-            $extraction = new Extraction;
-            $extraction->submission_id = $this->submission->id;
-            $extraction->data = $response->getBody();
-            $extraction->save();
+            $data = json_decode($response->getBody(), true);
+            $url = $data['url'];
+
+            if (Extraction::where('url', $url)->count() === 0) {
+                $extraction = new Extraction;
+                $extraction->url = $url;
+                $extraction->submission_id = $this->submission->id;
+                $extraction->body = $response->getBody();
+                $extraction->save();
+            } else {
+                $this->submission->is_duplicate = true;
+                $this->submission->save();
+            }
         }
     }
 }

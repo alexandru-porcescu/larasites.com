@@ -15,7 +15,8 @@ class CreateExtractionsTable extends Migration
         Schema::create('extractions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('submission_id');
-            $table->mediumText('data');
+            $table->string('url');
+            $table->mediumText('body');
             $table->timestamps();
         });
     }
