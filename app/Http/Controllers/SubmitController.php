@@ -23,12 +23,16 @@ class SubmitController extends Controller
 
     public function submitSubmitForm(Request $request)
     {
+        $url = parse_url($request->input('url'));
+
         $input = [
             'url' => base_url($request->input('url')),
+            'scheme' => $url['scheme'],
         ];
 
         $validator = Validator::make($input, [
             'url' => 'required|url|unique:submissions|unique:extractions',
+            'scheme' => 'in:http,https',
         ]);
 
         if ($validator->fails()) {
