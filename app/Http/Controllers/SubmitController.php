@@ -28,7 +28,7 @@ class SubmitController extends Controller
         ];
 
         $validator = Validator::make($input, [
-            'url' => 'required|url|unique:submissions',
+            'url' => 'required|url|unique:submissions|unique:extractions',
         ]);
 
         if ($validator->fails()) {
@@ -41,6 +41,10 @@ class SubmitController extends Controller
         $submission->user_id = Auth::user()->id;
 
         $submission->save();
+
+        $this->dispatchFrom(ExtractSubmission::class, $request, [
+            'submission' => $submission
+        ]);
 
         return redirect('submit/thanks');
     }

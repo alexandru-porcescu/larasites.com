@@ -16,8 +16,8 @@ class Extraction extends Model
         return $this->belongsTo(Site::class);
     }
 
-    public function getDataAttribute()
+    public function getBodyAttribute($value)
     {
-        return json_decode($this->body, true);
+        return json_decode($value, true);
     }
 }
