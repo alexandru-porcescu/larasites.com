@@ -11,13 +11,7 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $query = Site::latest()->with('submission.user')->take(15);
-
-        if (!Auth::user()) {
-            $query = $query->approved();
-        }
-
-        $sites = $query->get()->sortBy('approved_at');
+        $sites = Site::all();
 
         return view('welcome', compact('sites'));
     }

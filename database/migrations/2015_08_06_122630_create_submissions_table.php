@@ -14,9 +14,9 @@ class CreateSubmissionsTable extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('host');
-            $table->string('url');
+            $table->integer('host_id');
             $table->integer('user_id');
+            $table->string('url');
             $table->timestamps();
         });
     }

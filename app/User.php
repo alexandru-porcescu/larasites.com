@@ -29,7 +29,7 @@ class User extends Model implements AuthenticatableContract
      *
      * @var array
      */
-    protected $hidden = [];
+    protected $hidden = ['is_admin'];
 
     /**
      * The attributes that should be mutated to dates.

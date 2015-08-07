@@ -11,13 +11,8 @@ class Submission extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function site()
+    public function host()
     {
-        return $this->hasOne(Site::class);
-    }
-
-    public function extraction()
-    {
-        return $this->hasOne(Extraction::class);
+        return $this->belongsTo(Host::class);
     }
 }

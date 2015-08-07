@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Submission;
-use App\Site;
+use App\Host;
 
 class SubmissionsController extends Controller
 {
@@ -17,13 +16,8 @@ class SubmissionsController extends Controller
 
     public function showSubmissions(Request $request)
     {
-        $submissions = Submission::orderBy('created_at', 'desc')
-            ->has('extraction')
-            ->has('site', 0)
-            ->with('user', 'extraction')
-            ->take(10)
-            ->get();
+        $hosts = Host::orderBy('updated_at', 'desc')->with('submissions.user')->get();
 
-        return view('submissions', compact('submissions'));
+        return view('submissions', compact('hosts'));
     }
 }

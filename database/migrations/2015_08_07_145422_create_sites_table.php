@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExtractionsTable extends Migration
+class CreateSitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,8 @@ class CreateExtractionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('extractions', function (Blueprint $table) {
+        Schema::create('sites', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('submission_id');
-            $table->string('url');
-            $table->mediumText('body');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ class CreateExtractionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('extractions');
+        Schema::drop('sites');
     }
 }
