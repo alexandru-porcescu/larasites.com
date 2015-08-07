@@ -14,7 +14,7 @@
                     </li>
                 @endforeach
                 @if ($host->submissions->count() > 2)
-                    <li>+{{ $host->submissions->count() - 2 }} more…</li>
+                    <li>+{{ $host->submissions->count() - 2 }} more</li>
                 @endif
             </ul>
             <a href="#" class="btn btn-default btn-sm">Add Site</a>
