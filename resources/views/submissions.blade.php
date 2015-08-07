@@ -1,7 +1,7 @@
 @extends('layout', ['title' => 'Submissions | Larasites.com'])
 
 @section('content')
-    @foreach ($submissions as $i => $submission)
+    @forelse ($submissions as $i => $submission)
         <p>
             {!! Html::link('https://www.twitter.com/@' . $submission->user->twitter_nickname, '@' . $submission->user->twitter_nickname) !!}
             submitted
@@ -10,5 +10,7 @@
             <a href="{{ action('SitesController@showCreateForm', ['submission' => $submission->id]) }}" class="btn btn-default btn-xs">Add Site</a>
         </p>
         @if (isset($submissions[$i + 1])) <hr> @endif
-    @endforeach
+    @empty
+        <p>Nothing has been submitted.</p>
+    @endforelse
 @stop

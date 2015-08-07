@@ -17,7 +17,7 @@ class WelcomeController extends Controller
             $query = $query->approved();
         }
 
-        $sites = $query->get();
+        $sites = $query->get()->sortBy('approved_at');
 
         return view('welcome', compact('sites'));
     }

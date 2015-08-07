@@ -19,6 +19,7 @@ class SubmissionsController extends Controller
     {
         $submissions = Submission::orderBy('created_at', 'desc')
             ->has('extraction')
+            ->has('site', 0)
             ->with('user', 'extraction')
             ->take(10)
             ->get();
