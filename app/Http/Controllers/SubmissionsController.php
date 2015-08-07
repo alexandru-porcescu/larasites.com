@@ -24,4 +24,14 @@ class SubmissionsController extends Controller
 
         return view('submissions', compact('submissions'));
     }
+
+    public function approveSubmission(Request $request, $id)
+    {
+        $submission = Submission::where('id', $id)
+            ->has('extraction')
+            ->with('user', 'extraction')
+            ->firstOrFail();
+
+        return $submission;
+    }
 }
