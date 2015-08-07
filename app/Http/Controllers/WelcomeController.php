@@ -11,7 +11,7 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $sites = Site::all();
+        $sites = Site::orderBy('approved_at', 'desc')->get();
 
         return view('welcome', compact('sites'));
     }
