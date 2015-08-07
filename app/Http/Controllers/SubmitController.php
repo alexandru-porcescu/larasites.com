@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Submission;
 use Validator;
 use App\Jobs\ExtractSubmission;
+use League\Url\UrlImmutable;
 use App\Http\Controllers\Controller;
 
 class SubmitController extends Controller
@@ -23,36 +24,40 @@ class SubmitController extends Controller
 
     public function submitSubmitForm(Request $request)
     {
-        $url = parse_url($request->input('url'));
+        $url = UrlImmutable::createFromUrl($request->input('url'));
 
         $input = [
-            'url' => base_url($request->input('url')),
-            'protocol' => array_get($url, 'scheme'),
+            'url'      => (string) $url,
+            'host'     => (string) $url->getHost(),
+            'protocol' => (string) $url->getScheme(),
+        ];
+
+        $messages = [
+            'url.url'      => 'That doesn\'t appear to be a valid url.',
+            'url.required' => 'Whoops! You need to type something in first.',
+            'host.unique'  => 'A url with that hostname has already been submitted.',
+            'protocol.in'  => 'The url protocol is not supported, please use http or https.'
         ];
 
         $validator = Validator::make($input, [
-            'url' => 'required|url|unique:submissions|unique:extractions',
+            'url'      => 'required|url',
+            'host'     => 'unique:submissions',
             'protocol' => 'in:http,https',
-        ], [
-            'url.required' => 'You need to type something in here first.',
-            'url.unique' => 'That url has already been submitted.',
-            'protocol.in' => 'The url protocol is not supported, please use http or https.'
-        ]);
+        ], $messages);
 
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
         $submission = new Submission;
-        $submission->url = $input['url'];
-        $submission->original_url = $request->input('url');
+        $submission->url = (string) $url;
+        $submission->host = (string) $url->getHost();
         $submission->user_id = Auth::user()->id;
-
         $submission->save();
 
-        $this->dispatchFrom(ExtractSubmission::class, $request, [
-            'submission' => $submission
-        ]);
+        /* $this->dispatchFrom(ExtractSubmission::class, $request, [ */
+        /*     'submission' => $submission */
+        /* ]); */
 
         return redirect('submit/thanks');
     }
