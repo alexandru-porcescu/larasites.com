@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Submission;
+use App\Site;
 
 class SubmissionsController extends Controller
 {
@@ -23,15 +24,5 @@ class SubmissionsController extends Controller
             ->get();
 
         return view('submissions', compact('submissions'));
-    }
-
-    public function approveSubmission(Request $request, $id)
-    {
-        $submission = Submission::where('id', $id)
-            ->has('extraction')
-            ->with('user', 'extraction')
-            ->firstOrFail();
-
-        return $submission;
     }
 }
