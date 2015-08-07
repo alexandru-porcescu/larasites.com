@@ -3,6 +3,7 @@
 @section('content')
     <p>Thanks for submitting your work to Larasites!</p>
     <p>{!! Html::link('submit', 'Submit another site', ['class' => 'btn btn-default']) !!}</p>
+    <hr>
     <p>Why don't you visit one of these community sites while you wait for your site to be approved...</p>
     <p>
         <ul>
