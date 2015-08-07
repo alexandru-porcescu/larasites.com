@@ -58,11 +58,6 @@ class DatabaseSeeder extends Seeder
                 'host_id' => $hosts[1]->id,
                 'url' => 'http://laravel.com/foo'
             ]),
-            Submission::create([
-                'user_id' => $users[1]->id,
-                'host_id' => $hosts[1]->id,
-                'url' => 'http://laravel.com/docs'
-            ]),
         ];
 
         $sites = [
