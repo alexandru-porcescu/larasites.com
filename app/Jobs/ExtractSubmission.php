@@ -38,20 +38,21 @@ class ExtractSubmission extends Job implements SelfHandling, ShouldQueue
 
         $response = $client->get('http://api.embed.ly/1/extract', [
             'query' => [
-                'url' => $this->sub,
+                'url' => $this->submission->host,
                 'key' => config('services.embedly.key')
             ]
         ]);
 
         if ($response->getStatusCode() === 200) {
             $data = json_decode($response->getBody(), true);
-            $url = $data['provider_url'];
+
+            $url = rtrim($data['url'], '/');
 
             if (Extraction::where('url', $url)->count() === 0) {
                 $extraction = new Extraction;
                 $extraction->url = $url;
-                $extraction->submission_id = $this->submission->id;
                 $extraction->body = $response->getBody();
+                $extraction->submission_id = $this->submission->id;
                 $extraction->save();
             }
         }

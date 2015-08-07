@@ -55,9 +55,9 @@ class SubmitController extends Controller
         $submission->user_id = Auth::user()->id;
         $submission->save();
 
-        /* $this->dispatchFrom(ExtractSubmission::class, $request, [ */
-        /*     'submission' => $submission */
-        /* ]); */
+        $this->dispatchFrom(ExtractSubmission::class, $request, [
+            'submission' => $submission
+        ]);
 
         return redirect('submit/thanks');
     }
