@@ -15,6 +15,7 @@ class CreateHostsTable extends Migration
         Schema::create('hosts', function (Blueprint $table) {
             $table->increments('id');
             $table->softDeletes();
+            $table->integer('site_id')->nullable();
             $table->string('name');
             $table->timestamps();
         });
