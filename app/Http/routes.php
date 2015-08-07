@@ -26,6 +26,8 @@ Route::get('submissions', 'SubmissionsController@showSubmissions');
 Route::get('sites/create', 'SitesController@showCreateForm');
 Route::post('sites', 'SitesController@submitCreateForm');
 
+Route::post('approve', 'ApprovalController@submitApproval');
+
 Route::get('terms-conditions', function () {
     return view('terms-conditions');
 });

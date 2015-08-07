@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Site extends Model
@@ -21,5 +22,10 @@ class Site extends Model
     public function scopeLatest($q)
     {
         return $q->orderBy('approved_at', 'desc');
+    }
+
+    public function approve()
+    {
+        $this->approved_at = new Carbon;
     }
 }
