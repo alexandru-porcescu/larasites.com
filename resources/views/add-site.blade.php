@@ -4,6 +4,7 @@
     <p>{!! Html::link($submission->extraction->url) !!} was submitted by {!! Html::link('https://www.twitter.com/@' . $submission->user->twitter_nickname, '@' . $submission->user->twitter_nickname) !!} <time class="timeago" datetime="{{ $submission->created_at->toIso8601String() }}"></time></p>
     <hr>
     {!! Form::open(['method' => 'post', 'url' => action('SitesController@submitCreateForm')]) !!}
+    {!! Form::hidden('submission_id', $submission->id) !!}
     <div class="form-group">
         <label>URL</label>
         {!! Form::text('url', $submission->extraction->url, ['class' => 'form-control']) !!}

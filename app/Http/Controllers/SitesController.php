@@ -28,6 +28,7 @@ class SitesController extends Controller
     public function submitCreateForm(Request $request)
     {
         $site = new Site;
+        $site->submission_id = (int) $request->input('submission_id');
         $site->url = $request->input('url');
         $site->title = $request->input('title');
         $site->description = $request->input('description');

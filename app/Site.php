@@ -14,6 +14,11 @@ class Site extends Model
      */
     protected $dates = ['approved_at'];
 
+    public function submission()
+    {
+        return $this->belongsTo(Submission::class);
+    }
+
     public function scopeApproved($q)
     {
         return $q->whereNotNull('approved_at');

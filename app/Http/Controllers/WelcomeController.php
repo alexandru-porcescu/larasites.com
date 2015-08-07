@@ -11,7 +11,7 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $query = Site::latest()->take(15);
+        $query = Site::latest()->with('submission.user')->take(15);
 
         if (!Auth::user()) {
             $query = $query->approved();
