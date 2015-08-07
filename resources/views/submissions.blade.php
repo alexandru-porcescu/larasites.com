@@ -7,6 +7,7 @@
         submitted
         {!! Html::link($submission->extraction->url) !!}
         <time class="timeago" datetime="{{ $submission->created_at->toIso8601String() }}"></time>
+        <a href="#" class="btn btn-default btn-xs">Approve</a>
     </p>
     @if (isset($submissions[$i + 1])) <hr> @endif
 @endforeach
