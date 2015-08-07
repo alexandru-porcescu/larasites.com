@@ -20,5 +20,8 @@
         </div>
         <br>
         <br>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.min.js"></script>
+        <script>$('time.timeago').timeago();</script>
     </body>
 </html>
