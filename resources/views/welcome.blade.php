@@ -6,7 +6,7 @@
         <hr>
         <h4>{!! Html::link($site->url, $site->title) !!}</h4>
         <p>{{ $site->description }}</p>
-        <p>Submitted by {!! tw($site->host->submissions->first()->user) !!}</p>
+        <p>Submitted by {!! tw($site->user) !!}</p>
         @if (!$site->approved_at)
             {!! Form::open(['url' => action('ApprovalController@submitApproval')]) !!}
             {!! Form::hidden('site_id', $site->id) !!}

@@ -11,8 +11,7 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $q = Site::orderBy('approved_at', 'desc')
-            ->with('host.submissions.user');
+        $q = Site::orderBy('approved_at', 'desc')->with('user');
 
         if (!Auth::user() || !Auth::user()->is_admin) {
             $q = $q->whereNotNull('approved_at');

@@ -19,4 +19,9 @@ class Site extends Model
         $this->approved_at = Carbon::now();
         return $this;
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

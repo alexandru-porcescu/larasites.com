@@ -38,6 +38,7 @@ class SitesController extends Controller
         $site->url = $request->input('url');
         $site->title = $request->input('title');
         $site->description = $request->input('description');
+        $site->user_id = $host->submissions->first()->user->id;
         $site->save();
 
         $host->site_id = $site->id;
