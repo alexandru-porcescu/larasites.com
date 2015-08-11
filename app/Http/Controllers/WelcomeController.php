@@ -17,7 +17,7 @@ class WelcomeController extends Controller
             $q = $q->whereNotNull('approved_at');
         }
 
-        $sites = $q->simplePaginate(5);
+        $sites = $q->simplePaginate();
 
         return view('welcome', compact('sites'));
     }
