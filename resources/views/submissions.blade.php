@@ -16,7 +16,7 @@
                 @endif
             </ul>
             <a href="#" class="btn btn-default btn-sm">Add Site</a>
-            <a href="#" class="btn btn-default btn-sm">Remove</a>
+            {!! Html::linkAction('SubmissionsController@trashHost', 'Trash Host', [$host->id], ['class' => 'btn btn-default btn-sm']) !!}
         </p>
         @if (isset($hosts[$i + 1])) <hr> @endif
     @empty

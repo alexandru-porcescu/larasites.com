@@ -47,7 +47,9 @@ class SubmitController extends Controller
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
-        $host = Host::where('name', (string) $url->getHost())->first();
+        $host = Host::withTrashed()
+                ->where('name', (string) $url->getHost())
+                ->first();
 
         if (! $host) {
             $host = new Host;

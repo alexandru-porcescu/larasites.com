@@ -22,6 +22,7 @@ Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('submit/thanks', 'SubmitController@showThanks');
 
 Route::get('submissions', 'SubmissionsController@showSubmissions');
+Route::get('hosts/{id}/trash', 'SubmissionsController@trashHost');
 
 Route::get('sites/create', 'SitesController@showCreateForm');
 Route::post('sites', 'SitesController@submitCreateForm');

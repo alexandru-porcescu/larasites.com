@@ -23,4 +23,13 @@ class SubmissionsController extends Controller
 
         return view('submissions', compact('hosts'));
     }
+
+    public function trashHost(Request $request, $id)
+    {
+        $host = Host::findOrFail($id);
+
+        $host->delete();
+
+        return redirect()->back();
+    }
 }
