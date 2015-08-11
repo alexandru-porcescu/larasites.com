@@ -1,5 +1,7 @@
-Contributors Guide
+# Contributors Guide
+
 Some rules and tips for contributing to Larasites.com
+
 1. List only your own work please
 Only upload what you or your company have created. Don’t upload work that you didn’t make.
 2. Don't list inappropriate content
