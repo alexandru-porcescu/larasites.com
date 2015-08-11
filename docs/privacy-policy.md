@@ -96,5 +96,5 @@ encourages visitors to frequently check this page for any changes to its
 Privacy Policy. Your continued use of this site after any change in this
 Privacy Policy will constitute your acceptance of such change.
 
-> This Privacy Policy was crafted from Wordpress.com's version, which is
-> available under a Creative Commons Sharealike license.
+*This Privacy Policy was crafted from Wordpress.com's version, which is
+available under a Creative Commons Sharealike license.*

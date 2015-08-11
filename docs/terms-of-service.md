@@ -259,5 +259,5 @@ individuals who are at least 13 years old.
     access to or use of the Website will be governed by the laws of the
     republic of South Africa.
 
-This Terms of Service was crafted from Wordpress.com's version, which is
-available under a Creative Commons Sharealike license.
+*This Terms of Service was crafted from Wordpress.com's version, which is
+available under a Creative Commons Sharealike license.*
