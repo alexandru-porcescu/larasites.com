@@ -4,10 +4,18 @@
     @foreach ($host->submissions->take(3) as $submission)
         <p>{!! Html::link($submission->url) !!} was submitted by {!! tw($submission->user) !!} <time class="timeago" datetime="{{ $submission->created_at->toIso8601String() }}"></time></p>
     @endforeach
+
     <hr>
+
+    <a class="embedly-card" href="http://rawson.co.za">Rawson Property Group</a>
+    <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+
+    <hr>
+
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger" role="alert">{{ $error }}</div>
     @endforeach
+
     {!! Form::open(['method' => 'post', 'url' => action('SitesController@submitCreateForm')]) !!}
     {!! Form::hidden('host', $host->name) !!}
 
