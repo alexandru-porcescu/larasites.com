@@ -34,11 +34,14 @@ class SitesController extends Controller
     {
         $host = Host::where('name', $request->input('host'))->firstOrFail();
 
+        $image = \Cloudinary\Uploader::upload($request->input('image_url'));
+
         $site = new Site;
         $site->url = $request->input('url');
         $site->title = $request->input('title');
         $site->description = $request->input('description');
         $site->user_id = $host->submissions->first()->user->id;
+        $site->image_url = $image['secure_url'];
         $site->save();
 
         $host->site_id = $site->id;

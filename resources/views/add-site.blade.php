@@ -19,6 +19,10 @@
         <label>Description</label>
         {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 3]) !!}
     </div>
+    <div class="form-group">
+        <label>Image URL</label>
+        {!! Form::text('image_url', 'https://logo.clearbit.com/' . $host->name, ['class' => 'form-control', 'rows' => 3]) !!}
+    </div>
     <hr>
     {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
     {!! Form::close() !!}

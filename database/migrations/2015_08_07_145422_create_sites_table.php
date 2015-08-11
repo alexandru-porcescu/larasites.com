@@ -18,6 +18,7 @@ class CreateSitesTable extends Migration
             $table->string('url');
             $table->string('title');
             $table->string('description');
+            $table->string('image_url');
             $table->datetime('approved_at')->nullable();
             $table->timestamps();
         });
