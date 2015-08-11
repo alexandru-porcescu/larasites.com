@@ -1,1 +1,1 @@
-<p><h5>{!! Html::link('/', 'Larasites.com') !!} — Showcasing the best websites built with Laravel & Lumen.</h5></p>
+<p><b>{!! Html::link('/', 'Larasites.com') !!}</b> <span class="text-muted">Showcasing the best websites built with Laravel & Lumen.</span></p>
