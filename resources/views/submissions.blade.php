@@ -7,9 +7,7 @@
             <ul>
                 @foreach ($host->submissions->sortByDesc('created_at')->take(2) as $submission)
                     <li>
-                        {!! Html::link('https://www.twitter.com/@' . $submission->user->twitter_nickname, '@'.$submission->user->twitter_nickname) !!}
-                        submitted
-                        {!! Html::link($submission->url) !!}
+                        {!! tw($submission->user) !!} submitted {!! Html::link($submission->url) !!}
                         <time class="timeago" datetime="{{ $submission->created_at->toIso8601String() }}"></time>
                     </li>
                 @endforeach

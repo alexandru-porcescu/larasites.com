@@ -10,6 +10,6 @@ class Site extends Model
 
     public function host()
     {
-        return $this->belongsTo(Host::class);
+        return $this->hasOne(Host::class);
     }
 }

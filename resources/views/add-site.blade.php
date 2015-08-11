@@ -1,7 +1,7 @@
 @extends('layout', ['title' => 'Add Site | Larasites.com'])
 
 @section('content')
-    <p>{!! Html::link($submission->extraction->url) !!} was submitted by {!! Html::link('https://www.twitter.com/@' . $submission->user->twitter_nickname, '@' . $submission->user->twitter_nickname) !!} <time class="timeago" datetime="{{ $submission->created_at->toIso8601String() }}"></time></p>
+    <p>{!! Html::link($submission->extraction->url) !!} was submitted by {!! tw($submission->user) !!} <time class="timeago" datetime="{{ $submission->created_at->toIso8601String() }}"></time></p>
     <hr>
     {!! Form::open(['method' => 'post', 'url' => action('SitesController@submitCreateForm')]) !!}
     {!! Form::hidden('submission_id', $submission->id) !!}

@@ -11,7 +11,10 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $sites = Site::orderBy('approved_at', 'desc')->whereNotNull('approved_at')->get();
+        $sites = Site::orderBy('approved_at', 'desc')
+            ->whereNotNull('approved_at')
+            ->with('host.submissions.user')
+            ->get();
 
         return view('welcome', compact('sites'));
     }
