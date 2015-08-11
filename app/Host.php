@@ -9,6 +9,8 @@ class Host extends Model
 {
     use SoftDeletes;
 
+    protected $hidden = ['deleted_at'];
+
     public function submissions()
     {
         return $this->hasMany(Submission::class);
@@ -17,5 +19,10 @@ class Host extends Model
     public function site()
     {
         return $this->belongsTo(Site::class);
+    }
+
+    public function getUrlAttribute()
+    {
+        return 'http://' . $this->name;
     }
 }

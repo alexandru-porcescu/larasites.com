@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'laravel.com',
             ]),
             Host::create([
-                'name' => 'larasites.com',
+                'name' => 'laracasts.com',
             ])
         ];
 
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             Submission::create([
                 'user_id' => $users[0]->id,
                 'host_id' => $hosts[2]->id,
-                'url' => 'https://larasites.com/signup'
+                'url' => 'https://laracasts.com/signup'
             ]),
         ];
 

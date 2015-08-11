@@ -16,7 +16,7 @@ class CreateHostsTable extends Migration
             $table->increments('id');
             $table->softDeletes();
             $table->integer('site_id')->nullable();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

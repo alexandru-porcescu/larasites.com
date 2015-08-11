@@ -15,7 +15,7 @@
                     <li>+{{ $host->submissions->count() - 2 }} more</li>
                 @endif
             </ul>
-            <a href="#" class="btn btn-default btn-sm">Add Site</a>
+            {!! Html::linkAction('SitesController@showCreateForm', 'Add Site', ['host' => $host->name], ['class' => 'btn btn-default btn-sm']) !!}
             {!! Html::linkAction('SubmissionsController@trashHost', 'Trash Host', [$host->id], ['class' => 'btn btn-default btn-sm']) !!}
         </p>
         @if (isset($hosts[$i + 1])) <hr> @endif

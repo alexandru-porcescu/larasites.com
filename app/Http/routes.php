@@ -24,10 +24,10 @@ Route::get('submit/thanks', 'SubmitController@showThanks');
 Route::get('submissions', 'SubmissionsController@showSubmissions');
 Route::get('hosts/{id}/trash', 'SubmissionsController@trashHost');
 
-Route::get('sites/create', 'SitesController@showCreateForm');
-Route::post('sites', 'SitesController@submitCreateForm');
+Route::get('add-site', 'SitesController@showCreateForm');
+Route::post('add-site/submit', 'SitesController@submitCreateForm');
 
-Route::post('approve', 'ApprovalController@submitApproval');
+// Route::post('approve', 'ApprovalController@submitApproval');
 
 Route::get('terms-conditions', function () {
     return view('terms-conditions');
