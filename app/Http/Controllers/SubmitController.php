@@ -63,7 +63,7 @@ class SubmitController extends Controller
         $submission->user_id = Auth::user()->id;
         $submission->save();
 
-        return redirect('submit/thanks');
+        return redirect()->action('SubmitController@showThanks');
     }
 
     public function showThanks()

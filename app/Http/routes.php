@@ -19,7 +19,7 @@ Route::get('logout', 'Auth\AuthController@logout');
 
 Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
-Route::get('submit/thanks', 'SubmitController@showThanks');
+Route::get('thank-you', 'SubmitController@showThanks');
 
 Route::get('admin', 'SubmissionsController@showSubmissions');
 Route::get('hosts/{id}/trash', 'SubmissionsController@trashHost');
