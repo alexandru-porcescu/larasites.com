@@ -34,6 +34,13 @@ class SitesController extends Controller
     {
         $host = Host::where('name', $request->input('host'))->firstOrFail();
 
+        $this->validate($request, [
+            'url'         => ['required', 'url', 'active_url'],
+            'title'       => ['required'],
+            'description' => ['required'],
+            'image_url'   => ['required', 'url', 'active_url'],
+        ]);
+
         $image = \Cloudinary\Uploader::upload($request->input('image_url'));
 
         $site = new Site;

@@ -7,20 +7,24 @@
     <hr>
     {!! Form::open(['method' => 'post', 'url' => action('SitesController@submitCreateForm')]) !!}
     {!! Form::hidden('host', $host->name) !!}
+
     <div class="form-group">
-        <label>URL</label>
+        <label class="control-label">URL</label>
         {!! Form::text('url', $host->url, ['class' => 'form-control']) !!}
     </div>
+
     <div class="form-group">
-        <label>Title</label>
+        <label class="control-label">Title</label>
         {!! Form::text('title', null, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group">
-        <label>Description</label>
+
+    <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+        <label class="control-label">Description</label>
         {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 3]) !!}
     </div>
+
     <div class="form-group">
-        <label>Image URL</label>
+        <label class="control-label">Image URL</label>
         {!! Form::text('image_url', 'https://logo.clearbit.com/' . $host->name, ['class' => 'form-control', 'rows' => 3]) !!}
     </div>
     <hr>
