@@ -17,15 +17,7 @@ class WelcomeController extends Controller
             $q = $q->whereNotNull('approved_at');
         }
 
-        $sites = $q->get()->sort(function ($a, $b) {
-            if (is_null($a->approved_at)) {
-                return -1;
-            }
-            if (is_null($b->approved_at)) {
-                return 1;
-            }
-            return $a->approved_at < $b->approved_at;
-        });
+        $sites = $q->simplePaginate(5);
 
         return view('welcome', compact('sites'));
     }

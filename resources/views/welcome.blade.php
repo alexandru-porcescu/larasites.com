@@ -23,4 +23,6 @@
             </div>
         </div>
     @endforeach
+
+    {!! $sites->render() !!}
 @stop
