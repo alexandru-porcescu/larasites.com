@@ -19,6 +19,9 @@ class CreateSitesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('image_url');
+            $table->integer('red')->unsigned()->default(0);
+            $table->integer('green')->unsigned()->default(0);
+            $table->integer('blue')->unsigned()->default(0);
             $table->datetime('approved_at')->nullable();
             $table->timestamps();
         });

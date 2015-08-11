@@ -5,9 +5,9 @@
     @foreach ($sites as $site)
         <hr>
         <div class="media">
-            <div class="media-left">
-                <a href="{{ $site->url }}" target="_blank">
-                    <img class="media-object" src="{{ cloudinary_url(basename($site->image_url), ['width' => 80, 'height' => 80]) }}">
+            <div class="media-left" style="padding-left:10px;border-left:5px solid rgb({{ $site->rgb }})">
+                <a href="{{ $site->url }}" target="_blank" style="">
+                    <img class="media-object" src="{{ cloudinary_url(basename($site->image_url), ['width' => 100, 'height' => 100]) }}">
                 </a>
             </div>
             <div class="media-body">

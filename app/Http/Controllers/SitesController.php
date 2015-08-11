@@ -39,6 +39,9 @@ class SitesController extends Controller
             'title'       => ['required'],
             'description' => ['required'],
             'image_url'   => ['required', 'url'],
+            'red'         => ['numeric', 'min:0', 'max:255'],
+            'green'       => ['numeric', 'min:0', 'max:255'],
+            'blue'        => ['numeric', 'min:0', 'max:255'],
         ]);
 
         $image = \Cloudinary\Uploader::upload($request->input('image_url'));
@@ -47,6 +50,9 @@ class SitesController extends Controller
         $site->url = $request->input('url');
         $site->title = $request->input('title');
         $site->description = $request->input('description');
+        $site->red = (int) $request->input('red');
+        $site->green = (int) $request->input('green');
+        $site->blue = (int) $request->input('blue');
         $site->user_id = $host->submissions->first()->user->id;
         $site->image_url = $image['secure_url'];
         $site->save();

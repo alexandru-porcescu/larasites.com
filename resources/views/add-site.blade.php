@@ -9,6 +9,7 @@
 
     <a class="embedly-card" href="{{ $host->url }}">Embedly Preview</a>
     <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+    {!! Html::link('http://embed.ly/docs/explore/extract?url=' . $host->url, 'View source', ['target' => '_blank']) !!}
 
     <hr>
 
@@ -36,8 +37,18 @@
 
     <div class="form-group">
         <label class="control-label">Image URL</label>
-        {!! Form::text('image_url', 'https://logo.clearbit.com/' . $host->name, ['class' => 'form-control', 'rows' => 3]) !!}
+        {!! Form::text('image_url', 'https://logo.clearbit.com/' . $host->name, ['class' => 'form-control']) !!}
     </div>
+
+    <div class="form-group">
+        <label class="control-label">RGB</label>
+        <div class="form-inline">
+            {!! Form::text('red', null, ['class' => 'form-control']) !!}
+            {!! Form::text('green', null, ['class' => 'form-control']) !!}
+            {!! Form::text('blur', null, ['class' => 'form-control']) !!}
+        </div>
+    </div>
+
     <hr>
     {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
     {!! Form::close() !!}

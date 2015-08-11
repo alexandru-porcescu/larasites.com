@@ -24,4 +24,16 @@ class Site extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * @return string
+     */
+    public function getRgbAttribute()
+    {
+        return implode(',', [
+            $this->red,
+            $this->green,
+            $this->blue
+        ]);
+    }
 }
