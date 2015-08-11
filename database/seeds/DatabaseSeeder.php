@@ -47,12 +47,12 @@ class DatabaseSeeder extends Seeder
 
         $submissions = [
             Submission::create([
-                'user_id' => $users[0]->id,
+                'user_id' => $users[1]->id,
                 'host_id' => $hosts[0]->id,
                 'url' => 'http://www.wearenext.co.za'
             ]),
             Submission::create([
-                'user_id' => $users[1]->id,
+                'user_id' => $users[0]->id,
                 'host_id' => $hosts[0]->id,
                 'url' => 'http://www.wearenext.co.za/people'
             ]),
