@@ -11,10 +11,22 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $sites = Site::orderBy('approved_at', 'desc')
-            ->whereNotNull('approved_at')
-            ->with('host.submissions.user')
-            ->get();
+        $q = Site::orderBy('approved_at', 'desc')
+            ->with('host.submissions.user');
+
+        if (!Auth::user() || !Auth::user()->is_admin) {
+            $q = $q->whereNotNull('approved_at');
+        }
+
+        $sites = $q->get()->sort(function ($a, $b) {
+            if (is_null($a->approved_at)) {
+                return -1;
+            }
+            if (is_null($b->approved_at)) {
+                return 1;
+            }
+            return $a->approved_at < $b->approved_at;
+        });
 
         return view('welcome', compact('sites'));
     }

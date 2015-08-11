@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Site extends Model
 {
@@ -11,5 +12,11 @@ class Site extends Model
     public function host()
     {
         return $this->hasOne(Host::class);
+    }
+
+    public function approve()
+    {
+        $this->approved_at = Carbon::now();
+        return $this;
     }
 }

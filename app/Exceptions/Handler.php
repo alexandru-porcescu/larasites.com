@@ -35,12 +35,16 @@ class Handler extends ExceptionHandler
             $client->user_context(['id' => Auth::user()->id]);
         }
 
-        $client->captureException($e, [
-            'curl_method' => 'async',
-            'tags' => [
-                'environment' => app()->environment()
-            ]
-        ]);
+        try {
+            $client->captureException($e, [
+                'curl_method' => 'async',
+                'tags' => [
+                    'environment' => app()->environment()
+                ]
+            ]);
+        } catch (\Exception $e) {
+            // EXCEPTIONCEPTION
+        }
 
         return parent::report($e);
     }

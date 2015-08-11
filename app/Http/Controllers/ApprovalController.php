@@ -18,8 +18,7 @@ class ApprovalController extends Controller
     {
         $site = Site::whereNull('approved_at')->where('id', (int) $request->input('site_id'))->firstOrFail();
 
-        $site->approve();
-        $site->save();
+        $site->approve()->save();
 
         return redirect()->back();
     }

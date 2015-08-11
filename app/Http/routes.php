@@ -27,7 +27,7 @@ Route::get('hosts/{id}/trash', 'SubmissionsController@trashHost');
 Route::get('add-site', 'SitesController@showCreateForm');
 Route::post('add-site/submit', 'SitesController@submitCreateForm');
 
-// Route::post('approve', 'ApprovalController@submitApproval');
+Route::post('approve', 'ApprovalController@submitApproval');
 
 Route::get('terms-conditions', function () {
     return view('terms-conditions');
