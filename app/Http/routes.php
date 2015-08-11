@@ -29,10 +29,14 @@ Route::post('add-site/submit', 'SitesController@submitCreateForm');
 
 Route::post('approve', 'ApprovalController@submitApproval');
 
-Route::get('terms-conditions', function () {
-    return view('terms-conditions');
+Route::get('terms-of-service', function () {
+    return view('terms-of-service');
 });
 
 Route::get('privacy-policy', function () {
     return view('privacy-policy');
+});
+
+Route::get('contributors-guide', function () {
+    return view('contributors-guide');
 });
