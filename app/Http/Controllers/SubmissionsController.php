@@ -16,7 +16,10 @@ class SubmissionsController extends Controller
 
     public function showSubmissions(Request $request)
     {
-        $hosts = Host::orderBy('updated_at', 'desc')->with('submissions.user')->get();
+        $hosts = Host::orderBy('updated_at', 'desc')
+            ->has('site', 0)
+            ->with('submissions.user')
+            ->get();
 
         return view('submissions', compact('hosts'));
     }

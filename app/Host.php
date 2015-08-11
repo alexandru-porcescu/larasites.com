@@ -13,4 +13,9 @@ class Host extends Model
     {
         return $this->hasMany(Submission::class);
     }
+
+    public function site()
+    {
+        return $this->belongsTo(Site::class);
+    }
 }

@@ -20,6 +20,6 @@
         </p>
         @if (isset($hosts[$i + 1])) <hr> @endif
     @empty
-        <p>Nothing has been submitted yet…</p>
+        <p>Waiting on new submissions…</p>
     @endforelse
 @stop
