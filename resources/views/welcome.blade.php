@@ -13,7 +13,7 @@
             <div class="media-body">
                 <h4 class="media-heading">{!! Html::link($site->url, $site->title) !!}</h4>
                 <p>{{ $site->description }}</p>
-                <p>Submitted by {!! tw($site->user) !!}</p>
+                <p>{!! Html::image($site->user->twitter_avatar, null, ['width' => 20, 'class' => 'img-circle']) !!} {!! tw($site->user) !!}</p>
                 @if (!$site->approved_at)
                     {!! Form::open(['url' => action('ApprovalController@submitApproval')]) !!}
                     {!! Form::hidden('site_id', $site->id) !!}
