@@ -6,7 +6,9 @@
         <hr>
         <div class="media">
             <div class="media-left">
-                <img class="media-object" src="{{ cloudinary_url(basename($site->image_url), ['width' => 80, 'height' => 80]) }}">
+                <a href="{{ $site->url }}" target="_blank">
+                    <img class="media-object" src="{{ cloudinary_url(basename($site->image_url), ['width' => 80, 'height' => 80]) }}">
+                </a>
             </div>
             <div class="media-body">
                 <h4 class="media-heading">{!! Html::link($site->url, $site->title) !!}</h4>

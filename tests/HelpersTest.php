@@ -9,7 +9,7 @@ class HelpersTest extends TestCase
         $user = new User;
         $user->twitter_nickname = 'laravelphp';
         $this->assertEquals(
-            '<a href="https://www.twitter.com/@laravelphp">@laravelphp</a>',
+            '<a href="https://www.twitter.com/@laravelphp" target="_blank">@laravelphp</a>',
             tw($user)
         );
     }
