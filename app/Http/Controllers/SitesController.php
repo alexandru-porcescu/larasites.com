@@ -38,7 +38,7 @@ class SitesController extends Controller
             'url'         => ['required', 'url', 'active_url'],
             'title'       => ['required'],
             'description' => ['required'],
-            'image_url'   => ['required', 'url', 'active_url'],
+            'image_url'   => ['required', 'url'],
         ]);
 
         $image = \Cloudinary\Uploader::upload($request->input('image_url'));

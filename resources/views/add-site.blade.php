@@ -5,6 +5,9 @@
         <p>{!! Html::link($submission->url) !!} was submitted by {!! tw($submission->user) !!} <time class="timeago" datetime="{{ $submission->created_at->toIso8601String() }}"></time></p>
     @endforeach
     <hr>
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">{{ $error }}</div>
+    @endforeach
     {!! Form::open(['method' => 'post', 'url' => action('SitesController@submitCreateForm')]) !!}
     {!! Form::hidden('host', $host->name) !!}
 
