@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('twitter_id');
+            $table->integer('twitter_id')->unsigned()->unique();
             $table->string('twitter_nickname');
             $table->string('twitter_avatar');
             $table->timestamps();
