@@ -18,8 +18,8 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
-        $submissions = Submission::take(3)->get();
-        $hosts = Host::take(3)->get();
+        $submissions = Submission::orderBy('created_at', 'desc')->with('user')->take(10)->get();
+        $hosts = Host::orderBy('created_at', 'desc')->take(3)->get();
         $users = User::orderBy('created_at', 'desc')->take(3)->get();
 
         return view('admin.dashboard', compact('hosts', 'submissions', 'users'));
