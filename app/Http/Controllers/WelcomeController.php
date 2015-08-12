@@ -11,14 +11,14 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $q = Site::orderBy('approved_at', 'desc')->with('user');
+        $sites = Site::orderBy('approved_at', 'desc')->with('user')->simplePaginate();
 
-        if (!Auth::user() || !Auth::user()->is_admin) {
-            $q = $q->whereNotNull('approved_at');
+        $unapproved = [];
+
+        if (Auth::user() && Auth::user()->is_admin) {
+            $unapproved = Site::whereNull('approved_at')->get();
         }
 
-        $sites = $q->simplePaginate();
-
-        return view('welcome', compact('sites'));
+        return view('welcome', compact('sites', 'unapproved'));
     }
 }
