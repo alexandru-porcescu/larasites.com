@@ -110,7 +110,18 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->back();
+        $site = Site::findOrFail($id);
+
+        $site->url = $request->input('url');
+        $site->title = $request->input('title');
+        $site->description = $request->input('description');
+        $site->red = $request->input('red');
+        $site->green = $request->input('green');
+        $site->blue = $request->input('blue');
+
+        $site->save();
+
+        return redirect()->action('Admin\SiteController@show', [$id]);
     }
 
     public function approve(Request $request, $id)
