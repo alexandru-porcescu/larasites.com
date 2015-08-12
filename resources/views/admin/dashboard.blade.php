@@ -6,7 +6,10 @@
 
     <p><b>Sites waiting for approval</b></p>
     @forelse ($sites as $site)
-        <p>{!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}</p>
+        <p>
+            {!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}
+            was created {!! timeago($site->created_at) !!}
+        </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
     @endforelse
