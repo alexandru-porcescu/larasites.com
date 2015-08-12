@@ -72,7 +72,7 @@ class SiteController extends Controller
         $host->site_id = $site->id;
         $host->save();
 
-        return redirect()->action('Admin\SiteController@index');
+        return redirect()->action('Admin\DashboardController@index');
     }
 
     /**
