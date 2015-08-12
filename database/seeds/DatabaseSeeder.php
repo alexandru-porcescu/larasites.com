@@ -40,7 +40,21 @@ class DatabaseSeeder extends Seeder
                 'twitter_avatar'   => 'https://pbs.twimg.com/profile_images/530731479421030400/1DWRjtfX.jpeg',
                 'is_admin'         => 1,
                 'authenticated_at' => Carbon::now(),
-            ])
+            ]),
+            User::create([
+                'twitter_id'       => '45637904',
+                'twitter_nickname' => 'mikkelz_za',
+                'twitter_avatar'   => 'http://pbs.twimg.com/profile_images/607198267957518337/DtiIsuUd_normal.jpg',
+                'is_admin'         => 1,
+                'authenticated_at' => Carbon::now(),
+            ]),
+            User::create([
+                'twitter_id'       => '104805799',
+                'twitter_nickname' => 'waller_texas',
+                'twitter_avatar'   => 'http://pbs.twimg.com/profile_images/605750997894483969/jLbWPT4L_normal.jpg',
+                'is_admin'         => 1,
+                'authenticated_at' => Carbon::now(),
+            ]),
         ];
 
         Model::reguard();
