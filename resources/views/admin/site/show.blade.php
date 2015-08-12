@@ -26,4 +26,10 @@
         {!! Form::submit('Approve', ['class' => 'btn btn-default']) !!}
         {!! Form::close() !!}
     @endif
+
+    <hr>
+
+    {!! Form::open(['method' => 'delete', 'url' => action('Admin\SiteController@destroy', [$site->id])]) !!}
+    {!! Form::submit('Delete', ['class' => 'btn btn-default btn-danger']) !!}
+    {!! Form::close() !!}
 @stop

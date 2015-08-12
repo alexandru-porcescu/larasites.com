@@ -128,6 +128,10 @@ class SiteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $site = Site::findOrFail($id);
+
+        $site->delete();
+
+        return redirect()->action('Admin\DashboardController@index');
     }
 }
