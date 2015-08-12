@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use Carbon\Carbon;
 
 if (! function_exists('tw')) {
     /**
@@ -24,5 +25,15 @@ if (! function_exists('md')) {
     function md($file) {
         $text = file_get_contents($file);
         return \Michelf\Markdown::defaultTransform($text);
+    }
+}
+
+if (! function_exists('timeago')) {
+    /**
+     * @param \Carbon\Carbon
+     * @return string
+     */
+    function timeago(Carbon $date) {
+        return '<time class="timeago" datetime="' . $date->toIso8601String() . '"></time>';
     }
 }

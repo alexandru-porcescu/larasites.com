@@ -25,4 +25,4 @@ Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('thank-you', 'SubmitController@showThanks');
 
-Route::get('admin', 'AdminController@dashboard');
+Route::get('admin', 'DashboardController@dashboard');
