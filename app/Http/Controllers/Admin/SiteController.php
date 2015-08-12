@@ -96,7 +96,9 @@ class SiteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $site = Site::findOrFail($id);
+
+        return view('admin.site.edit', compact('site'));
     }
 
     /**

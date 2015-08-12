@@ -19,6 +19,8 @@
 
     <hr>
 
+    {!! Html::linkAction('Admin\SiteController@edit', 'Edit', [$site->id], ['class' => 'btn btn-default']) !!}
+
     @if ($site->approved_at)
         <a href="#" class="btn btn-default btn-disabled" disabled>Approved {!! timeago($site->approved_at) !!}</a>
     @else
