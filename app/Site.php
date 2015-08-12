@@ -21,9 +21,21 @@ class Site extends Model
         return $this;
     }
 
+    public function unapprove()
+    {
+        $this->approved_by = null;
+        $this->approved_at = null;
+        return $this;
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     /**

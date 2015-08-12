@@ -21,7 +21,11 @@ class AppServiceProvider extends ServiceProvider
             try {
                 $response = $client->get($value);
             } catch (\Exception $e) {
-                $code = $e->getResponse()->getStatusCode();
+                $response = $e->getResponse();
+                if (! $response) {
+                    return false;
+                }
+                $code = $response->getStatusCode();
             }
             if (! isset($code)) {
                 $code = $response->getStatusCode();

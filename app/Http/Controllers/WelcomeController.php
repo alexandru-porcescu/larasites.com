@@ -13,12 +13,6 @@ class WelcomeController extends Controller
     {
         $sites = Site::orderBy('approved_at', 'desc')->whereNotNull('approved_at')->with('user')->simplePaginate();
 
-        $unapproved = [];
-
-        if (Auth::user() && Auth::user()->is_admin) {
-            $unapproved = Site::whereNull('approved_at')->get();
-        }
-
-        return view('welcome', compact('sites', 'unapproved'));
+        return view('welcome', compact('sites'));
     }
 }
