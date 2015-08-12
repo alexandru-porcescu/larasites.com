@@ -33,6 +33,8 @@ class Handler extends ExceptionHandler
 
         $client->tags_context(['environment' => app()->environment()]);
 
+        $client->extra_context(['laravel' => '5.1']);
+
         if (Auth::user()) {
             $client->user_context(['id' => Auth::user()->id]);
         }
