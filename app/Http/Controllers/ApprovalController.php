@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,7 @@ class ApprovalController extends Controller
     {
         $site = Site::whereNull('approved_at')->where('id', (int) $request->input('site_id'))->firstOrFail();
 
-        $site->approve()->save();
+        $site->approveBy(Auth::user())->save();
 
         return redirect()->back();
     }

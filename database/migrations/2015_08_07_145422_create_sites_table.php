@@ -23,6 +23,7 @@ class CreateSitesTable extends Migration
             $table->integer('green')->unsigned()->default(0);
             $table->integer('blue')->unsigned()->default(0);
             $table->datetime('approved_at')->nullable();
+            $table->integer('approved_by')->nullable();
             $table->timestamps();
         });
     }

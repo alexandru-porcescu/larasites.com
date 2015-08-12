@@ -45,7 +45,7 @@
         <div class="form-inline">
             {!! Form::text('red', null, ['class' => 'form-control']) !!}
             {!! Form::text('green', null, ['class' => 'form-control']) !!}
-            {!! Form::text('blur', null, ['class' => 'form-control']) !!}
+            {!! Form::text('blue', null, ['class' => 'form-control']) !!}
         </div>
     </div>
 

@@ -14,8 +14,9 @@ class Site extends Model
         return $this->hasOne(Host::class);
     }
 
-    public function approve()
+    public function approveBy(User $user)
     {
+        $this->approved_by = $user->id;
         $this->approved_at = Carbon::now();
         return $this;
     }
