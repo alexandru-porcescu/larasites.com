@@ -29,5 +29,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::get('/', 'DashboardController@index');
     Route::resource('host', 'HostController', ['only' => ['show', 'destroy']]);
     Route::resource('site', 'SiteController');
+    Route::post('site/{site}/approve', 'SiteController@approve');
     Route::resource('user', 'UserController');
 });

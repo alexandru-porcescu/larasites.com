@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 use App\Host;
 use App\Site;
 use Cloudinary\Uploader;
@@ -84,7 +85,7 @@ class SiteController extends Controller
     {
         $site = Site::findOrFail($id);
 
-        return $site;
+        return view('admin.site.show', compact('site'));
     }
 
     /**
@@ -108,6 +109,15 @@ class SiteController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function approve(Request $request, $id)
+    {
+        $site = Site::whereNull('approved_at')->where('id', (int) $id)->firstOrFail();
+
+        $site->approveBy(Auth::user())->save();
+
+        return redirect()->back();
     }
 
     /**
