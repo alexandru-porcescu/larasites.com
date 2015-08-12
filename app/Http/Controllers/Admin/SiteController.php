@@ -82,7 +82,9 @@ class SiteController extends Controller
      */
     public function show($id)
     {
-        //
+        $site = Site::findOrFail($id);
+
+        return $site;
     }
 
     /**
