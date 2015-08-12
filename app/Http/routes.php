@@ -25,4 +25,6 @@ Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('thank-you', 'SubmitController@showThanks');
 
-Route::get('admin', 'DashboardController@dashboard');
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
+    Route::get('/', 'DashboardController@dashboard');
+});
