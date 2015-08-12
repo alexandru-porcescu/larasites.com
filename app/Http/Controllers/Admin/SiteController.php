@@ -58,6 +58,7 @@ class SiteController extends Controller
         ], $messages);
 
         $image = Uploader::upload($request->input('image_url'));
+
         $site = new Site;
         $site->url = $request->input('url');
         $site->title = $request->input('title');
@@ -112,12 +113,31 @@ class SiteController extends Controller
     {
         $site = Site::findOrFail($id);
 
+        $messages = [
+            'url_responds' => 'The :attribute responded with a non-200 status code, please make sure it\'s a valid url.'
+        ];
+
+        $this->validate($request, [
+            'url'         => ['required', 'url', 'active_url', 'unique:sites,url,'.$site->id],
+            'title'       => ['required', 'unique:sites,title,'.$site->id],
+            'description' => ['required'],
+            'image_url'   => ['required', 'url', 'url_responds'],
+            'red'         => ['required', 'numeric', 'min:0', 'max:255'],
+            'green'       => ['required', 'numeric', 'min:0', 'max:255'],
+            'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
+        ], $messages);
+
         $site->url = $request->input('url');
         $site->title = $request->input('title');
         $site->description = $request->input('description');
         $site->red = $request->input('red');
         $site->green = $request->input('green');
         $site->blue = $request->input('blue');
+
+        if ($site->image_url !== $request->input('image_url')) {
+            $image = Uploader::upload($request->input('image_url'));
+            $site->image_url = $image['secure_url'];
+        }
 
         $site->save();
 
@@ -129,6 +149,15 @@ class SiteController extends Controller
         $site = Site::whereNull('approved_at')->where('id', (int) $id)->firstOrFail();
 
         $site->approveBy(Auth::user())->save();
+
+        return redirect()->back();
+    }
+
+    public function unapprove(Request $request, $id)
+    {
+        $site = Site::whereNotNull('approved_at')->where('id', (int) $id)->firstOrFail();
+
+        $site->unapprove()->save();
 
         return redirect()->back();
     }
