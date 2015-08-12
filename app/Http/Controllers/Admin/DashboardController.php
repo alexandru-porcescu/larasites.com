@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $sites = Site::whereNull('approved_at')->get();
+        $sites = Site::whereNull('approved_at')->with('creator')->get();
 
         $submissions = Submission::orderBy('created_at', 'desc')
             ->with('user')

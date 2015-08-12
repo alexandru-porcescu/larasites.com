@@ -68,6 +68,7 @@ class SiteController extends Controller
         $site->blue = (int) $request->input('blue');
         $site->user_id = $host->submissions->first()->user->id;
         $site->image_url = $image['secure_url'];
+        $site->created_by = Auth::user()->id;
         $site->save();
 
         $host->site_id = $site->id;

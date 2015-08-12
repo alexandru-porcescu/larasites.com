@@ -8,7 +8,8 @@
     @forelse ($sites as $site)
         <p>
             {!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}
-            was created {!! timeago($site->created_at) !!}
+            was created by {!! tw($site->creator) !!}
+            {!! timeago($site->created_at) !!}
         </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
@@ -18,7 +19,7 @@
     <p><b>Latest submissions</b></p>
     @forelse ($submissions as $submission)
         <p>
-            @include('user', ['user' => $submission->user])
+            {!! tw($submission->user) !!}
             submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
         </p>
     @empty
@@ -40,7 +41,7 @@
     <p><b>Latest signups</b></p>
     @forelse ($users as $user)
         <p>
-            @include('user', compact('user')) signed up {!! timeago($user->created_at) !!}
+            {!! tw($user) !!} signed up {!! timeago($user->created_at) !!}
         </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
