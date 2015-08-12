@@ -34,6 +34,6 @@ if (! function_exists('timeago')) {
      * @return string
      */
     function timeago(Carbon $date) {
-        return '<time class="timeago" datetime="' . $date->toIso8601String() . '"></time>';
+        return '<time class="timeago" datetime="' . $date->toIso8601String() . '">' . $date->toIso8601String() . '</time>';
     }
 }
