@@ -24,7 +24,7 @@
     @if ($site->approved_at)
         <a href="#" class="btn btn-default btn-disabled" disabled>Approved {!! timeago($site->approved_at) !!}</a>
     @else
-        {!! Form::open(['method' => 'post', 'url' => action('Admin\SiteController@approve', [$site->id])]) !!}
+        {!! Form::open(['method' => 'post', 'url' => action('Admin\SiteController@approve', [$site->id]), 'style' => 'display:inline;']) !!}
         {!! Form::submit('Approve', ['class' => 'btn btn-default']) !!}
         {!! Form::close() !!}
     @endif
