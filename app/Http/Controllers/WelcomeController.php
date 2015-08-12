@@ -11,7 +11,7 @@ class WelcomeController extends Controller
 {
     public function showWelcome()
     {
-        $sites = Site::orderBy('approved_at', 'desc')->with('user')->simplePaginate();
+        $sites = Site::orderBy('approved_at', 'desc')->whereNotNull('approved_at')->with('user')->simplePaginate();
 
         $unapproved = [];
 
