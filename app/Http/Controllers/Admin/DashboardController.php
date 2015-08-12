@@ -21,7 +21,7 @@ class DashboardController extends Controller
             ->take(10)
             ->get();
 
-        $hosts = Host::orderBy('created_at', 'desc')->take(3)->get();
+        $hosts = Host::orderBy('created_at', 'desc')->take(3)->has('site', 0)->get();
 
         $users = User::orderBy('created_at', 'desc')->take(3)->get();
 

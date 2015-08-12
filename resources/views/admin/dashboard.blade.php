@@ -26,7 +26,7 @@
     @endforelse
     <br>
 
-    <p><b>Newest hosts</b></p>
+    <p><b>Newest hosts (without sites)</b></p>
     @forelse ($hosts as $host)
         <p>
             {!! Html::linkAction('Admin\HostController@show', $host->name, [$host->name]) !!}

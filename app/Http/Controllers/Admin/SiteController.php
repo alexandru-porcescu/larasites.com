@@ -110,7 +110,7 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->back();
     }
 
     public function approve(Request $request, $id)
