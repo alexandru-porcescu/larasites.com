@@ -38,10 +38,12 @@ class SitesController extends Controller
             'url'         => ['required', 'url', 'active_url'],
             'title'       => ['required'],
             'description' => ['required'],
-            'image_url'   => ['required', 'url'],
+            'image_url'   => ['required', 'url', 'url_responds'],
             'red'         => ['numeric', 'min:0', 'max:255'],
             'green'       => ['numeric', 'min:0', 'max:255'],
             'blue'        => ['numeric', 'min:0', 'max:255'],
+        ], [
+            'url_responds' => 'The :attribute responded with a non-200 status code, please make sure it\'s a valid url.'
         ]);
 
         $image = \Cloudinary\Uploader::upload($request->input('image_url'));
