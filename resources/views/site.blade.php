@@ -1,7 +1,7 @@
 <div class="media">
     <div class="media-left" style="padding-left:10px;border-left:5px solid rgb({{ $site->rgb }})">
         <a href="{{ $site->url }}" target="_blank" style="">
-            <img class="media-object" src="{{ cloudinary_url($site->image_name, ['width' => 150, 'height' => 150, 'format' => 'png']) }}" width="150" height="150" alt="{{ $site->title }}">
+            <img class="media-object" src="{{ cloudinary_url($site->image_name, ['secure' => true, 'width' => 150, 'height' => 150, 'format' => 'png']) }}" width="150" height="150" alt="{{ $site->title }}">
         </a>
     </div>
     <div class="media-body">
