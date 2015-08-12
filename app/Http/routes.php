@@ -26,8 +26,8 @@ Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('thank-you', 'SubmitController@showThanks');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
-    Route::get('/', 'DashboardController@dashboard');
+    Route::get('/', 'DashboardController@index');
     Route::resource('host', 'HostController', ['only' => ['show', 'destroy']]);
-    // Route::resource('site', 'SiteController');
-    // Route::resource('user', 'UserController');
+    Route::resource('site', 'SiteController');
+    Route::resource('user', 'UserController');
 });

@@ -17,5 +17,11 @@
 
     <hr>
 
-    <a href="#" class="btn btn-default">Create site</a>
+    {!! Html::linkAction('Admin\SiteController@create', 'Create site', ['host' => $host->name], ['class' => 'btn btn-default']) !!}
+
+    <hr>
+
+    {!! Form::open(['method' => 'delete', 'url' => action('Admin\HostController@destroy', [$host->name])]) !!}
+    {!! Form::submit('Delete', ['class' => 'btn btn-default btn-danger']) !!}
+    {!! Form::close() !!}
 @stop

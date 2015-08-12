@@ -85,11 +85,15 @@ class HostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $name
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($name)
     {
-        //
+        $host = Host::where('name', $name)->firstOrFail();
+
+        $host->delete();
+
+        return redirect()->action('Admin\DashboardController@index');
     }
 }

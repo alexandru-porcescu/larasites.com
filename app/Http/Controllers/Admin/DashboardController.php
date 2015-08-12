@@ -10,7 +10,7 @@ use App\Submission;
 
 class DashboardController extends Controller
 {
-    public function dashboard()
+    public function index()
     {
         $submissions = Submission::orderBy('created_at', 'desc')->with('user')->take(10)->get();
         $hosts = Host::orderBy('created_at', 'desc')->take(3)->get();
