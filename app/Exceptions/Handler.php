@@ -6,6 +6,7 @@ use Auth;
 use Raven_Client;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -17,6 +18,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         HttpException::class,
+        NotFoundHttpException::class,
     ];
 
     /**
@@ -29,20 +31,22 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
-        $client = new Raven_Client(config('services.sentry.dsn'));
+        if ($this->shouldReport($e)) {
+            $client = new Raven_Client(config('services.sentry.dsn'));
 
-        $client->tags_context(['environment' => app()->environment()]);
+            $client->tags_context(['environment' => app()->environment()]);
 
-        $client->extra_context(['laravel' => '5.1']);
+            $client->extra_context(['laravel' => '5.1']);
 
-        if (Auth::user()) {
-            $client->user_context(['id' => Auth::user()->id]);
-        }
+            if (Auth::user()) {
+                $client->user_context(['id' => Auth::user()->id]);
+            }
 
-        try {
-            $client->captureException($e);
-        } catch (\Exception $e) {
-            // EXCEPTIONCEPTION
+            try {
+                $client->captureException($e);
+            } catch (\Exception $e) {
+                // EXCEPTIONCEPTION
+            }
         }
 
         return parent::report($e);
