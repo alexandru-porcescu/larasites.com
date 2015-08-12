@@ -4,7 +4,7 @@
     <p class="lead">{{ $host->name }}</p>
     <hr>
 
-    <p><b>Latest submissions</b></p>
+    <p><b>Submissions</b></p>
     @forelse ($submissions as $submission)
         <p>
             @include('user', ['user' => $submission->user])
