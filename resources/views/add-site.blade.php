@@ -20,12 +20,12 @@
     {!! Form::open(['method' => 'post', 'url' => action('SitesController@submitCreateForm')]) !!}
     {!! Form::hidden('host', $host->name) !!}
 
-    <div class="form-group">
+    <div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
         <label class="control-label">URL</label>
         {!! Form::text('url', $host->url, ['class' => 'form-control']) !!}
     </div>
 
-    <div class="form-group">
+    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
         <label class="control-label">Title</label>
         {!! Form::text('title', null, ['class' => 'form-control']) !!}
     </div>
@@ -35,12 +35,12 @@
         {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 3]) !!}
     </div>
 
-    <div class="form-group">
+    <div class="form-group {{ $errors->has('image_url') ? 'has-error' : '' }}">
         <label class="control-label">Image URL</label>
         {!! Form::text('image_url', 'https://logo.clearbit.com/' . $host->name, ['class' => 'form-control']) !!}
     </div>
 
-    <div class="form-group">
+    <div class="form-group {{ $errors->has('red') || $errors->has('green') || $errors->has('blue') ? 'has-error' : '' }}">
         <label class="control-label">RGB</label>
         <div class="form-inline">
             {!! Form::text('red', null, ['class' => 'form-control']) !!}
