@@ -17,7 +17,10 @@
 
     <p><b>Newest hosts</b></p>
     @forelse ($hosts as $host)
-        <p>{{ $host->name }} was created {!! timeago($host->created_at) !!}</p>
+        <p>
+            {!! Html::linkAction('Admin\HostController@show', $host->name, [$host->name]) !!}
+            was created {!! timeago($host->created_at) !!}
+        </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
     @endforelse

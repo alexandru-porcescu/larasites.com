@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Host;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -41,12 +42,21 @@ class HostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  name  $string
      * @return Response
      */
-    public function show($id)
+    public function show($name)
     {
-        //
+        $host = Host::where('name', $name)->firstOrFail();
+
+        $submissions = $host
+            ->submissions()
+            ->orderBy('created_at', 'desc')
+            ->with('user')
+            ->take(100)
+            ->get();
+
+        return view('admin.host.show', compact('host', 'submissions'));
     }
 
     /**
