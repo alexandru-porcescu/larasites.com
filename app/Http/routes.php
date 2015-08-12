@@ -13,6 +13,10 @@
 
 Route::get('/', 'WelcomeController@showWelcome');
 
+Route::get('terms-of-service', 'PageController@showTermsOfService');
+Route::get('privacy-policy', 'PageController@showPrivacyPolicy');
+Route::get('contributors-guide', 'PageController@showContributorsGuide');
+
 Route::get('auth', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('logout', 'Auth\AuthController@logout');
@@ -21,22 +25,4 @@ Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('thank-you', 'SubmitController@showThanks');
 
-Route::get('admin', 'SubmissionsController@showSubmissions');
-Route::get('hosts/{id}/trash', 'SubmissionsController@trashHost');
-
-Route::get('add-site', 'SitesController@showCreateForm');
-Route::post('add-site/submit', 'SitesController@submitCreateForm');
-
-Route::post('approve', 'ApprovalController@submitApproval');
-
-Route::get('terms-of-service', function () {
-    return view('terms-of-service');
-});
-
-Route::get('privacy-policy', function () {
-    return view('privacy-policy');
-});
-
-Route::get('contributors-guide', function () {
-    return view('contributors-guide');
-});
+Route::get('admin', 'AdminController@dashboard');
