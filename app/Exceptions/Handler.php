@@ -31,17 +31,14 @@ class Handler extends ExceptionHandler
     {
         $client = new Raven_Client(config('services.sentry.dsn'));
 
+        $client->tags_context(['environment' => app()->environment()]);
+
         if (Auth::user()) {
             $client->user_context(['id' => Auth::user()->id]);
         }
 
         try {
-            $client->captureException($e, [
-                'curl_method' => 'async',
-                'tags' => [
-                    'environment' => app()->environment()
-                ]
-            ]);
+            $client->captureException($e);
         } catch (\Exception $e) {
             // EXCEPTIONCEPTION
         }
