@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
         $submissions = Submission::take(3)->get();
         $hosts = Host::take(3)->get();
-        $users = User::take(3)->get();
+        $users = User::orderBy('created_at', 'desc')->take(3)->get();
 
         return view('admin.dashboard', compact('hosts', 'submissions', 'users'));
     }
