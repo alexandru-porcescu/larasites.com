@@ -4,6 +4,14 @@
     <p class="lead">Dashboard</p>
     <hr>
 
+    <p><b>Sites waiting for approval</b></p>
+    @forelse ($sites as $site)
+        <p>{!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}</p>
+    @empty
+        <p class="text-muted">Nothing to show right now…</p>
+    @endforelse
+    <br>
+
     <p><b>Latest submissions</b></p>
     @forelse ($submissions as $submission)
         <p>
