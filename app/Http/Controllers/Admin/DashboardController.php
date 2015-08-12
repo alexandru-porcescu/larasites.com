@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
         $submissions = Submission::orderBy('created_at', 'desc')
             ->with('user')
-            ->has('host')
+            ->has('host.site', 0)
             ->take(10)
             ->get();
 
