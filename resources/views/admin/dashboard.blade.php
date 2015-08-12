@@ -6,7 +6,10 @@
 
     <p><b>Latest submissions</b></p>
     @forelse ($submissions as $submission)
-        <p>@include('user', ['user' => $submission->user]) submitted {!! Html::link($submission->url) !!} {!! timeago($submission->created_at) !!}</p>
+        <p>
+            @include('user', ['user' => $submission->user])
+            submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
+        </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
     @endforelse
