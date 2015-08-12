@@ -7,6 +7,8 @@
     <div class="media-body">
         <h4 class="media-heading">{!! Html::link($site->url, $site->title) !!}</h4>
         <p>{{ $site->description }}</p>
-        <p>{!! Html::image($site->user->twitter_avatar, null, ['width' => 20, 'class' => 'img-circle']) !!} {!! tw($site->user) !!}</p>
+        <p>
+            @include('user', ['user' => $site->user])
+        </p>
     </div>
 </div>

@@ -8,9 +8,12 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class AuthController extends Controller
 {
+    use DispatchesJobs;
+
     /**
      * Redirect the user to the Twitter authentication page.
      *
@@ -37,10 +40,15 @@ class AuthController extends Controller
             $user->twitter_id = $auth->id;
             $user->twitter_nickname = $auth->nickname;
             $user->twitter_avatar = $auth->avatar;
+            $user->twitter_avatar_original = $auth->avatar_original;
         }
 
         $user->authenticated_at = Carbon::now();
         $user->save();
+
+        $this->dispatchFrom(\App\Jobs\ProcessTwitterAvatar::class, $request, [
+            'user' => $user,
+        ]);
 
         Auth::login($user);
 
