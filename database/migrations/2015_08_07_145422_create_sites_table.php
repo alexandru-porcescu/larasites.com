@@ -22,6 +22,9 @@ class CreateSitesTable extends Migration
             $table->integer('red')->unsigned()->default(0);
             $table->integer('green')->unsigned()->default(0);
             $table->integer('blue')->unsigned()->default(0);
+            $table->string('cloudinary_url')->nullable();
+            $table->string('cloudinary_secure_url')->nullable();
+            $table->string('cloudinary_public_id')->nullable();
             $table->datetime('approved_at')->nullable();
             $table->integer('approved_by')->nullable();
             $table->integer('created_by')->nullable();

@@ -49,13 +49,4 @@ class Site extends Model
             $this->blue
         ]);
     }
-
-    public function getImageNameAttribute()
-    {
-        $basename = basename($this->image_url);
-        $temp = explode('.', $basename);
-        $ext  = array_pop($temp);
-        $name = implode('.', $temp);
-        return $name;
-    }
 }

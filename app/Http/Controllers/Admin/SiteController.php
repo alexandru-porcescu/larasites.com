@@ -57,8 +57,6 @@ class SiteController extends Controller
             'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
         ], $messages);
 
-        $image = Uploader::upload($request->input('image_url'));
-
         $site = new Site;
         $site->url = $request->input('url');
         $site->title = $request->input('title');
@@ -67,8 +65,14 @@ class SiteController extends Controller
         $site->green = (int) $request->input('green');
         $site->blue = (int) $request->input('blue');
         $site->user_id = $host->submissions->first()->user->id;
-        $site->image_url = $image['secure_url'];
+        $site->image_url = $request->input('image_url');
         $site->created_by = Auth::user()->id;
+
+        $response = Uploader::upload($request->input('image_url'));
+        $site->cloudinary_url = $response['url'];
+        $site->cloudinary_secure_url = $response['secure_url'];
+        $site->cloudinary_public_id = $response['public_id'];
+
         $site->save();
 
         $host->site_id = $site->id;
@@ -136,8 +140,11 @@ class SiteController extends Controller
         $site->blue = $request->input('blue');
 
         if ($site->image_url !== $request->input('image_url')) {
-            $image = Uploader::upload($request->input('image_url'));
-            $site->image_url = $image['secure_url'];
+            $response = Uploader::upload($request->input('image_url'));
+            $site->image_url = $request->input('image_url');
+            $site->cloudinary_url = $response['url'];
+            $site->cloudinary_secure_url = $response['secure_url'];
+            $site->cloudinary_public_id = $response['public_id'];
         }
 
         $site->save();
