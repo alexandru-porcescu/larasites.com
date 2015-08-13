@@ -33,5 +33,7 @@ class SubmissionTest extends TestCase
 
         $this->assertEquals(1, Host::count());
         $this->assertEquals(1, Submission::count());
+
+        $this->assertEquals('laravel.com', Host::first()->name);
     }
 }
