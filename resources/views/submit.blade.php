@@ -8,6 +8,6 @@
             <p class="help-block">{{ $errors->first() }}</p>
         @endif
     </div>
-    {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
+    {!! Form::submit('Submit', ['class' => 'btn btn-default']) !!}
     {!! Form::close() !!}
 @stop
