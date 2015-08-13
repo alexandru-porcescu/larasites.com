@@ -18,7 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('twitter_nickname');
             $table->string('twitter_avatar');
             $table->string('twitter_avatar_original');
-            $table->string('avatar_url')->nullable();
+            $table->string('cloudinary_public_id')->nullable();
+            $table->string('cloudinary_url')->nullable();
+            $table->string('cloudinary_secure_url')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->datetime('authenticated_at')->nullable();
             $table->timestamps();

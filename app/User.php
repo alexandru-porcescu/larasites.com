@@ -42,13 +42,4 @@ class User extends Model implements AuthenticatableContract
     {
         return $this->hasMany(Submission::class);
     }
-
-    public function getAvatarNameAttribute()
-    {
-        $basename = basename($this->avatar_url);
-        $temp = explode('.', $basename);
-        $ext  = array_pop($temp);
-        $name = implode('.', $temp);
-        return $name;
-    }
 }

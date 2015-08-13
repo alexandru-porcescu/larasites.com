@@ -21,11 +21,14 @@ class DatabaseSeeder extends Seeder
 
         $users = [
             User::create([
-                'twitter_id'       => '42204825',
-                'twitter_nickname' => 'waynethebrain',
-                'twitter_avatar'   => 'http://pbs.twimg.com/profile_images/555323316588670977/anbEvnry_normal.jpeg',
-                'is_admin'         => 1,
-                'authenticated_at' => Carbon::now(),
+                'twitter_id'            => '42204825',
+                'twitter_nickname'      => 'waynethebrain',
+                'twitter_avatar'        => 'http://pbs.twimg.com/profile_images/555323316588670977/anbEvnry_normal.jpeg',
+                'cloudinary_public_id'  => 'tfeyodwijgyk3e16veao',
+                'cloudinary_url'        => 'http://res.cloudinary.com/nextza/image/upload/v1439458260/tfeyodwijgyk3e16veao.jpg',
+                'cloudinary_secure_url' => 'https://res.cloudinary.com/nextza/image/upload/v1439458260/tfeyodwijgyk3e16veao.jpg',
+                'is_admin'              => 1,
+                'authenticated_at'      => Carbon::now(),
             ]),
             User::create([
                 'twitter_id'       => '4475091',
