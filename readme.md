@@ -2,7 +2,7 @@
 
 > Showcasing the best websites built with Laravel & Lumen.
 
-### Deploy Script
+#### Deploy Script
 
 ```sh
 git pull origin master
@@ -12,7 +12,7 @@ php artisan route:clear
 php artisan route:cache
 ```
 
-### Queue Workers
+#### Queue Workers
 
 ```
 Connection              : database
