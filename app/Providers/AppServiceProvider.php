@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         require_once(app_path('helpers.php'));
 
-        Validator::extend('url_responds', function($attribute, $value, $parameters) {
+        Validator::extend('url_responds', function ($attribute, $value, $parameters) {
             $client = new \GuzzleHttp\Client;
             try {
                 $response = $client->get($value);

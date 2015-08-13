@@ -25,6 +25,7 @@ class Robots
                     return response('User-Agent: *', 200)
                            ->header('Content-Type', 'text/plain');
                 }
+                break;
             default:
                 if ($request->is('robots.txt')) {
                     return response("User-Agent: *\nDisallow: /", 200)

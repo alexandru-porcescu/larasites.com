@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
       "pretest": "phplint 'app/**/*.php' 'database/**/*.php' 'tests/**/*.php' 'resources/views/**/*.php'",
-      "test": "vendor/bin/phpunit"
+      "test": "vendor/bin/phpcs app/ --standard=PSR2 --colors -p -n && vendor/bin/phpunit"
   },
   "dependencies": {
     "gulp": "^3.8.8",
