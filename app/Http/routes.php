@@ -28,8 +28,8 @@ Route::get('thank-you', 'SubmitController@showThanks');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
     Route::get('/', 'DashboardController@index');
     Route::resource('host', 'HostController', ['only' => ['show', 'destroy']]);
+    Route::get('site/{site}/approve', 'SiteController@approve');
+    Route::get('site/{site}/unapprove', 'SiteController@unapprove');
     Route::resource('site', 'SiteController', ['except' => ['index']]);
-    Route::post('site/{site}/approve', 'SiteController@approve');
-    Route::post('site/{site}/unapprove', 'SiteController@unapprove');
-    // Route::resource('user', 'UserController');
+    // Route::resource('user', 'UserController', ['only' => ['show']]);
 });

@@ -23,13 +23,9 @@
 
     @if ($site->approved_at)
         <a href="#" class="btn btn-default btn-disabled" disabled>Approved {!! timeago($site->approved_at) !!}</a>
-        {!! Form::open(['method' => 'post', 'url' => action('Admin\SiteController@unapprove', [$site->id]), 'style' => 'display:inline;']) !!}
-        {!! Form::submit('Unapprove', ['class' => 'btn btn-default']) !!}
-        {!! Form::close() !!}
+        {!! Html::linkAction('Admin\SiteController@unapprove', 'Unapprove', [$site->id], ['class' => 'btn btn-default']) !!}
     @else
-        {!! Form::open(['method' => 'post', 'url' => action('Admin\SiteController@approve', [$site->id]), 'style' => 'display:inline;']) !!}
-        {!! Form::submit('Approve', ['class' => 'btn btn-default']) !!}
-        {!! Form::close() !!}
+        {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-default']) !!}
     @endif
 
     <hr>

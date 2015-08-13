@@ -7,6 +7,7 @@
     <p><b>Sites waiting for approval</b></p>
     @forelse ($sites as $site)
         <p>
+            {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-default btn-xs']) !!}
             {!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}
             was created by {!! tw($site->creator) !!}
             {!! timeago($site->created_at) !!}
