@@ -1,8 +1,19 @@
 @extends('admin.layout')
 
 @section('content')
-    <p class="lead">{!! tw($user) !!}</p>
+    <div class="media">
+        <div class="media-left">
+            <a href="#" target="_blank" style="">
+                <img class="media-object img-circle" src="{{ $user->twitter_avatar_original }}" height="50">
+            </a>
+        </div>
+        <div class="media-body">
+            <p class="lead">{!! tw($user) !!}</p>
+        </div>
+    </div>
+
     <hr>
+    <br>
 
     <p><b>Details</b></p>
     <p>Joined {!! timeago($user->created_at) !!}</p>
