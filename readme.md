@@ -1,5 +1,7 @@
 # Larasites
 
+> Showcasing the best websites built with Laravel & Lumen.
+
 ### Deploy Script
 
 ```sh
