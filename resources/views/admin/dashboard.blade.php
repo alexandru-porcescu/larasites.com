@@ -16,22 +16,23 @@
     @endforelse
     <br>
 
-    <p><b>Latest submissions</b></p>
-    @forelse ($submissions as $submission)
+    <p><b>Newest hosts</b></p>
+    @forelse ($hosts as $host)
         <p>
-            {!! tw($submission->user) !!}
-            submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
+            {!! Html::linkAction('Admin\SiteController@create', 'Create site', ['host' => $host->name], ['class' => 'btn btn-default btn-xs']) !!}
+            {!! Html::linkAction('Admin\HostController@show', $host->name, [$host->name]) !!}
+            was created {!! timeago($host->created_at) !!}
         </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
     @endforelse
     <br>
 
-    <p><b>Newest hosts (without sites)</b></p>
-    @forelse ($hosts as $host)
+    <p><b>Latest submissions</b></p>
+    @forelse ($submissions as $submission)
         <p>
-            {!! Html::linkAction('Admin\HostController@show', $host->name, [$host->name]) !!}
-            was created {!! timeago($host->created_at) !!}
+            {!! tw($submission->user) !!}
+            submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
         </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
