@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
@@ -46,7 +47,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('twitter_id', $id)->with('submissions')->firstOrFail();
+
+        $submissions = $user->submissions()->orderBy('created_at', 'desc')->get();
+
+        return view('admin.user.show', compact('user', 'submissions'));
     }
 
     /**

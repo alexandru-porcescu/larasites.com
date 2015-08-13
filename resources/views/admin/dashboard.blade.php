@@ -43,7 +43,7 @@
     <p><b>Latest signups</b></p>
     @forelse ($users as $user)
         <p>
-            {!! tw($user) !!} signed up {!! timeago($user->created_at) !!}
+            {!! Html::linkAction('Admin\UserController@show', '@' . $user->twitter_nickname, [$user->twitter_id]) !!} signed up {!! timeago($user->created_at) !!}
         </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
