@@ -9,12 +9,14 @@ use App\Http\Controllers\Controller;
 
 class WelcomeController extends Controller
 {
-    public function showWelcome()
+    public function showWelcome(Request $request)
     {
+        $page = (int) $request->input('page', 1);
+
         $sites = Site::orderBy('approved_at', 'desc')
             ->whereNotNull('approved_at')
             ->with('user')
-            ->simplePaginate();
+            ->simplePaginate($page);
 
         return view('welcome', compact('sites'));
     }
