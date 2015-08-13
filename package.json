@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+      "preinstall": "composer install",
       "pretest": "phplint 'app/**/*.php' 'database/**/*.php' 'tests/**/*.php' 'resources/views/**/*.php'",
       "test": "vendor/bin/phpcs app/ --standard=PSR2 --colors -p -n && vendor/bin/phpunit"
   },

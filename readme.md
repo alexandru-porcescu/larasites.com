@@ -2,6 +2,20 @@
 
 > Showcasing the best websites built with Laravel & Lumen.
 
+#### Installation
+
+```sh
+git clone git@github.com:we-are-next/www.larasites.com.git larasites
+cd larasites
+npm install
+```
+
+#### Running Tests
+
+```sh
+npm test
+```
+
 #### Deploy Script
 
 ```sh
