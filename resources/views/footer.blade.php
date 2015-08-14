@@ -4,4 +4,7 @@
     {!! Html::link('privacy-policy', 'Privacy Policy') !!} |
     {!! Html::link('contributors-guide', 'Contributors Guide') !!} |
     {!! Html::link('https://github.com/we-are-next/www.larasites.com', 'GitHub') !!}
+    @if (Auth::user())
+        | {!! Html::linkAction('Auth\AuthController@logout', 'Logout') !!}
+    @endif
 </p>
