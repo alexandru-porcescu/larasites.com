@@ -59,7 +59,7 @@
 
     <br>
 
-    <p><b>Latest signups</b></p>
+    <p><b>Newest users</b></p>
 
     @forelse ($users as $user)
         <p>
