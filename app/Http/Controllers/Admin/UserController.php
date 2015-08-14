@@ -51,7 +51,9 @@ class UserController extends Controller
 
         $submissions = $user->submissions()->orderBy('created_at', 'desc')->get();
 
-        return view('admin.user.show', compact('user', 'submissions'));
+        $votes = $user->votes()->orderBy('created_at', 'desc')->get();
+
+        return view('admin.user.show', compact('user', 'submissions', 'votes'));
     }
 
     /**

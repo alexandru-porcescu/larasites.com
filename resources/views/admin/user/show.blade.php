@@ -21,6 +21,18 @@
 
     <br>
 
+    <p><b>Votes</b></p>
+    @forelse ($votes as $vote)
+        <p>
+            {!! tw($user) !!}
+            voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->title]) !!} {!! timeago($vote->created_at) !!}
+        </p>
+    @empty
+        <p class="text-muted">Nothing to show right now…</p>
+    @endforelse
+
+    <br>
+
     <p><b>Submissions</b></p>
     @forelse ($submissions as $submission)
         <p>
@@ -28,5 +40,6 @@
             submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
         </p>
     @empty
+        <p class="text-muted">Nothing to show right now…</p>
     @endforelse
 @stop
