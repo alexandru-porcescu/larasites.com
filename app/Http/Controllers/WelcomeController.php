@@ -21,6 +21,8 @@ class WelcomeController extends Controller
 
         $sites = $q->simplePaginate();
 
-        return view('welcome', compact('sites'));
+        $user = Auth::user();
+
+        return view('welcome', compact('sites', 'user'));
     }
 }

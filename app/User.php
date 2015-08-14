@@ -49,4 +49,17 @@ class User extends Model implements AuthenticatableContract
     {
         return $this->hasMany(Submission::class);
     }
+
+    /**
+     * @param App\Site $site
+     * @return bool
+     */
+    public function votedFor(Site $site)
+    {
+        $count = Vote::where('user_id', $this->id)
+            ->where('site_id', $site->id)
+            ->count();
+
+        return $count > 0;
+    }
 }
