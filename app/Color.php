@@ -292,7 +292,7 @@ class Color
     public function isDark($color = false)
     {
         // Get our color
-        $color = ($color) ? $color:$this->_hex;
+        $color = ($color) ? $color : $this->_hex;
 
         // Calculate straight from rbg
         $r = hexdec($color[0].$color[1]);
@@ -312,7 +312,7 @@ class Color
         $hsl = $this->_hsl;
 
         // Adjust Hue 180 degrees
-        $hsl['H'] += ($hsl['H']>180) ? -180:180;
+        $hsl['H'] += ($hsl['H']>180) ? -180 : 180;
 
         // Return the new value in HEX
         return self::hslToHex($hsl);
@@ -403,7 +403,7 @@ class Color
         // Check if we were provided a number
         if ($amount) {
             $hsl['L'] = ($hsl['L'] * 100) - $amount;
-            $hsl['L'] = ($hsl['L'] < 0) ? 0:$hsl['L']/100;
+            $hsl['L'] = ($hsl['L'] < 0) ? 0 : $hsl['L']/100;
         } else {
             // We need to find out how much to darken
             $hsl['L'] = $hsl['L']/2 ;
@@ -423,7 +423,7 @@ class Color
         // Check if we were provided a number
         if ($amount) {
             $hsl['L'] = ($hsl['L'] * 100) + $amount;
-            $hsl['L'] = ($hsl['L'] > 100) ? 1:$hsl['L']/100;
+            $hsl['L'] = ($hsl['L'] > 100) ? 1 : $hsl['L']/100;
         } else {
             // We need to find out how much to lighten
             $hsl['L'] += (1-$hsl['L'])/2;
