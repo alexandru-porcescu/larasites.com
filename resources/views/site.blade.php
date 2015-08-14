@@ -8,6 +8,6 @@
         <h4 class="media-heading">{!! Html::link($site->url, $site->title) !!}</h4>
         <p>{{ $site->description }}</p>
         <p>@include('user', ['user' => $site->user])</p>
-        <p><a href="{{ action('VotingController@submitVote', [$site->id]) }}" class="btn btn-default btn-sm"><span class="badge">{{ $site->votes()->count() }}</span> Vote</a>
+        <p><a href="{{ action('VotingController@submitVote', [$site->id]) }}" class="btn btn-default btn-sm"><span class="badge">{{ $site->vote_count }}</span> Vote</a>
     </div>
 </div>

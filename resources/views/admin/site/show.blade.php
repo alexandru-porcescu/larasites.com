@@ -14,7 +14,7 @@
             <h4 class="media-heading">{!! Html::link($site->url, $site->title) !!}</h4>
             <p>{{ $site->description }}</p>
             <p class="text-muted">{!! Html::image($site->user->twitter_avatar, null, ['width' => 20, 'class' => 'img-circle']) !!} Submitted by {!! tw($site->user) !!}</p>
-            <p>{{ $site->votes()->count() }} votes</p>
+            <p>{{ $site->vote_count }} votes</p>
         </div>
     </div>
 
