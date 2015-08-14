@@ -25,6 +25,8 @@ Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
 Route::get('thank-you', 'SubmitController@showThanks');
 
+Route::get('vote', 'VotingController@submitVote');
+
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', 'DashboardController@index');
     Route::resource('host', 'HostController', ['only' => ['show', 'destroy']]);

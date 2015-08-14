@@ -49,4 +49,14 @@
         <p class="text-muted">Nothing to show right now…</p>
     @endforelse
     <br>
+
+    <p><b>Latest votes</b></p>
+    @forelse ($votes as $vote)
+        <p>
+            {!! tw($vote->user) !!} voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->id]) !!} {!! timeago($vote->created_at) !!}
+        </p>
+    @empty
+        <p class="text-muted">Nothing to show right now…</p>
+    @endforelse
+    <br>
 @stop
