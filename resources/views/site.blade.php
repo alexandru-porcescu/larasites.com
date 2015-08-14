@@ -1,5 +1,5 @@
-<div class="media">
-    <div class="media-left" style="padding-left:10px;border-left:5px solid #{{ $site->color->getHex() }}">
+<div class="media" style="position:relative;padding-left:20px;">
+    <div class="media-left" style="">
         <a href="{{ $site->url }}" target="_blank" style="">
             <img class="media-object" src="{{ cloudinary_url($site->cloudinary_public_id, ['secure' => true, 'width' => 100, 'height' => 100, 'format' => 'png']) }}" width="100" height="100" alt="{{ $site->title }}">
         </a>
@@ -10,4 +10,5 @@
         <p>@include('user', ['user' => $site->user])</p>
         <p><a href="{{ action('VotingController@submitVote', [$site->id]) }}" class="btn btn-default btn-sm"><span class="badge">{{ $site->vote_count }}</span> Vote</a>
     </div>
+    <div style="position:absolute;top:0;left:0;width:10px;height:100%;{{ $site->color->getCssGradient() }}"></div>
 </div>

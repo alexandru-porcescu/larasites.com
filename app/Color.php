@@ -303,7 +303,7 @@ class Color
      * Returns the complimentary color
      * @return string Complementary hex color
      */
-    public function complementary()
+    public function complimentary()
     {
         // Get our HSL
         $hsl = $this->_hsl;
