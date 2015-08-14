@@ -37,7 +37,7 @@
 
     @forelse ($submissions as $submission)
         <p>
-            {!! tw($submission->user) !!}
+            {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($submission->user->twitter_nickname), [$submission->user->twitter_id]) !!}
             submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
         </p>
     @empty
