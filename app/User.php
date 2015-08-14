@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Site;
+use App\Vote;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -38,8 +40,41 @@ class User extends Model implements AuthenticatableContract
      */
     protected $dates = ['authenticated_at'];
 
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
     public function submissions()
     {
         return $this->hasMany(Submission::class);
+    }
+
+    /**
+     * @param App\Site $site
+     * @return mixed App\Vote|void
+     */
+    public function voteFor(Site $site)
+    {
+        if (!$this->hasVotedFor($site)) {
+            $vote = new Vote;
+            $vote->user_id = $this->id;
+            $vote->site_id = $site->id;
+            $vote->save();
+            return $vote;
+        }
+    }
+
+    /**
+     * @param App\Site $site
+     * @return bool
+     */
+    public function hasVotedFor(Site $site)
+    {
+        $count = Vote::where('user_id', $this->id)
+            ->where('site_id', $site->id)
+            ->count();
+
+        return $count > 0;
     }
 }

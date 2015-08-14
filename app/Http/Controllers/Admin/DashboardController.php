@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Vote;
 use App\Site;
 use App\User;
 use App\Host;
@@ -25,6 +26,14 @@ class DashboardController extends Controller
 
         $users = User::orderBy('created_at', 'desc')->take(3)->get();
 
-        return view('admin.dashboard', compact('sites', 'hosts', 'submissions', 'users'));
+        $votes = Vote::orderBy('created_at', 'desc')->with('user', 'site')->take(3)->get();
+
+        return view('admin.dashboard', compact(
+            'sites',
+            'hosts',
+            'submissions',
+            'users',
+            'votes'
+        ));
     }
 }
