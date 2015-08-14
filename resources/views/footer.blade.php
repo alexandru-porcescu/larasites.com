@@ -2,7 +2,7 @@
     <div class="col-md-4">
         <ul class="list-unstyled">
             <li class="text-muted">Made by {!! Html::link('http://www.wearenext.co.za', 'Next') !!} in Cape Town</li>
-            <li>{!! Html::link('https://github.com/we-are-next/www.larasites.com', 'Form me on GitHub') !!}</li>
+            <li>{!! Html::link('https://github.com/we-are-next/www.larasites.com', 'Fork me on GitHub') !!}</li>
         </ul>
     </div>
     <div class="col-md-4">
