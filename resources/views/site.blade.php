@@ -1,5 +1,5 @@
 <div class="media">
-    <div class="media-left" style="padding-left:10px;border-left:5px solid rgb({{ $site->rgb }})">
+    <div class="media-left" style="padding-left:10px;border-left:5px solid #{{ $site->color->getHex() }}">
         <a href="{{ $site->url }}" target="_blank" style="">
             <img class="media-object" src="{{ cloudinary_url($site->cloudinary_public_id, ['secure' => true, 'width' => 100, 'height' => 100, 'format' => 'png']) }}" width="100" height="100" alt="{{ $site->title }}">
         </a>

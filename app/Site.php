@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Color;
 use Carbon\Carbon;
 
 class Site extends Model
@@ -43,15 +44,12 @@ class Site extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
-    /**
-     * @return string
-     */
-    public function getRgbAttribute()
+    public function getColorAttribute()
     {
-        return implode(',', [
-            $this->red,
-            $this->green,
-            $this->blue
-        ]);
+        $rgb = [$this->red, $this->green, $this->blue];
+
+        $vibe = Color::rgbToHex($rgb);
+
+        return new Color($vibe);
     }
 }

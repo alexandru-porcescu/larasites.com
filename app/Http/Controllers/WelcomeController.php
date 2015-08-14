@@ -11,12 +11,10 @@ class WelcomeController extends Controller
 {
     public function showWelcome(Request $request)
     {
-        $page = (int) $request->input('page', 1);
-
         $sites = Site::orderBy('approved_at', 'desc')
             ->whereNotNull('approved_at')
             ->with('user')
-            ->simplePaginate($page);
+            ->simplePaginate();
 
         return view('welcome', compact('sites'));
     }
