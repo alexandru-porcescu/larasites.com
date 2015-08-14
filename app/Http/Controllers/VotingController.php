@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Site;
+use App\Vote;
 use Auth;
 use App\Http\Controllers\Controller;
 
@@ -14,14 +15,24 @@ class VotingController extends Controller
         $this->middleware('auth');
     }
 
-    public function submitVote(Request $request)
+    public function submitVote(Request $request, $id)
     {
-        $id = (int) $request->input('site');
+        $site = Site::findOrFail((int) $id);
 
-        $site = Site::findOrFail($id);
+        $user = Auth::user();
 
-        $vote = Auth::user()->voteFor($site);
+        $vote = Vote::where('site_id', $site->id)->where('user_id', $user->id)->first();
 
-        return redirect()->back();
+        if ($vote) {
+            $vote->delete();
+        } else {
+            $vote = new Vote;
+            $vote->user_id = $user->id;
+            $vote->site_id = $site->id;
+            $vote->save();
+        }
+
+        // TODO: What if the site a user voted for was on page 2 or 3...
+        return redirect('/');
     }
 }

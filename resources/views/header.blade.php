@@ -4,7 +4,10 @@
     </div>
     @if (Auth::user())
         <div class="col-md-4 text-right">
-            <p>{{ '@' . strtolower(Auth::user()->twitter_nickname) }}</p>
+            <p>
+                {{ '@' . strtolower(Auth::user()->twitter_nickname) }}
+                {!! Html::linkAction('Auth\AuthController@logout', 'logout') !!}
+            </p>
         </div>
     @endif
 </div>
