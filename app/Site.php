@@ -52,4 +52,12 @@ class Site extends Model
 
         return new Color($vibe);
     }
+
+    /**
+     * @return bool
+     */
+    public function isApproved()
+    {
+        return $this->approved_at && $this->approved_by;
+    }
 }

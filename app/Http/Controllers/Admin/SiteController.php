@@ -156,7 +156,9 @@ class SiteController extends Controller
     {
         $site = Site::whereNull('approved_at')->where('id', (int) $id)->firstOrFail();
 
-        $site->approveBy(Auth::user())->save();
+        if (!$site->isApproved()) {
+            $site->approveBy(Auth::user())->save();
+        }
 
         return redirect()->back();
     }
