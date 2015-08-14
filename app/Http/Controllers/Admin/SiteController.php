@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Cache;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Host;
@@ -150,8 +149,6 @@ class SiteController extends Controller
 
         $site->save();
 
-        Cache::flush();
-
         return redirect()->action('Admin\SiteController@show', [$id]);
     }
 
@@ -161,8 +158,6 @@ class SiteController extends Controller
 
         $site->approveBy(Auth::user())->save();
 
-        Cache::flush();
-
         return redirect()->back();
     }
 
@@ -171,8 +166,6 @@ class SiteController extends Controller
         $site = Site::whereNotNull('approved_at')->where('id', (int) $id)->firstOrFail();
 
         $site->unapprove()->save();
-
-        Cache::flush();
 
         return redirect()->back();
     }
@@ -188,8 +181,6 @@ class SiteController extends Controller
         $site = Site::findOrFail($id);
 
         $site->delete();
-
-        Cache::flush();
 
         return redirect()->action('Admin\DashboardController@index');
     }
