@@ -7,6 +7,7 @@
 ```sh
 git clone git@github.com:we-are-next/www.larasites.com.git larasites
 cd larasites
+composer install
 npm install
 ```
 
