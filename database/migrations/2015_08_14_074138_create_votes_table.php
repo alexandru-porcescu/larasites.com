@@ -16,6 +16,7 @@ class CreateVotesTable extends Migration
             $table->increments('id');
             $table->integer('site_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
