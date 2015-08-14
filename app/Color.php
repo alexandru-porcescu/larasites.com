@@ -61,7 +61,7 @@ class Color
         $G = hexdec($color[2].$color[3]);
         $B = hexdec($color[4].$color[5]);
 
-        $HSL = array();
+        $HSL = [];
 
         $var_R = ($R / 255);
         $var_G = ($G / 255);
@@ -124,7 +124,7 @@ class Color
             throw new Exception("Param was not an HSL array");
         }
 
-        list($H,$S,$L) = array($hsl['H'] / 360, $hsl['S'], $hsl['L']);
+        list($H,$S,$L) = [$hsl['H'] / 360, $hsl['S'], $hsl['L']];
 
         if ($S == 0) {
             $r = $L * 255;
@@ -259,8 +259,10 @@ class Color
             $darkColor = $this->_hex;
         }
 
-        // Return our gradient array
-        return array("light" => $lightColor, "dark" => $darkColor);
+        return [
+            "light" => $lightColor,
+            "dark"  => $darkColor
+        ];
     }
 
     /**
@@ -447,7 +449,11 @@ class Color
         $gmix = (($rgb1['G'] * $r1) + ($rgb2['G'] * $r2)) / 2;
         $bmix = (($rgb1['B'] * $r1) + ($rgb2['B'] * $r2)) / 2;
 
-        return array('R' => $rmix, 'G' => $gmix, 'B' => $bmix);
+        return [
+            'R' => $rmix,
+            'G' => $gmix,
+            'B' => $bmix
+        ];
     }
 
     /**
