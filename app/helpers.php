@@ -40,3 +40,24 @@ if (! function_exists('timeago')) {
         return '<time class="timeago" datetime="' . $date->toIso8601String() . '">' . $date->toIso8601String() . '</time>';
     }
 }
+
+if (! function_exists('cx')) {
+    /**
+     * A rip-off of the React classSet helper.
+     *
+     * @param array $classes
+     * @return string
+     */
+    function cx(array $classes = [])
+    {
+        $set = [];
+
+        foreach ($classes as $key => $value) {
+            if ($value) {
+                $set[] = $key;
+            }
+        }
+
+        return implode(' ', $set);
+    }
+}
