@@ -5,7 +5,8 @@ namespace App;
 use \Exception;
 
 /**
- * A color utility that helps manipulate HEX colors
+ * This code was forked from https://github.com/mexitek/phpColors/blob/master/src/Mexitek/PHPColors/Color.php
+ * TODO: Publish as a separate composer package
  */
 class Color
 {
