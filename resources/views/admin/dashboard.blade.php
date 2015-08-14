@@ -10,7 +10,8 @@
         <p>
             {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-default btn-xs']) !!}
             {!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}
-            was created by {!! tw($site->creator) !!}
+            was created by
+            {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($site->creator->twitter_nickname), [$site->creator->twitter_id]) !!}
             {!! timeago($site->created_at) !!}
         </p>
     @empty
