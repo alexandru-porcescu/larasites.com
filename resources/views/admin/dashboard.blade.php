@@ -50,7 +50,7 @@
 
     @forelse ($votes as $vote)
         <p>
-            {!! Html::linkAction('Admin\UserController@show', '@' . $vote->user->twitter_nickname, [$vote->user->twitter_id]) !!} voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->id]) !!} {!! timeago($vote->created_at) !!}
+            {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($vote->user->twitter_nickname), [$vote->user->twitter_id]) !!} voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->id]) !!} {!! timeago($vote->created_at) !!}
         </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
@@ -62,7 +62,7 @@
 
     @forelse ($users as $user)
         <p>
-            {!! Html::linkAction('Admin\UserController@show', '@' . $user->twitter_nickname, [$user->twitter_id]) !!} signed up {!! timeago($user->created_at) !!}
+            {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($user->twitter_nickname), [$user->twitter_id]) !!} signed up {!! timeago($user->created_at) !!}
         </p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
