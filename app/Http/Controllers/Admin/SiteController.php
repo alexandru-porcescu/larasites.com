@@ -154,9 +154,9 @@ class SiteController extends Controller
 
     public function approve(Request $request, $id)
     {
-        $site = Site::whereNull('approved_at')->where('id', (int) $id)->firstOrFail();
+        $site = Site::whereNull('approved_at')->where('id', (int) $id)->first();
 
-        if (!$site->isApproved()) {
+        if ($site) {
             $site->approveBy(Auth::user())->save();
         }
 
