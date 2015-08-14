@@ -14,6 +14,11 @@ class Site extends Model
         return $this->hasOne(Host::class);
     }
 
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
     public function approveBy(User $user)
     {
         $this->approved_by = $user->id;

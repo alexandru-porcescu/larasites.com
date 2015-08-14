@@ -38,6 +38,11 @@ class User extends Model implements AuthenticatableContract
      */
     protected $dates = ['authenticated_at'];
 
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
     public function submissions()
     {
         return $this->hasMany(Submission::class);
