@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Session;
+use URL;
 use App\Site;
 use App\Vote;
 use Auth;
@@ -11,14 +13,20 @@ use App\Http\Controllers\Controller;
 
 class VotingController extends Controller
 {
-    public function __construct()
+    /**
+     * @param Illuminate\Http\Request $request
+     * @param int $id
+     */
+    public function submitVote(Request $request, $id)
     {
-        $this->middleware('auth');
-    }
+        $request->session()->put('url.previous', URL::previous());
 
-    public function submitVote(Request $request)
-    {
-        $site = Site::findOrFail((int) $request->input('site'));
+        if (Auth::guest()) {
+            $request->session()->put('url.intended', URL::current());
+            return redirect('auth');
+        }
+
+        $site = Site::findOrFail((int) $id);
 
         $user = Auth::user();
 
@@ -40,7 +48,10 @@ class VotingController extends Controller
 
         DB::commit();
 
-        // TODO: What if the site a user voted for was on page 2 or 3...
-        return redirect('/');
+        $next = $request->session()->get('url.previous', '/');
+
+        $request->session()->forget('url.previous');
+
+        return redirect($next);
     }
 }

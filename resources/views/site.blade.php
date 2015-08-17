@@ -9,9 +9,9 @@
         <p>{{ $site->description }}</p>
         <p>@include('user', ['user' => $site->user])</p>
         @if ($user)
-            <p><a href="{{ action('VotingController@submitVote', ['site' => $site->id]) }}" class="btn btn-sm {{ $user->votedFor($site) ? 'btn-primary' : 'btn-default' }}"><span class="badge">{{ $site->vote_count }}</span> Vote</a>
+            <p><a href="{{ action('VotingController@submitVote', [$site->id]) }}" class="btn btn-sm {{ $user->votedFor($site) ? 'btn-primary' : 'btn-default' }}"><span class="badge">{{ $site->vote_count }}</span> Vote</a>
         @else
-            <p><a href="{{ action('VotingController@submitVote', ['site' => $site->id]) }}" class="btn btn-sm btn-default"><span class="badge">{{ $site->vote_count }}</span> Vote</a>
+            <p><a href="{{ action('VotingController@submitVote', [$site->id]) }}" class="btn btn-sm btn-default"><span class="badge">{{ $site->vote_count }}</span> Vote</a>
         @endif
     </div>
     <div style="position:absolute;top:0;left:0;width:10px;height:100%;{{ $site->color->getCssGradient() }}"></div>
