@@ -1,23 +1,22 @@
-var dir = __dirname + '/..';
-var opn = require('opn');
 var gulp = require('gulp');
-var gulpfile = require(dir + '/gulpfile.js');
+var gulpfile = require(process.cwd() + '/gulpfile.js');
+var opn = require('opn');
 var ss = require('superstatic');
 
-var spec = {
+console.log(process.cwd() + '/public/styleguide/');
+
+var app = ss.server({
     port: 3474,
     config: {
-        root: dir + '/public/styleguide'
+        root: './public'
     }
-};
-
-var app = ss.server(spec);
-
-// var reloader = require('./reloader.js');
-// reloader({app: app});
-
-app.listen(function (err) {
-    opn('http://127.0.0.1:' + spec.port + '/index.html');
 });
 
-// gulp.start('watch');
+var reloader = require('./reloader.js');
+reloader({app: app});
+
+app.listen(function (err) {
+    opn('http://localhost:3474/styleguide');
+});
+
+gulp.start('watch');

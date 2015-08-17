@@ -2,7 +2,7 @@ var tinylr = require('tiny-lr');
 var liveReload = require('connect-livereload');
 var chokidar = require('chokidar');
 var gutil = require('gulp-util');
-var dir = __dirname + '/..';
+var dir = process.cwd();
 
 module.exports = function reloader (options) {
 
