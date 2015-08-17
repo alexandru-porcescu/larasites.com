@@ -7,7 +7,7 @@
         <title>{{ $title or 'Larasites.com' }}</title>
         <meta name="description" content="Showcasing the best websites made using Laravel & Lumen.">
         <meta name="keywords" content="laravel, lumen, php, framework, web, artisans, larasites">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        {!! Html::style(elixir('css/style.css')) !!}
     </head>
     <body>
         <br>
