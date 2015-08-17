@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Session;
 use URL;
 use App\Site;
 use App\Vote;
@@ -19,11 +18,14 @@ class VotingController extends Controller
      */
     public function submitVote(Request $request, $id)
     {
-        $request->session()->put('url.previous', URL::previous());
-
         if (Auth::guest()) {
-            $request->session()->put('url.intended', URL::current());
+            $request->session()->put('url.previous', URL::previous());
+            $request->session()->put('url.intended', $request->url());
             return redirect('auth');
+        }
+
+        if (! $request->session()->has('url.previous')) {
+            $request->session()->put('url.previous', URL::previous());
         }
 
         $site = Site::findOrFail((int) $id);
