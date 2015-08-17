@@ -1,9 +1,7 @@
 var gulp = require('gulp');
-var gulpfile = require(process.cwd() + '/gulpfile.js');
+var gulpfile = require('./gulpfile.js');
 var opn = require('opn');
 var ss = require('superstatic');
-
-console.log(process.cwd() + '/public/styleguide/');
 
 var app = ss.server({
     port: 3474,
@@ -12,7 +10,7 @@ var app = ss.server({
     }
 });
 
-var reloader = require('./reloader.js');
+var reloader = require('./sg-reloader.js');
 reloader({app: app});
 
 app.listen(function (err) {

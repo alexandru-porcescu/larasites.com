@@ -3,7 +3,7 @@
   "scripts": {
     "pretest": "phplint 'app/**/*.php' 'database/**/*.php' 'tests/**/*.php' 'resources/views/**/*.php'",
     "test": "vendor/bin/phpcs app/ --standard=PSR2 --colors -p -n && vendor/bin/phpunit",
-    "styleguide": "node styleguide/server.js"
+    "styleguide": "node sg-server.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.5"
