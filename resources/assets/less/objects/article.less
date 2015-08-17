@@ -1,0 +1,100 @@
+/* -------------------------------------------------------------------------- *\
+   $ARTICLE
+\* -------------------------------------------------------------------------- */
+
+.article {
+    margin-bottom: 1em;
+
+    /**
+     * Block Quote
+     */
+
+    blockquote {
+        .blockquote();
+
+        &+ h2,
+        &+ h3,
+        &+ h4,
+        &+ h5,
+        &+ h6 {
+            margin-top: 2em;
+        }
+    }
+
+    /**
+     * Figure
+     */
+
+    figure {
+        .figure();
+
+        &+ h2,
+        &+ h3,
+        &+ h4,
+        &+ h5,
+        &+ h6 {
+            margin-top: 2em;
+        }
+    }
+
+    /**
+     * Horizontal Rule
+     */
+
+    hr {
+        .hr();
+    }
+
+    /**
+     * Image
+     */
+
+    img {
+        height: auto;
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
+
+    /**
+     * Paragraph
+     */
+
+    p {
+
+        &+ figure {
+            margin-top: 2em;
+        }
+
+        &+ h2,
+        &+ h3,
+        &+ h4,
+        &+ h5,
+        &+ h6 {
+            margin-top: 2em;
+        }
+    }
+
+    /**
+     * Narrow
+     */
+
+    &.article--narrow {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 40em; /* 640 / 16 */
+    }
+}
+
+@media all and (min-width: @bp-small) {
+
+    .article {
+
+        .u-pull--right {
+            margin-left: 1em;
+        }
+
+        .u-pull--left {
+            margin-right: 1em;
+        }
+    }
+}
