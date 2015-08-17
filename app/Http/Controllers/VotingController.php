@@ -16,9 +16,9 @@ class VotingController extends Controller
         $this->middleware('auth');
     }
 
-    public function submitVote(Request $request, $id)
+    public function submitVote(Request $request)
     {
-        $site = Site::findOrFail((int) $id);
+        $site = Site::findOrFail((int) $request->input('site'));
 
         $user = Auth::user();
 
