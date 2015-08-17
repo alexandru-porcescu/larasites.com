@@ -18,11 +18,11 @@
             <li><b class="text-muted">Community</b></li>
             <li>{!! Html::link('http://laravel.com', 'Laravel') !!}</li>
             <li>{!! Html::link('http://lumen.laravel.com', 'Lumen') !!}</li>
-            <li>{!! Html::link('http://laravel.io/forum', 'Laravel.io') !!}</li>
+            <li>{!! Html::link('https://larajobs.com', 'Larajobs') !!}</li>
             <li>{!! Html::link('https://laracasts.com', 'Laracasts') !!}</li>
             <li>{!! Html::link('https://laravel-news.com', 'Laravel News') !!}</li>
+            <li>{!! Html::link('http://laravel.io/forum', 'Laravel.io') !!}</li>
             <li>{!! Html::link('https://laramap.com', 'Laramap') !!}</li>
-            <li>{!! Html::link('https://larajobs.com', 'Larajobs') !!}</li>
             <li>{!! Html::link('https://larachat.co', 'Larachat') !!}</li>
         </ul>
     </div>
