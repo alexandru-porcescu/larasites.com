@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ $title or 'Larasites.com - Showcasing the best websites made using Laravel & Lumen.' }}</title>
+        <title>{{ $title or 'Larasites - Showcasing the best websites made using Laravel & Lumen.' }}</title>
         <meta name="description" content="Showcasing the best websites made using Laravel & Lumen.">
         <meta name="keywords" content="laravel, lumen, php, framework, web, artisans, larasites">
         {!! Html::style(elixir('css/style.css')) !!}

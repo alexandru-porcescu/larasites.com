@@ -1,4 +1,4 @@
-@extends('layout', ['title' => 'Terms of Service | Larasites.com'])
+@extends('layout', ['title' => 'Larasites - Terms of Service'])
 
 @section('content')
 <main class="main" role="main">
