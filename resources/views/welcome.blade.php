@@ -25,9 +25,9 @@
                             <p class="card__synopsis">{{ $site->description }}</p>
                             <div class="meta">
                                 @if ($site->user->cloudinary_public_id)
-                                    {!! Html::image(cloudinary_url($user->cloudinary_public_id, ['secure' => true, 'format' => 'jpg', 'width' => 30, 'height' => 30]), '@' . $user->twitter_nickname, ['width' => 30, 'height' => 30, 'class' => 'meta__img']) !!}
+                                    {!! Html::image(cloudinary_url($site->user->cloudinary_public_id, ['secure' => true, 'format' => 'jpg', 'width' => 30, 'height' => 30]), '@' . $site->user->twitter_nickname, ['width' => 30, 'height' => 30, 'class' => 'meta__img']) !!}
                                 @elseif ($site->user->twitter_avatar)
-                                    {!! Html::image($user->twitter_avatar, '@' . $user->twitter_nickname, ['width' => 30, 'height' => 30, 'class' => 'meta__img']) !!}
+                                    {!! Html::image($site->user->twitter_avatar, '@' . $site->user->twitter_nickname, ['width' => 30, 'height' => 30, 'class' => 'meta__img']) !!}
                                 @endif
                                 <p class="meta__synopsis">
                                     <a href="{{ $site->url }}">{{ $site->host }}</a> submitted by <a href="https://twitter.com/{{ $site->user->twitter_nickname }}">{{ '@' . $site->user->twitter_nickname }}</a>
