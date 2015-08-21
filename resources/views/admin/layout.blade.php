@@ -12,7 +12,7 @@
     <body>
         <br>
         <div class="container">
-            @include('header')
+            @include('admin.header')
             <hr>
             @yield('content')
         </div>

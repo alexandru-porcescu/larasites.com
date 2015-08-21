@@ -1,0 +1,1 @@
+{!! Html::link('/', 'Larasites.com') !!}
