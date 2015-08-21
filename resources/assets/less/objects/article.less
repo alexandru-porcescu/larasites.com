@@ -1,0 +1,126 @@
+/* -------------------------------------------------------------------------- *\
+   $ARTICLE
+\* -------------------------------------------------------------------------- */
+
+.article {
+    background-color: @color-white;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1em;
+
+    /**
+     * Block Quote
+     */
+
+    blockquote {
+        .blockquote();
+    }
+
+    /**
+     * Figure
+     */
+
+    figure {
+        .figure();
+    }
+
+    /**
+     * Horizontal Rule
+     */
+
+    hr {
+        .hr();
+    }
+
+    /**
+     * Image
+     */
+
+    img {
+        height: auto;
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
+
+    /**
+     * Lists
+     */
+
+    dl,
+    ol,
+    ul {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding-left: 2em;
+
+        dd,
+        dt,
+        li {
+            margin-bottom: 1em;
+
+            /**
+             * Anchor
+             */
+
+            a {
+                .anchor();
+                word-break: break-all;
+            }
+        }
+    }
+
+    /**
+     * Paragraph
+     */
+
+    p {
+        margin-top: 1em;
+        margin-bottom: 1em;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    /**
+     * Narrow
+     */
+
+    &.article--narrow {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 57.5em; /* 920 / 16 */
+    }
+}
+
+@media all and (min-width: @bp-small) {
+
+    .article {
+        padding: 4em;
+
+        dd,
+        dt,
+        li {
+            font-size: 1.375em; /* 22 / 16 */
+
+            dd,
+            dt,
+            li {
+                font-size: 1em;
+            }
+        }
+
+        p {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        .u-pull--right {
+            margin-left: 2em;
+        }
+
+        .u-pull--left {
+            margin-right: 2em;
+        }
+    }
+}

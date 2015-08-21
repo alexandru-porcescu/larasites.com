@@ -1,13 +1,11 @@
-<div class="row">
-    <div class="col-md-8">
-        <p><b>{!! Html::link('/', 'Larasites.com') !!}</b> <span class="text-muted">Showcasing the best websites made using Laravel & Lumen.</span></p>
+<header class="header header--primary" role="banner">
+    <div class="l-wrapper">
+        <a class="logo" href="index.html">
+            <img src="{{ url('assets/images/logo-larasites-162x53.png') }}" srcset="{{ url('assets/images/logo-larasites-324x106.png') }} 2x" width="162" height="53" alt="Larasites logo">
+        </a>
+
+        <a class="btn btn--white btn--icon" href="{{ action('SubmitController@showSubmitForm') }}">
+            <span class="icon icon--left fa fa-twitter" aria-hidden="true"></span> Submit <span class="u-hide--small">a Site</span>
+        </a>
     </div>
-    @if (Auth::user())
-        <div class="col-md-4 text-right">
-            <p>
-                {{ '@' . strtolower(Auth::user()->twitter_nickname) }}
-                {!! Html::linkAction('Auth\AuthController@logout', 'logout') !!}
-            </p>
-        </div>
-    @endif
-</div>
+</header>

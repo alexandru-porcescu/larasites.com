@@ -14,4 +14,6 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.less('style.less');
     mix.version('css/style.css');
+    mix.copy('resources/assets/fonts', 'public/build/fonts');
+    mix.copy('resources/assets/images', 'public/assets/images');
 });

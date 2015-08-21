@@ -1,0 +1,43 @@
+/* -------------------------------------------------------------------------- *\
+   $HEADINGS
+\* -------------------------------------------------------------------------- */
+
+h1, .alpha {
+    .heading(@h1-font-size, @h1-font-size-large);
+}
+
+h2, .beta {
+    .heading(@h2-font-size, @h2-font-size-large);
+}
+
+h3, .gamma {
+    .heading(@h3-font-size, @h3-font-size-large);
+}
+
+h4, .delta {
+    .heading(@h4-font-size, @h4-font-size-large);
+}
+
+h5, .epsilon {
+    .heading(@h5-font-size, @h5-font-size-large);
+}
+
+h6, .zeta {
+    .heading(@h6-font-size, @h6-font-size-large);
+}
+
+/**
+ * Mixin
+ */
+
+.heading(@font-size, @font-size-large) {
+    font-size: @font-size;
+    font-weight: @weight-semi-bold;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 1em;
+
+    @media all and (min-width: @bp-small) {
+        font-size: @font-size-large;
+    }
+}

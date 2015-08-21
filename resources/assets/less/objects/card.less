@@ -1,0 +1,151 @@
+/* -------------------------------------------------------------------------- *\
+   $CARD
+\* -------------------------------------------------------------------------- */
+
+.card {
+    background-color: @color-white;
+    border-radius: 5px;
+
+    /**
+     * Logo
+     */
+
+    .card__logo {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        .clearfix();
+        padding: 1em;
+
+        img {
+            border: 3px solid @color-white;
+            border-radius: 5px;
+            display: block;
+            float: left;
+            height: auto;
+            max-width: 3.5em; /* 56 / 16 */
+        }
+    }
+
+    /**
+     * Vote
+     */
+
+    .card-vote {
+        color: @color-white;
+        float: right;
+        font-weight: @weight-bold;
+        margin-top: 0.4375em;
+        padding: 0.5em;
+        text-align: center;
+        text-decoration: none;
+
+        /**
+         * Link
+         */
+
+        .card-vote__link {
+            color: @color-white;
+            text-decoration: none;
+        }
+
+        /**
+         * Count
+         */
+
+        .card-vote__count {
+            margin-left: 0.25em;
+        }
+    }
+
+    /**
+     * Contents
+     */
+
+    .card-contents {
+        padding: 1em;
+    }
+
+    /**
+     * Title
+     */
+
+    .card__title {
+        font-size: @h3-font-size;
+        margin-bottom: 0.6125em;
+
+        a {
+            color: @color-gray-dark;
+            text-decoration: none;
+            .transition(color 0.25s);
+
+            &:focus,
+            &:hover {
+                color: @color-primary;
+            }
+        }
+    }
+
+    /**
+     * Synopsis
+     */
+
+    .card__synopsis {
+        font-size: 1em;
+    }
+}
+
+/**
+ * Cards
+ */
+
+.cards {
+
+    .card {
+        margin-bottom: 3em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media all and (min-width: @bp-small) {
+
+    .card {
+        .clearfix();
+        padding: 1.5em;
+
+        .card__logo {
+            float: left;
+            border-radius: 5px;
+            padding: 0;
+
+            img {
+                border: 0;
+                border-radius: 0;
+                float: none;
+                margin: 1em;
+                max-width: 100%;
+            }
+        }
+
+        .card-vote {
+            border-top: 3px solid @color-white;
+            float: none;
+            margin-top: 0;
+        }
+
+        .card-contents {
+            margin-left: 13.375em; /* 214 / 16 */
+            padding: 0;
+        }
+
+        .card__title {
+            font-size: @h3-font-size-large;
+        }
+
+        .card__synopsis {
+            font-size: 1.375em; /* 22 / 16 */
+        }
+    }
+}

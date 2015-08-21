@@ -1,0 +1,36 @@
+/* -------------------------------------------------------------------------- *\
+   $USER
+\* -------------------------------------------------------------------------- */
+
+.user {
+
+    /**
+     * Image
+     */
+
+    .user__img {
+        border: 3px solid @color-white;
+        border-radius: 100%;
+    }
+
+    /**
+     * Link
+     */
+
+    .user__link {
+        border-bottom: 3px solid transparent;
+        color: @color-white;
+        font-size: 0.875em;
+        font-weight: @weight-bold;
+        margin-left: 0.875em;
+        padding-bottom: 0.25em;
+        text-decoration: none;
+        text-transform: uppercase;
+        .transition(border-color 0.25s);
+
+        &:focus,
+        &:hover {
+            border-bottom-color: @color-white;
+        }
+    }
+}

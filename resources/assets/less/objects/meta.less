@@ -1,0 +1,56 @@
+/* -------------------------------------------------------------------------- *\
+   $META
+\* -------------------------------------------------------------------------- */
+
+.meta {
+    .clearfix();
+
+    /**
+     * Image
+     */
+
+    .meta__img {
+        border-radius: 100%;
+        float: left;
+    }
+
+    /**
+     * Synopsis
+     */
+
+    .meta__synopsis {
+        font-family: @font-secondary;
+        font-size: 0.875em; /* 14 / 16 */
+        font-style: italic;
+        margin-top: 0.3125em;
+        margin-bottom: 0;
+        margin-left: 3em;
+
+        /**
+         * Anchor
+         */
+
+        a {
+            border-bottom-color: transparent;
+            font-family: @font;
+            font-style: normal;
+            font-weight: @weight-bold;
+            text-transform: uppercase;
+
+            &:focus,
+            &:hover {
+                border-bottom-color: transparent;
+            }
+        }
+
+        /**
+         * Label
+         */
+
+        .meta__label {
+            font-family: @font;
+            font-style: normal;
+            text-transform: uppercase;
+        }
+    }
+}

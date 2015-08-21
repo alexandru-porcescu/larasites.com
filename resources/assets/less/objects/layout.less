@@ -1,0 +1,111 @@
+/**
+ * LAYOUT
+ */
+
+/* -------------------------------------------------------------------------- *\
+   TABLE OF CONTENTS
+\* -------------------------------------------------------------------------- */
+
+/**
+ * WRAPPER
+ * SECTION
+ */
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $WRAPPER
+\* -------------------------------------------------------------------------- */
+
+.l-wrapper {
+    .clearfix();
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 70em; /* 1120 / 16 */
+    position: relative;
+    width: 90%;
+
+    /**
+     * Center
+     */
+
+    &.l-wrapper--center {
+        text-align: center;
+    }
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $SECTION
+\* -------------------------------------------------------------------------- */
+
+.l-section {
+    padding-top: 3em;
+    padding-bottom: 3em;
+
+    /**
+     * Image
+     */
+
+    .l-image {
+        height: auto;
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
+
+    /**
+     * Paragraph
+     */
+
+    p {
+
+        /**
+         * Button
+         */
+
+        &+ .btn {
+            margin-top: 1em;
+        }
+    }
+
+    /**
+     * Background
+     */
+
+    &.l-section--background {
+        background-color: @color-silver;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        min-height: 15em; /* 240 / 16 */
+    }
+
+    /**
+     * Flat
+     */
+
+    &.l-section--flat {
+        background-color: @color-silver;
+        min-height: 10em; /* 160 / 16 */
+    }
+}
+
+@media all and (min-width: @bp-small) {
+
+    .l-section {
+
+        &.l-section--background {
+            background-size: auto;
+            min-height: 41.5em; /* 664 / 16 */
+
+            .form {
+                margin-top: 2.5em;
+            }
+        }
+    }
+}

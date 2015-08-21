@@ -10,16 +10,9 @@
         {!! Html::style(elixir('css/style.css')) !!}
     </head>
     <body>
-        <br>
-        <div class="container">
-            @include('header')
-            <hr>
-            @yield('content')
-            <hr>
-            @include('footer')
-        </div>
-        <br>
-        <br>
+        @include('header')
+        @yield('content')
+        @include('footer')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.min.js"></script>
         <script>$('time.timeago').timeago();</script>

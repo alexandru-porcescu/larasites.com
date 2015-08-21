@@ -1,29 +1,59 @@
-<div class="row">
-    <div class="col-md-4">
-        <ul class="list-unstyled">
-            <li class="text-muted">Made by {!! Html::link('http://www.wearenext.co.za', 'Next') !!} in Cape Town</li>
-            <li>{!! Html::link('https://github.com/we-are-next/www.larasites.com', 'Fork me on GitHub') !!}</li>
-        </ul>
+<footer class="footer footer--primary" role="contentinfo">
+    <div class="l-wrapper">
+        <nav class="nav nav--vertical" role="navigation">
+            <div class="row">
+                <div class="col col-1-3">
+                    <div class="header header--section">
+                        <h6 class="hN">About</h6>
+                    </div>
+
+                    <p>This is a showcase of the world’s best Laravel and Lumen powered websites. We’re constantly
+                       amazed by what people are doing with Laravel. So, get inspired. Ship something and share it
+                       here.</p>
+                </div>
+
+                <div class="col col-1-3">
+                    <div class="header header--section">
+                        <h6 class="hN">Community</h6>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-1-2">
+                            <ol class="list">
+                                <li><a href="http://laravel.com">Laravel</a></li>
+                                <li><a href="http://lumen.laravel.com">Lumen</a></li>
+                                <li><a href="https://laracasts.com">Laracasts</a></li>
+                                <li><a href="https://larajobs.com">Larajobs</a></li>
+                                <li><a href="https://laramap.com">Laramap</a></li>
+                            </ol>
+                        </div>
+                        <div class="col col-1-2">
+                            <ol class="list">
+                                <li><a href="https://larachat.co">Larachat</a></li>
+                                <li><a href="https://laravel-news.com">Laravel News</a></li>
+                                <li><a href="http://laravel.io">Laravel.io</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-1-3">
+                    <div class="header header--section">
+                        <h6 class="hN">Legal</h6>
+                    </div>
+
+                    <ol class="list">
+                        <li><a href="{{ action('PageController@showTermsOfService') }}">Terms of Service</a></li>
+                        <li><a href="{{ action('PageController@showPrivacyPolicy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ action('PageController@showContributorsGuide') }}">Contributors Guide</a></li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+
+        <img class="logo" src="{{ url('assets/images/next-loves-laravel-78x28.png') }}" srcset="{{ url('assets/images/next-loves-laravel-156x56.png') }} 2x" width="78" height="28" alt="Next ♥ Laravel">
+
+        <p class="u-align--center"><small>Made by <a href="http://www.wearenext.co.za">Next</a> in Cape Town, South Africa for <a href="http://laravel.com">Laravel</a>
+            heads everywhere.</small></p>
     </div>
-    <div class="col-md-4">
-        <ul class="list-unstyled">
-            <li><b class="text-muted">Legal</b></li>
-            <li>{!! Html::link('terms-of-service', 'Terms of Service') !!}</li>
-            <li>{!! Html::link('privacy-policy', 'Privacy Policy') !!}</li>
-            <li>{!! Html::link('contributors-guide', 'Contributors Guide') !!}</li>
-        </ul>
-    </div>
-    <div class="col-md-4">
-        <ul class="list-unstyled">
-            <li><b class="text-muted">Community</b></li>
-            <li>{!! Html::link('http://laravel.com', 'Laravel') !!}</li>
-            <li>{!! Html::link('http://lumen.laravel.com', 'Lumen') !!}</li>
-            <li>{!! Html::link('https://larajobs.com', 'Larajobs') !!}</li>
-            <li>{!! Html::link('https://laracasts.com', 'Laracasts') !!}</li>
-            <li>{!! Html::link('https://laravel-news.com', 'Laravel News') !!}</li>
-            <li>{!! Html::link('http://laravel.io/forum', 'Laravel.io') !!}</li>
-            <li>{!! Html::link('https://laramap.com', 'Laramap') !!}</li>
-            <li>{!! Html::link('https://larachat.co', 'Larachat') !!}</li>
-        </ul>
-    </div>
-</div>
+</footer>

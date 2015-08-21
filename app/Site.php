@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Color;
 use Carbon\Carbon;
+use League\Url\UrlImmutable;
 
 class Site extends Model
 {
@@ -51,5 +52,12 @@ class Site extends Model
         $vibe = Color::rgbToHex($rgb);
 
         return new Color($vibe);
+    }
+
+    public function getHostAttribute()
+    {
+        $url = UrlImmutable::createFromUrl($this->url);
+
+        return $url->getHost();
     }
 }

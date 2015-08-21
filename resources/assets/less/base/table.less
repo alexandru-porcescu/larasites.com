@@ -1,0 +1,126 @@
+/* -------------------------------------------------------------------------- *\
+   $TABLE
+\* -------------------------------------------------------------------------- */
+
+.table {
+    border: 3px solid @color-white;
+    margin-bottom: 1em;
+    width: 100%;
+
+    /**
+     * Caption
+     */
+
+    .table__caption {
+        font-size: 1.375em; /* 22 / 16 */
+        font-weight: @weight-bold;
+        margin-bottom: 1em;
+        text-align: left;
+    }
+
+    thead {
+        display: none;
+
+        th {
+            background-color: @color-white;
+            border-right: 3px solid @color-white-dark;
+            border-bottom: 3px solid @color-gray-dark;
+            color: @color-gray-dark;
+            font-size: 0.875em; /* 14 / 16 */
+            font-weight: @weight-bold;
+            padding: 0.75em 1.25em;
+            text-align: left;
+            text-transform: uppercase;
+        }
+    }
+
+    tbody {
+
+        tr {
+
+            &:last-child {
+
+                td {
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    td {
+        border-bottom: 3px solid @color-white;
+        display: block;
+        padding: 0.5em 1em;
+        text-align: right;
+
+        &:before {
+            content: attr(data-label);
+            float: left;
+            font-weight: @weight-bold;
+        }
+    }
+
+    tfoot {
+        background-color: @color-white;
+        font-style: italic;
+        text-align: left;
+
+        tr {
+
+            &:first-child {
+
+                td {
+                    border-top: 2px solid @color-gray;
+                }
+            }
+
+            &:nth-child(odd) {
+                background-color: inherit;
+            }
+        }
+
+        td {
+            border-bottom: 0;
+        }
+
+        a {
+            .anchor();
+        }
+    }
+}
+
+@media all and (min-width: @bp-small) {
+
+    .table {
+
+        thead {
+            display: table-header-group;
+        }
+
+        td {
+            border-right: 3px solid @color-white;
+            display: table-cell;
+            text-align: left;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        tfoot {
+
+            tr {
+
+                &:first-child {
+
+                    td {
+                        border-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
