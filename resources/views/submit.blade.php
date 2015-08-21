@@ -9,11 +9,15 @@
                     <input class="input" type="text" id="url" name="url" placeholder="http://" maxlength="100" value="{{ old('url') }}" autofocus>
 
                     <input class="btn" type="submit" id="submit" name="submit" value="Submit">
-
-                    @if (count($errors) > 0)
-                        <p>{{ $errors->first() }}</p>
-                    @endif
                 {!! Form::close() !!}
+
+                @if (count($errors) > 0)
+                    <div class="alert alert--error js-alert" role="alert">
+                        <p class="alert__message">
+                            <b>Oh snap!</b> {{ $errors->first() }}.
+                        </p>
+                    </div>
+                @endif
             </div>
         </div>
     </main>

@@ -54,12 +54,12 @@
 
         .input {
             margin-top: 0;
-            padding-right: 2.75em;
+            padding-right: 4.75em;
 
             &:focus,
             &:hover {
                 background-color: @color-white-dark;
-                border-color: @color-white-dark;
+                border-color: @color-white;
             }
         }
 
@@ -85,7 +85,7 @@
 
                 &.label--checkbox {
                     margin-bottom: 0;
-                    padding-top: 0.25em;
+                    padding-top: 0.625em;
 
                     .input {
                         float: none;
@@ -118,6 +118,21 @@
             background-color: @color-white;
             border-radius: 5px;
             padding: 1.5em;
+
+            &+ .alert {
+                margin-top: -3em;
+            }
+
+            .input {
+                font-size: 1.375em; /* 22 / 16 */
+                height: 2.182em; /* 48 / 22 */
+
+                &:focus,
+                &:hover {
+                    background-color: @color-white-dark;
+                    border-color: @color-white-dark;
+                }
+            }
 
             .btn {
                 right: 24px;
@@ -330,13 +345,9 @@ textarea {
 
         &[disabled="disabled"] {
             background-color: @color-gray;
+            border-color: @color-gray;
             color: @color-white;
             cursor: not-allowed;
-
-            &:focus,
-            &:hover {
-                border-color: @color-gray;
-            }
         }
 
         /**
@@ -399,7 +410,7 @@ textarea {
     color: @color-gray-dark;
     display: block;
     font-weight: @weight-normal;
-    padding-top: 0.625em;
+    padding-top: 0.25em;
     padding-left: 0.125em;
     text-transform: none;
 
