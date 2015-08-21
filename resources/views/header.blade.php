@@ -1,6 +1,6 @@
 <header class="header header--primary" role="banner">
     <div class="l-wrapper">
-        <a class="logo" href="index.html">
+        <a class="logo" href="{{ url('/') }}">
             <img src="{{ url('assets/images/logo-larasites-162x53.png') }}" srcset="{{ url('assets/images/logo-larasites-324x106.png') }} 2x" width="162" height="53" alt="Larasites logo">
         </a>
 
