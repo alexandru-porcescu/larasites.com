@@ -10,8 +10,7 @@
      */
 
     .meta__img {
-        border-radius: 100%;
-        float: left;
+        display: none;
     }
 
     /**
@@ -24,7 +23,6 @@
         font-style: italic;
         margin-top: 0.3125em;
         margin-bottom: 0;
-        margin-left: 3em;
 
         /**
          * Anchor
@@ -51,6 +49,22 @@
             font-family: @font;
             font-style: normal;
             text-transform: uppercase;
+        }
+    }
+}
+
+@media all and (min-width: @bp-small) {
+
+    .meta {
+
+        .meta__img {
+            border-radius: 100%;
+            display: block;
+            float: left;
+        }
+
+        .meta__synopsis {
+            margin-left: 3em;
         }
     }
 }

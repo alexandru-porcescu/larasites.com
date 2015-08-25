@@ -14,11 +14,42 @@
         padding-bottom: 1.3125em; /* 21 / 16 */
 
         /**
+         * Logo
+         */
+
+        .logo {
+            display: inline-block;
+            float: left;
+        }
+
+        /**
          * Button
          */
 
         .btn {
             float: right;
+        }
+
+        /**
+         * Strapline
+         */
+
+        .strapline {
+            clear: both;
+            color: @color-white;
+            font-family: @font-secondary;
+            font-size: 0.875em; /* 14 / 16 */
+            font-style: italic;
+            font-weight: @weight-normal;
+            margin-bottom: 0;
+            padding-top: 1.25em;
+
+            strong {
+                font-family: @font;
+                font-style: normal;
+                font-weight: @weight-bold;
+                text-transform: uppercase;
+            }
         }
 
         /**
@@ -50,6 +81,22 @@
             font-weight: @weight-bold;
             margin-bottom: 0;
             text-transform: uppercase;
+        }
+    }
+}
+
+@media all and (min-width: @bp-small) {
+
+    .header {
+
+        &.header--primary {
+
+            .strapline {
+                clear: none;
+                float: right;
+                margin-right: 1.0625em;
+                padding-top: 1.125em;
+            }
         }
     }
 }

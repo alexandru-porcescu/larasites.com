@@ -7,22 +7,50 @@
     border-radius: 5px;
 
     /**
+     * Header
+     */
+
+    .card-header {
+        border-bottom: 3px solid @color-white-dark;
+        .clearfix();
+        padding: 1em;
+
+        /**
+         * Logo
+         */
+
+        .card__logo {
+            float: left;
+            height: 3.125em; /* 50 / 16 */
+        }
+
+        /**
+         * Vote
+         */
+
+        .card__vote {
+            float: right;
+            margin-top: 0.375em;
+        }
+    }
+
+    /**
      * Logo
      */
 
     .card__logo {
-        border-top-right-radius: 5px;
-        border-top-left-radius: 5px;
-        .clearfix();
-        padding: 1em;
+        position: relative;
 
         img {
-            border: 3px solid @color-white;
             border-radius: 5px;
-            display: block;
-            float: left;
+            bottom: 50%;
             height: auto;
-            max-width: 3.5em; /* 56 / 16 */
+            margin: auto;
+            max-height: 3.125em; /* 50 / 16 */
+            max-width: 3.125em; /* 50 / 16 */
+            position: absolute;
+            top: 50%;
+            width: auto;
         }
     }
 
@@ -30,38 +58,49 @@
      * Vote
      */
 
-    .card-vote {
-        color: @color-white;
-        float: right;
+    .card__vote {
+        border: 3px solid transparent;
+        border-radius: 5px;
+        color: @color-primary;
         font-weight: @weight-bold;
-        margin-top: 0.4375em;
-        padding: 0.5em;
-        text-align: center;
+        padding: 0.25em 0.625em;
         text-decoration: none;
+        .transition(background-color 0.25s, border-color 0.25s;);
 
-        /**
-         * Link
-         */
-
-        .card-vote__link {
-            color: @color-white;
-            text-decoration: none;
+        &:focus,
+        &:hover {
+            border-color: @color-primary;
         }
 
         /**
-         * Count
+         * Icon
          */
 
-        .card-vote__count {
-            margin-left: 0.25em;
+        .icon {
+            margin-right: 0.25em;
+        }
+
+        /**
+         * Voted
+         */
+
+        &.card__vote--voted {
+            background-color: @color-primary;
+            color: @color-white;
+
+            &:focus,
+            &:hover {
+                background-color: @color-white;
+                color: @color-primary;
+            }
         }
     }
 
     /**
-     * Contents
+     * Body
      */
 
-    .card-contents {
+    .card-body {
         padding: 1em;
     }
 
@@ -115,28 +154,31 @@
         .clearfix();
         padding: 1.5em;
 
-        .card__logo {
+        .card-header {
+            border-bottom: 0;
             float: left;
-            border-radius: 5px;
             padding: 0;
+            text-align: center;
 
-            img {
-                border: 0;
-                border-radius: 0;
+            .card__logo {
                 float: none;
-                margin: 1em;
-                max-width: 100%;
+                height: auto;
+                margin-bottom: 1.5em;
+
+                img {
+                    max-height: 100%;
+                    max-width: 9.375em; /* 150 / 16 */
+                    position: relative;
+                }
+            }
+
+            .card__vote {
+                float: none;
             }
         }
 
-        .card-vote {
-            border-top: 3px solid @color-white;
-            float: none;
-            margin-top: 0;
-        }
-
-        .card-contents {
-            margin-left: 13.375em; /* 214 / 16 */
+        .card-body {
+            margin-left: 12.375em; /* 198 / 16 */
             padding: 0;
         }
 
