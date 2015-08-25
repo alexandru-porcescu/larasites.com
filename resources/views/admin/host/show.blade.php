@@ -7,7 +7,7 @@
     <p><b>Submissions</b></p>
     @forelse ($submissions as $submission)
         <p>
-            @include('user', ['user' => $submission->user])
+            {!! Html::linkAction('Admin\UserController@show', '@' . $submission->user->twitter_nickname, [$submission->user->twitter_id]) !!}
             submitted {!! Html::link($submission->url) !!}
             {!! timeago($submission->created_at) !!}
         </p>
