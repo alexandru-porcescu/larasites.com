@@ -8,4 +8,7 @@
     .site-{{ $site->id }} .card__vote.card__vote--voted {
         background-color: {{ '#' . $site->color->getHex() }};
     }
+    .site-{{ $site->id }} .card__vote.card__vote--voted:focus, .site-{{ $site->id }} .card__vote.card__vote--voted:hover {
+        color: {{ '#' . $site->color->getHex() }};
+    }
 </style>
