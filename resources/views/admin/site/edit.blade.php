@@ -41,7 +41,7 @@
 
     <hr>
 
-    {!! Form::submit('Update', ['class' => 'btn btn-default']) !!}
+    {!! Form::submit('Update', ['class' => 'btn btn-secondary']) !!}
 
     {!! Form::close($site) !!}
 @stop

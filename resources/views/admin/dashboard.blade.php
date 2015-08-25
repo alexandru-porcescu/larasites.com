@@ -8,7 +8,7 @@
 
     @forelse ($sites as $site)
         <p>
-            {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-default btn-xs']) !!}
+            {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
             {!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}
             was created by
             {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($site->creator->twitter_nickname), [$site->creator->twitter_id]) !!}
@@ -24,7 +24,7 @@
 
     @forelse ($hosts as $host)
         <p>
-            {!! Html::linkAction('Admin\SiteController@create', 'Create site', ['host' => $host->name], ['class' => 'btn btn-default btn-xs']) !!}
+            {!! Html::linkAction('Admin\SiteController@create', 'Create site', ['host' => $host->name], ['class' => 'btn btn-secondary btn-sm']) !!}
             {!! Html::linkAction('Admin\HostController@show', $host->name, [$host->name]) !!}
             was created {!! timeago($host->created_at) !!}
         </p>

@@ -42,7 +42,7 @@
 
     <hr>
 
-    {!! Form::submit('Create', ['class' => 'btn btn-default']) !!}
+    {!! Form::submit('Create', ['class' => 'btn btn-secondary']) !!}
 
     {!! Form::close() !!}
 @stop

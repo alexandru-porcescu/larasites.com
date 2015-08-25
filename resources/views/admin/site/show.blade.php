@@ -20,18 +20,18 @@
 
     <hr>
 
-    {!! Html::linkAction('Admin\SiteController@edit', 'Edit', [$site->id], ['class' => 'btn btn-default']) !!}
+    {!! Html::linkAction('Admin\SiteController@edit', 'Edit', [$site->id], ['class' => 'btn btn-secondary']) !!}
 
     @if ($site->approved_at)
-        <a href="#" class="btn btn-default btn-disabled" disabled>Approved {!! timeago($site->approved_at) !!}</a>
-        {!! Html::linkAction('Admin\SiteController@unapprove', 'Unapprove', [$site->id], ['class' => 'btn btn-default']) !!}
+        <a href="#" class="btn btn-secondary btn-disabled" disabled>Approved {!! timeago($site->approved_at) !!}</a>
+        {!! Html::linkAction('Admin\SiteController@unapprove', 'Unapprove', [$site->id], ['class' => 'btn btn-secondary']) !!}
     @else
-        {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-default']) !!}
+        {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-secondary']) !!}
     @endif
 
     <hr>
 
     {!! Form::open(['method' => 'delete', 'url' => action('Admin\SiteController@destroy', [$site->id])]) !!}
-    {!! Form::submit('Delete', ['class' => 'btn btn-default btn-danger']) !!}
+    {!! Form::submit('Delete', ['class' => 'btn btn-secondary btn-danger']) !!}
     {!! Form::close() !!}
 @stop

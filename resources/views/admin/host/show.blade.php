@@ -17,11 +17,11 @@
 
     <hr>
 
-    {!! Html::linkAction('Admin\SiteController@create', 'Create site', ['host' => $host->name], ['class' => 'btn btn-default']) !!}
+    {!! Html::linkAction('Admin\SiteController@create', 'Create site', ['host' => $host->name], ['class' => 'btn btn-secondary']) !!}
 
     <hr>
 
     {!! Form::open(['method' => 'delete', 'url' => action('Admin\HostController@destroy', [$host->name])]) !!}
-    {!! Form::submit('Delete', ['class' => 'btn btn-default btn-danger']) !!}
+    {!! Form::submit('Delete', ['class' => 'btn btn-secondary btn-danger']) !!}
     {!! Form::close() !!}
 @stop
