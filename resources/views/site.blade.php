@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card site-{{ $site->id }}">
     <div class="card-header">
         <div class="card__logo">
             <a href="{{ $site->url }}">

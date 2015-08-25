@@ -8,6 +8,7 @@
         <div class="l-wrapper">
             <div class="cards">
                 @foreach ($sites as $site)
+                    @include('site-css', compact('site'))
                     @include('site', compact('site'))
                 @endforeach
             </div><!-- .cards -->
