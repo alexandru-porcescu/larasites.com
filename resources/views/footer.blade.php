@@ -7,7 +7,7 @@
                         <h6 class="hN">About</h6>
                     </div>
 
-                    <p>This is a showcase of the world’s best Laravel and Lumen powered websites. We’re constantly
+                    <p>Larasites is a showcase of the world’s best Laravel and Lumen powered websites. We’re constantly
                        amazed by what people are doing with Laravel. So, get inspired. Ship something and share it
                        here.</p>
                 </div>
@@ -53,7 +53,8 @@
 
         <img class="logo" src="{{ url('assets/images/next-loves-laravel-78x28.png') }}" srcset="{{ url('assets/images/next-loves-laravel-156x56.png') }} 2x" width="78" height="28" alt="Next ♥ Laravel">
 
-        <p class="u-align--center"><small>Made by <a href="http://www.wearenext.co.za">Next</a> in Cape Town, South Africa for <a href="http://laravel.com">Laravel</a>
-            heads everywhere.</small></p>
+        <p class="u-align--center">
+            <small>Made by <a href="http://www.wearenext.co.za">Next</a> in Cape Town, South Africa for <a href="http://laravel.com">Laravel</a> heads everywhere.</small>
+        </p>
     </div>
 </footer>
