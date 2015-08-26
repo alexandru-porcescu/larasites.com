@@ -28,7 +28,7 @@
 
     <div class="form-group {{ $errors->has('image_url') ? 'has-error' : '' }}">
         <label class="control-label">Image URL</label>
-        {!! Form::text('image_url', 'https://logo.clearbit.com/' . $host->name, ['class' => 'form-control']) !!}
+        {!! Form::text('image_url', 'https://logo.clearbit.com/' . $host->name . '?size=150', ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group {{ $errors->has('red') || $errors->has('green') || $errors->has('blue') ? 'has-error' : '' }}">
