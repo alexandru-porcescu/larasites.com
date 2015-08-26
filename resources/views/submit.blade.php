@@ -14,8 +14,12 @@
                 @if (count($errors) > 0)
                     <div class="alert alert--error js-alert" role="alert">
                         <p class="alert__message">
-                            <b>Oh snap!</b> {{ $errors->first() }}.
+                            <b>Oh snap!</b> {{ $errors->first() }}
                         </p>
+                    </div>
+                @else
+                    <div class="alert alert--info js-alert" role="alert">
+                        <p class="alert__message"><b>Hey!</b> We feature sites that are functional, performant and pretty. <a href="{{ action('PageController@showContributorsGuide') }}">See our Contributors Guide</a>.</p>
                     </div>
                 @endif
             </div>

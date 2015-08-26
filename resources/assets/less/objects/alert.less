@@ -17,18 +17,23 @@
     .alert__message {
         font-size: 1em;
         margin-bottom: 0;
-    }
 
-    /**
-     * Link
-     */
+        /**
+         * Anchor
+         */
 
-    .alert__link {
-        border-bottom: 1px solid @color-white;
-        color: @color-white;
-        font-weight: @weight-bold;
-        text-decoration: none;
-        .transition(border-color 0.25s, color 0.25s;);
+        a {
+            border-bottom: 1px solid @color-white-dark;
+            color: @color-white;
+            font-weight: @weight-bold;
+            text-decoration: none;
+            .transition(border-color 0.25s);
+
+            &:focus,
+            &:hover {
+                border-bottom-color: @color-white;
+            }
+        }
     }
 
     /**
@@ -38,7 +43,7 @@
     .alert__dismiss {
         background-color: transparent;
         border: 0;
-        color: @color-black;
+        color: @color-white;
         display: block;
         opacity: 0.5;
         position: absolute;
