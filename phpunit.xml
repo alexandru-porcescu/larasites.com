@@ -29,6 +29,6 @@
         <env name="CLOUDINARY_CLOUD_NAME" value="test"/>
         <env name="CLOUDINARY_API_KEY" value="test"/>
         <env name="CLOUDINARY_API_SECRET" value="test"/>
-        <env name="SENTRY_DSN" value="test"/>
+        <env name="SENTRY_DSN" value="https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@app.getsentry.com/xxxxx"/>
     </php>
 </phpunit>
