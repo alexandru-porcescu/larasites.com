@@ -10,8 +10,6 @@ __/\\\\\_____/\\\____________________________________________
        _\/\\\___\//\\\\\__\//\\\\\\\\\\__/\\\/\///\\\____\//\\\\\___
         _\///_____\/////____\//////////__\///____\///______\/////____
 
-We are Next.
+Made by Next in Cape Town, South Africa for Laravel heads everywhere.
 
-We help businesses build digital products people love to use.
-
-Find out more → http://www.wearenext.co.za/
+http://www.wearenext.co.za
