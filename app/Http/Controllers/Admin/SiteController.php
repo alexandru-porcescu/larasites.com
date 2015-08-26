@@ -55,6 +55,7 @@ class SiteController extends Controller
             'red'         => ['required', 'numeric', 'min:0', 'max:255'],
             'green'       => ['required', 'numeric', 'min:0', 'max:255'],
             'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
+            'featured'    => ['required', 'boolean'],
         ], $messages);
 
         $site = new Site;
@@ -66,6 +67,7 @@ class SiteController extends Controller
         $site->blue = (int) $request->input('blue');
         $site->user_id = $host->submissions->first()->user->id;
         $site->image_url = $request->input('image_url');
+        $site->featured = (bool) $request->input('featured');
         $site->created_by = Auth::user()->id;
 
         $response = Uploader::upload($request->input('image_url'));
@@ -130,6 +132,7 @@ class SiteController extends Controller
             'red'         => ['required', 'numeric', 'min:0', 'max:255'],
             'green'       => ['required', 'numeric', 'min:0', 'max:255'],
             'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
+            'featured'    => ['required', 'boolean'],
         ], $messages);
 
         $site->url = $request->input('url');
@@ -138,6 +141,7 @@ class SiteController extends Controller
         $site->red = $request->input('red');
         $site->green = $request->input('green');
         $site->blue = $request->input('blue');
+        $site->featured = (bool) $request->input('featured');
 
         if ($site->image_url !== $request->input('image_url')) {
             $response = Uploader::upload($request->input('image_url'));

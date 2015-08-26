@@ -40,6 +40,11 @@
         </div>
     </div>
 
+    <div class="form-group {{ $errors->has('featured') ? 'has-error' : '' }}">
+        <label class="control-label">Featured</label>
+        {!! Form::select('featured', [0 => 'No', 1 => 'Yes'], null, ['class' => 'form-control']) !!}
+    </div>
+
     <hr>
 
     {!! Form::submit('Create', ['class' => 'btn btn-secondary']) !!}

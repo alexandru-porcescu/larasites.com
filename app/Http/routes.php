@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@showWelcome');
+Route::get('/', 'SitesController@showFeatured');
+Route::get('/latest', 'SitesController@showLatest');
+Route::get('/popular', 'SitesController@showPopular');
 
 Route::get('terms-of-service', 'PageController@showTermsOfService');
 Route::get('privacy-policy', 'PageController@showPrivacyPolicy');
