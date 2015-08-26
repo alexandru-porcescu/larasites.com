@@ -22,11 +22,11 @@ class DashboardController extends Controller
             ->take(10)
             ->get();
 
-        $hosts = Host::orderBy('created_at', 'desc')->take(3)->has('site', 0)->get();
+        $hosts = Host::orderBy('created_at', 'desc')->take(10)->has('site', 0)->get();
 
-        $users = User::orderBy('created_at', 'desc')->take(3)->get();
+        $users = User::orderBy('created_at', 'desc')->take(10)->get();
 
-        $votes = Vote::orderBy('created_at', 'desc')->with('user', 'site')->take(3)->get();
+        $votes = Vote::orderBy('created_at', 'desc')->with('user', 'site')->take(10)->get();
 
         $userCount = User::count();
 
