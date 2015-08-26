@@ -28,7 +28,16 @@ class DashboardController extends Controller
 
         $votes = Vote::orderBy('created_at', 'desc')->with('user', 'site')->take(3)->get();
 
+        $userCount = User::count();
+
+        $submissionCount = Submission::count();
+
+        $heartCount = Vote::count();
+
         return view('admin.dashboard', compact(
+            'submissionCount',
+            'heartCount',
+            'userCount',
             'sites',
             'hosts',
             'submissions',

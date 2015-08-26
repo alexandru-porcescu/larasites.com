@@ -4,6 +4,20 @@
     <p class="lead">Dashboard</p>
     <hr>
 
+    <div class="row">
+        <div class="col-md-4">
+            <b>{{ $userCount }}</b> users have joined.
+        </div>
+        <div class="col-md-4">
+            <b>{{ $submissionCount }}</b> url's have been submitted.
+        </div>
+        <div class="col-md-4">
+            <b>{{ $heartCount }}</b> hearts have been given.
+        </div>
+    </div>
+
+    <hr>
+
     <p><b>Sites waiting for approval</b></p>
 
     @forelse ($sites as $site)
