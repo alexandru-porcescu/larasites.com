@@ -1,4 +1,4 @@
-@extends('layout', ['title' => 'Larasites - Thank you!'])
+@extends('layout', ['title' => 'Larasites – Thank you for submitting a site!'])
 
 @section('content')
 <div class="l-section l-section--flat">
