@@ -7,6 +7,7 @@
         <title>{{ $title or 'Larasites – Showcasing the best websites made using Laravel & Lumen' }}</title>
         <meta name="description" content="Showcasing the best websites made using Laravel & Lumen.">
         <meta name="keywords" content="laravel, lumen, php, framework, web, artisans, larasites">
+        <link rel="apple-touch-icon" href="{{ url('apple-touch-icon.png') }}">
         {!! Html::style(elixir('css/style.css')) !!}
         <!-- Web Font -->
         <script>
