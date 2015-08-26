@@ -8,6 +8,20 @@
         <meta name="description" content="Showcasing the best websites made using Laravel & Lumen.">
         <meta name="keywords" content="laravel, lumen, php, framework, web, artisans, larasites">
         {!! Html::style(elixir('css/style.css')) !!}
+        <!-- Web Font -->
+        <script>
+            WebFontConfig = {
+                google: {
+                    families: ['Source+Sans+Pro:400,600,700']
+                }
+            };
+        </script>
+        <!-- Web Font Loader -->
+        <script>
+            (function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https":"http")+
+            "://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js";e.type="text/javascript";e.async="true";
+            var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+        </script>
     </head>
     <body>
         @include('header')
