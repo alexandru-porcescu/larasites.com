@@ -23,6 +23,7 @@
             "://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js";e.type="text/javascript";e.async="true";
             var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
         </script>
+        @yield('head')
     </head>
     <body>
         @include('header')
