@@ -1,6 +1,6 @@
 # Contributors Guide
 
-###The Shprt Version
+###The Short Version
 
 Some rules, protips and advice for contributing to Larasites.com:
 
