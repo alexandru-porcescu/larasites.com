@@ -26,7 +26,9 @@ php artisan migrate --force
 php artisan route:cache
 ```
 
-#### Queue Workers
+#### Queue Worker(s)
+
+A queue worker needs to be running in order to run background jobs.
 
 ```
 Connection              : database
