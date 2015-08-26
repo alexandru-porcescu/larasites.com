@@ -1,4 +1,4 @@
-@extends('layout', ['title' => 'Larasites - Submit Your Site'])
+@extends('layout', ['title' => 'Larasites – Submit Your Site'])
 
 @section('content')
     <main class="main" role="main">
