@@ -38,7 +38,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::resource('user', 'UserController', ['only' => ['show']]);
 });
 
-Route::get('robots.txt', function () {
+Route::get('/robots.txt', function () {
     if (app()->environment('production')) {
         return response('User-Agent: *', 200)
               ->header('Content-Type', 'text/plain');
