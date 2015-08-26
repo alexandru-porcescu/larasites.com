@@ -22,7 +22,7 @@ class Robots
         switch (app()->environment()) {
             case 'production':
                 if ($request->is('robots.txt')) {
-                    return response('User-Agent: *', 200)
+                    return response("User-Agent: *\nDisallow:", 200)
                            ->header('Content-Type', 'text/plain');
                 }
                 break;
