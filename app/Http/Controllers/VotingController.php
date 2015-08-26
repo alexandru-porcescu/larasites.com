@@ -50,7 +50,7 @@ class VotingController extends Controller
 
         DB::commit();
 
-        $next = $request->session()->get('url.previous', '/');
+        $next = $request->session()->get('url.previous', '/') . '#site-' . $site->id;
 
         $request->session()->forget('url.previous');
 
