@@ -14,6 +14,7 @@ class SitesController extends Controller
     {
         $sites = Site::with('user')
             ->where('featured', true)
+            ->orderBy('approved_at', 'desc')
             ->whereNotNull('approved_at')
             ->paginate();
 
