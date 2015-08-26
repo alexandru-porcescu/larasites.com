@@ -1,4 +1,4 @@
-@extends('layout', ['title' => 'Larasites - Contributors Guide'])
+@extends('layout', ['title' => 'Larasites – Contributors Guide'])
 
 @section('content')
 <main class="main" role="main">
