@@ -1,6 +1,7 @@
 # Larasites
 
-> Showcasing the best websites built with Laravel & Lumen.
+> Showcasing the best websites built with [Laravel](http://laravel.com/)
+> & [Lumen](http://lumen.laravel.com/).
 
 #### Installation
 
