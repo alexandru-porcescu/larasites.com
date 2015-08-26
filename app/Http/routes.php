@@ -37,3 +37,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::resource('site', 'SiteController', ['except' => ['index']]);
     Route::resource('user', 'UserController', ['only' => ['show']]);
 });
+
+Route::get('robots.txt', function () {
+    if (app()->environment('production')) {
+        return response('User-Agent: *', 200)
+              ->header('Content-Type', 'text/plain');
+    }
+
+    return response("User-Agent: *\nDisallow: /", 200)
+           ->header('Content-Type', 'text/plain');
+});
