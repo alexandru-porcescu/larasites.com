@@ -50,7 +50,7 @@ class SiteController extends Controller
         $this->validate($request, [
             'url'         => ['required', 'url', 'active_url', 'unique:sites'],
             'title'       => ['required', 'unique:sites'],
-            'description' => ['required'],
+            'description' => ['required', 'between:5,255'],
             'image_url'   => ['required', 'url', 'url_responds'],
             'red'         => ['required', 'numeric', 'min:0', 'max:255'],
             'green'       => ['required', 'numeric', 'min:0', 'max:255'],
@@ -125,7 +125,7 @@ class SiteController extends Controller
         $this->validate($request, [
             'url'         => ['required', 'url', 'active_url', 'unique:sites,url,'.$site->id],
             'title'       => ['required', 'unique:sites,title,'.$site->id],
-            'description' => ['required'],
+            'description' => ['required', 'between:5,255'],
             'image_url'   => ['required', 'url', 'url_responds'],
             'red'         => ['required', 'numeric', 'min:0', 'max:255'],
             'green'       => ['required', 'numeric', 'min:0', 'max:255'],
