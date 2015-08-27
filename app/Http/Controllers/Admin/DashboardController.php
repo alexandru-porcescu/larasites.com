@@ -30,6 +30,8 @@ class DashboardController extends Controller
 
         $votes = Vote::orderBy('created_at', 'desc')->with('user', 'site')->take($amount)->get();
 
+        $siteCount = Site::count();
+
         $userCount = User::count();
 
         $submissionCount = Submission::count();
@@ -37,6 +39,7 @@ class DashboardController extends Controller
         $heartCount = Vote::count();
 
         return view('admin.dashboard', compact(
+            'siteCount',
             'submissionCount',
             'heartCount',
             'userCount',
