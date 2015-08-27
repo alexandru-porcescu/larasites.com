@@ -33,16 +33,17 @@
 
     <div class="form-group {{ $errors->has('red') || $errors->has('green') || $errors->has('blue') ? 'has-error' : '' }}">
         <label class="control-label">RGB</label>
-        <div class="form-inline">
-            {!! Form::text('red', null, ['class' => 'form-control']) !!}
-            {!! Form::text('green', null, ['class' => 'form-control']) !!}
-            {!! Form::text('blue', null, ['class' => 'form-control']) !!}
+        <div class="row">
+            <div class="col-md-4">
+                {!! Form::text('red', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::text('green', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::text('blue', null, ['class' => 'form-control']) !!}
+            </div>
         </div>
-    </div>
-
-    <div class="form-group {{ $errors->has('featured') ? 'has-error' : '' }}">
-        <label class="control-label">Featured</label>
-        {!! Form::select('featured', [0 => 'No', 1 => 'Yes'], null, ['class' => 'form-control']) !!}
     </div>
 
     <hr>
