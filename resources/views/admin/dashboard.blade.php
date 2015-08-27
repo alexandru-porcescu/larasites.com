@@ -1,7 +1,13 @@
 @extends('admin.layout')
 
 @section('content')
-    <p class="lead">Dashboard</p>
+    <ol class="breadcrumb">
+        <li><a href="/"><b>Larasites.com</b></a></li>
+        <li class="active">admin</li>
+    </ol>
+
+    <hr>
+    <p class="lead">Admin Dashboard</p>
     <hr>
 
     <div class="row">

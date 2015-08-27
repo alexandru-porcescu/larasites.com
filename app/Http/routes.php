@@ -35,5 +35,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::get('site/{site}/approve', 'SiteController@approve');
     Route::get('site/{site}/unapprove', 'SiteController@unapprove');
     Route::resource('site', 'SiteController', ['except' => ['destroy']]);
-    Route::resource('user', 'UserController', ['only' => ['show']]);
+    Route::resource('user', 'UserController', ['only' => ['show', 'index']]);
 });

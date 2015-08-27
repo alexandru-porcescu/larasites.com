@@ -1,6 +1,15 @@
 @extends('admin.layout')
 
 @section('content')
+    <ol class="breadcrumb">
+        <li><a href="/"><b>Larasites.com</b></a></li>
+        <li><a href="{{ action('Admin\DashboardController@index') }}">admin</a></li>
+        <li><a href="{{ action('Admin\SiteController@index') }}">sites</a></li>
+        <li><a href="{{ action('Admin\SiteController@show', [$site->id]) }}">{{ strtolower($site->title) }}</a></li>
+        <li class="active">Edit</li>
+    </ol>
+
+    <hr>
     <p class="lead">Edit Site</p>
     <hr>
 

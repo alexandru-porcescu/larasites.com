@@ -10,8 +10,6 @@
     <body>
         <br>
         <div class="container">
-            @include('admin.header')
-            <hr>
             @yield('content')
         </div>
         <br>

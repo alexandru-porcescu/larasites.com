@@ -1,45 +1,43 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="media">
-        <div class="media-left">
-            <a href="#" target="_blank" style="">
-                <img class="media-object img-circle" src="{{ $user->twitter_avatar_original }}" height="50">
-            </a>
-        </div>
-        <div class="media-body">
-            <p class="lead">{!! tw($user) !!}</p>
-        </div>
-    </div>
+    <ol class="breadcrumb">
+        <li><a href="/"><b>Larasites.com</b></a></li>
+        <li><a href="{{ action('Admin\DashboardController@index') }}">admin</a></li>
+        <li>{!! Html::linkAction('Admin\UserController@index', 'users') !!}</li>
+        <li class="active">{{ '@' . $user->twitter_nickname }}</li>
+    </ol>
 
     <hr>
-    <br>
+    <p class="lead">{{ '@' . $user->twitter_nickname }}</p>
+    <hr>
 
-    <p><b>Details</b></p>
-    <p>Joined {!! timeago($user->created_at) !!}</p>
-    <p>Last authenticated {!! timeago($user->created_at) !!}</p>
+    <div class="row">
+        <div class="col-md-3">
+            {!! Html::image($user->twitter_avatar_original, null, ['class' => 'img-responsive img-circle']) !!}
+        </div>
+        <div class="col-md-9">
+            <p><b>Details</b></p>
+            <p>Joined {!! timeago($user->created_at) !!}</p>
+            <p>Last authenticated {!! timeago($user->created_at) !!}</p>
+            <p>{!! Html::link('https://www.twitter.com/' . $user->twitter_nickname, 'View on Twitter', ['class' => 'btn btn-sm btn-secondary', 'target' => '_blank']) !!}</p>
 
-    <br>
+            <br>
 
-    <p><b>Votes</b></p>
-    @forelse ($votes as $vote)
-        <p>
-            {!! tw($user) !!}
-            voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->title]) !!} {!! timeago($vote->created_at) !!}
-        </p>
-    @empty
-        <p class="text-muted">Nothing to show right now…</p>
-    @endforelse
+            <p><b>Activity</b></p>
+            @foreach ($votes as $vote)
+                <p>
+                    {!! tw($user) !!}
+                    voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->title]) !!} {!! timeago($vote->created_at) !!}
+                </p>
+            @endforeach
 
-    <br>
-
-    <p><b>Submissions</b></p>
-    @forelse ($submissions as $submission)
-        <p>
-            {!! tw($user) !!}
-            submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
-        </p>
-    @empty
-        <p class="text-muted">Nothing to show right now…</p>
-    @endforelse
+            @foreach ($submissions as $submission)
+                <p>
+                    {!! tw($user) !!}
+                    submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
+                </p>
+            @endforeach
+        </div>
+    </div>
 @stop
