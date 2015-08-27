@@ -80,10 +80,10 @@
         </div>
         <div class="col-md-4">
             <p><b>Stats</b></p>
-            <p>{{ $siteCount }} sites</p>
-            <p>{{ $userCount }} users</p>
+            <p>{{ $siteCount }} Sites</p>
+            <p>{{ $userCount }} Users</p>
             <p>{{ $submissionCount }} URLs</p>
-            <p>{{ $heartCount }} hearts</p>
+            <p>{{ $heartCount }} Hearts</p>
         </div>
     </div>
 @stop
