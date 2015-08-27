@@ -14,19 +14,21 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $amount = 3;
+
         $sites = Site::whereNull('approved_at')->with('creator')->get();
 
         $submissions = Submission::orderBy('created_at', 'desc')
             ->with('user')
             ->has('host.site', 0)
-            ->take(10)
+            ->take($amount)
             ->get();
 
-        $hosts = Host::orderBy('created_at', 'desc')->take(10)->has('site', 0)->get();
+        $hosts = Host::orderBy('created_at', 'desc')->take($amount)->has('site', 0)->get();
 
-        $users = User::orderBy('created_at', 'desc')->take(10)->get();
+        $users = User::orderBy('created_at', 'desc')->take($amount)->get();
 
-        $votes = Vote::orderBy('created_at', 'desc')->with('user', 'site')->take(10)->get();
+        $votes = Vote::orderBy('created_at', 'desc')->with('user', 'site')->take($amount)->get();
 
         $userCount = User::count();
 
