@@ -9,7 +9,7 @@ use League\Url\UrlImmutable;
 
 class Site extends Model
 {
-    protected $dates = ['approved_at'];
+    protected $dates = ['approved_at', 'featured_at'];
 
     public function host()
     {
@@ -48,6 +48,11 @@ class Site extends Model
     public function approver()
     {
         return $this->belongsTo(User::class, 'approved_by');
+    }
+
+    public function featurer()
+    {
+        return $this->belongsTo(User::class, 'featured_by');
     }
 
     public function getColorAttribute()

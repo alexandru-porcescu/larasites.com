@@ -25,10 +25,16 @@
             <br>
 
             <p><b>Details</b></p>
+            @if ($site->featured_at)
+                <p>Featured by {!! Html::linkAction('Admin\UserController@show', '@' . $site->featurer->twitter_nickname, [$site->featurer->twitter_id]) !!} {!! timeago($site->featured_at) !!}</p>
+            @endif
+
             @if ($site->approved_at)
                 <p>Approved by {!! Html::linkAction('Admin\UserController@show', '@' . $site->approver->twitter_nickname, [$site->approver->twitter_id]) !!} {!! timeago($site->approved_at) !!}</p>
             @endif
+
             <p>Created by {!! Html::linkAction('Admin\UserController@show', '@' . $site->creator->twitter_nickname, [$site->creator->twitter_id]) !!} {!! timeago($site->created_at) !!}</p>
+
             <br>
 
             <p><b>Submissions</b></p>

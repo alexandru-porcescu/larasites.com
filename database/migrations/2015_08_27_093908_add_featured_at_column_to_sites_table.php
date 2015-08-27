@@ -14,13 +14,17 @@ class AddFeaturedAtColumnToSitesTable extends Migration
     {
         Schema::table('sites', function ($table) {
             $table->dateTime('featured_at')->nullable();
+            $table->integer('featured_by')->unsigned()->nullable();
         });
 
         foreach (DB::table('sites')->get() as $site) {
+            $user = DB::table('users')->where('twitter_id', '3417405747')->first();
+
             if ($site->featured) {
                 DB::table('sites')
                     ->where('id', $site->id)
                     ->update([
+                        'featured_by' => $user->id,
                         'featured_at' => $site->approved_at
                     ]);
             }
@@ -54,6 +58,7 @@ class AddFeaturedAtColumnToSitesTable extends Migration
 
         Schema::table('sites', function ($table) {
             $table->dropColumn('featured_at');
+            $table->dropColumn('featured_by');
         });
     }
 }
