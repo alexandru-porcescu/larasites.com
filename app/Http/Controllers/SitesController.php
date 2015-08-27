@@ -13,8 +13,8 @@ class SitesController extends Controller
     public function showFeatured(Request $request)
     {
         $sites = Site::with('user')
-            ->where('featured', true)
-            ->orderBy('approved_at', 'desc')
+            ->whereNotNull('featured_at')
+            ->orderBy('featured_at', 'desc')
             ->whereNotNull('approved_at')
             ->paginate();
 
