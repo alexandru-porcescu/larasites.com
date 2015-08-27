@@ -9,7 +9,7 @@
             <b>{{ $userCount }}</b> users have joined.
         </div>
         <div class="col-md-4">
-            <b>{{ $submissionCount }}</b> url's have been submitted.
+            <b>{{ $submissionCount }}</b> URLs have been submitted.
         </div>
         <div class="col-md-4">
             <b>{{ $heartCount }}</b> hearts have been given.
