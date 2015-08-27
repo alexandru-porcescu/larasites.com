@@ -1,13 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Artisan;
 
 class ExampleTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * A basic functional test example.
      *
@@ -15,6 +11,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
+        Artisan::call('migrate');
+        
         $this->visit('/')->see('Larasites');
         $this->visit('/')->see('Submit');
     }

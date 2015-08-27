@@ -1,20 +1,18 @@
 <?php
 
+use Artisan;
 use App\User;
 use App\Host;
 use App\Site;
 use Carbon\Carbon;
 use App\Submission;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AcceptanceTest extends TestCase
 {
-    use DatabaseMigrations;
-
     public function testApprovedAndFeaturedSites()
     {
+        Artisan::call('migrate');
+
         $user = new User;
         $user->twitter_id = 1;
         $user->twitter_nickname = 'laravelphp';
@@ -40,6 +38,8 @@ class AcceptanceTest extends TestCase
 
     public function testSubmittingSites()
     {
+        Artisan::call('migrate');
+
         $user = new User;
         $user->twitter_id = 1337;
         $user->twitter_nickname = 'test';
