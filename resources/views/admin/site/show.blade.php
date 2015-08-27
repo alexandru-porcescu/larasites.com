@@ -22,6 +22,9 @@
             <p><b>Description</b></p>
             <p>{{ $site->description }}</p>
 
+            <p><b>Color</b></p>
+            <p><div style="background:#{{ $site->color->getHex() }};width:90px;height:40px;"></div></p>
+
             <p><b>Submissions</b></p>
 
             @foreach ($site->host->submissions as $submission)
@@ -33,15 +36,17 @@
                 </p>
             @endforeach
 
-            <p><b>Votes</b></p>
+            <p><b>Hearts</b></p>
 
-            @foreach ($site->votes as $vote)
+            @forelse ($site->votes as $vote)
                 <p>
                     {!! Html::linkAction('Admin\UserController@show', '@'.$vote->user->twitter_nickname, [$vote->user->twitter_id]) !!}
-                    voted for this site
+                    hearted this site
                     {!! timeago($vote->created_at) !!}
                 </p>
-            @endforeach
+            @empty
+                <p class="text-muted">No hearts yet…</p>
+            @endforelse
         </div>
     </div>
 
