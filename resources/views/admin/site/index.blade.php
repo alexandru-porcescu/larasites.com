@@ -6,4 +6,5 @@
         <hr>
         <br>
     @endforeach
+    {!! $sites->render() !!}
 @stop
