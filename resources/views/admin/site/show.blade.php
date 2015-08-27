@@ -68,6 +68,12 @@
     {!! Html::linkAction('Admin\SiteController@edit', 'Edit', [$site->id], ['class' => 'btn btn-sm btn-secondary']) !!}
 
     @if ($site->approved_at)
+        @if ($site->featured_at)
+            {!! Html::linkAction('Admin\SiteController@unfeature', 'Remove Feature', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
+        @else
+            {!! Html::linkAction('Admin\SiteController@feature', 'Feature', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
+        @endif
+
         {!! Html::linkAction('Admin\SiteController@unapprove', 'Unapprove', [$site->id], ['class' => 'btn btn-sm btn-secondary']) !!}
     @else
         {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-sm btn-secondary']) !!}

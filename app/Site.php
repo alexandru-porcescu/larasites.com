@@ -63,4 +63,18 @@ class Site extends Model
 
         return new Color($vibe);
     }
+
+    public function featureBy(User $user)
+    {
+        $this->featured_by = $user->id;
+        $this->featured_at = Carbon::now();
+        return $this;
+    }
+
+    public function unfeature()
+    {
+        $this->featured_by = null;
+        $this->featured_at = null;
+        return $this;
+    }
 }

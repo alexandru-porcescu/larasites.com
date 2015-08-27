@@ -174,6 +174,26 @@ class SiteController extends Controller
         return redirect()->back();
     }
 
+    public function feature(Request $request, $id)
+    {
+        $site = Site::whereNull('featured_at')->where('id', (int) $id)->first();
+
+        if ($site) {
+            $site->featureBy(Auth::user())->save();
+        }
+
+        return redirect()->back();
+    }
+
+    public function unfeature(Request $request, $id)
+    {
+        $site = Site::whereNotNull('featured_at')->where('id', (int) $id)->firstOrFail();
+
+        $site->unfeature()->save();
+
+        return redirect()->back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

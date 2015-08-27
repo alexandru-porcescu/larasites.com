@@ -25,6 +25,11 @@
                 <p>{{ str_limit($site->description, 90) }}</p>
                 <small>
                     @if ($site->approved_at)
+                        @if ($site->featured_at)
+                            {!! Html::linkAction('Admin\SiteController@unfeature', 'Remove Feature', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
+                        @else
+                            {!! Html::linkAction('Admin\SiteController@feature', 'Feature', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
+                        @endif
                         <a href="#" class="btn btn-sm btn-secondary disabled">Approved {!! timeago($site->approved_at) !!}</a>
                     @else
                         {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-sm btn-secondary']) !!}
