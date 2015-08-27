@@ -18,7 +18,9 @@ class SiteController extends Controller
      */
     public function index()
     {
-        //
+        $sites = Site::orderBy('created_at', 'desc')->paginate();
+
+        return view('admin.site.index', compact('sites'));
     }
 
     /**
