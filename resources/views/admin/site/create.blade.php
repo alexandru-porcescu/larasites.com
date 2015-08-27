@@ -12,7 +12,7 @@
     {!! Form::hidden('host', $host->name) !!}
 
     <div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
-        <label class="control-label">URL</label>
+        <label class="control-label">Canonical URL</label>
         {!! Form::text('url', $host->url, ['class' => 'form-control']) !!}
     </div>
 

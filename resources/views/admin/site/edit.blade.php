@@ -11,7 +11,7 @@
     {!! Form::model($site, ['method' => 'put', 'url' => action('Admin\SiteController@update', [$site->id])]) !!}
 
     <div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
-        <label class="control-label">URL</label>
+        <label class="control-label">Canonical URL</label>
         {!! Form::text('url', null, ['class' => 'form-control']) !!}
     </div>
 
