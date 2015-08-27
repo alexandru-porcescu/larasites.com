@@ -45,6 +45,11 @@ class Site extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    public function approver()
+    {
+        return $this->belongsTo(User::class, 'approved_by');
+    }
+
     public function getColorAttribute()
     {
         $rgb = [$this->red, $this->green, $this->blue];

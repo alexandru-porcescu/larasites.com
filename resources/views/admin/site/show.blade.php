@@ -12,18 +12,24 @@
     <p class="lead">{{ $site->title }}</p>
     <hr>
 
-    <div class="media">
-        <div class="media-left">
+    <div class="row">
+        <div class="col-md-3">
             <a href="{{ action('Admin\SiteController@show', [$site->id]) }}" target="_blank" style="">
-                <img class="media-object" src="{{ cloudinary_url($site->cloudinary_public_id, ['secure' => true, 'width' => 150]) }}">
+                <img class="img-responsive" src="{{ cloudinary_url($site->cloudinary_public_id, ['secure' => true, 'width' => 150]) }}">
             </a>
+            <p><div style="background:#{{ $site->color->getHex() }};width:150px;height:44px;"></div></p>
         </div>
-        <div class="media-body">
+        <div class="col-md-9">
             <p><b>Description</b></p>
             <p>{{ $site->description }}</p>
+            <br>
 
-            <p><b>Color</b></p>
-            <p><div style="background:#{{ $site->color->getHex() }};width:90px;height:40px;"></div></p>
+            <p><b>Details</b></p>
+            @if ($site->approved_at)
+                <p>Approved by {!! Html::linkAction('Admin\UserController@show', '@' . $site->approver->twitter_nickname, [$site->approver->twitter_id]) !!} {!! timeago($site->approved_at) !!}</p>
+            @endif
+            <p>Created by {!! Html::linkAction('Admin\UserController@show', '@' . $site->creator->twitter_nickname, [$site->creator->twitter_id]) !!} {!! timeago($site->created_at) !!}</p>
+            <br>
 
             <p><b>Submissions</b></p>
 
@@ -35,6 +41,7 @@
                     {!! timeago($submission->created_at) !!}
                 </p>
             @endforeach
+            <br>
 
             <p><b>Hearts</b></p>
 
@@ -55,7 +62,6 @@
     {!! Html::linkAction('Admin\SiteController@edit', 'Edit', [$site->id], ['class' => 'btn btn-sm btn-secondary']) !!}
 
     @if ($site->approved_at)
-        <a href="#" class="btn btn-sm btn-secondary disabled">Approved {!! timeago($site->approved_at) !!}</a>
         {!! Html::linkAction('Admin\SiteController@unapprove', 'Unapprove', [$site->id], ['class' => 'btn btn-sm btn-secondary']) !!}
     @else
         {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-sm btn-secondary']) !!}
