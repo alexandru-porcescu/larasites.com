@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Carbon\Carbon;
 use App\User;
 use App\Host;
 use App\Site;
+use Carbon\Carbon;
 use App\Submission;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AcceptanceTest extends TestCase
 {
@@ -31,6 +31,7 @@ class AcceptanceTest extends TestCase
         $site->approved_by = $user->id;
         $site->user_id = $user->id;
         $site->featured_at = Carbon::now();
+        $site->featured_by = $user->id;
         $site->save();
 
         $this->visit('/')->see('Larabelle');
