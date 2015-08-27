@@ -1,7 +1,5 @@
 <?php
 
-use Artisan;
-
 class ExampleTest extends TestCase
 {
     /**
@@ -12,7 +10,7 @@ class ExampleTest extends TestCase
     public function testBasicExample()
     {
         Artisan::call('migrate');
-        
+
         $this->visit('/')->see('Larasites');
         $this->visit('/')->see('Submit');
     }

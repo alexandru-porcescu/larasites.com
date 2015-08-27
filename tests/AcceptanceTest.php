@@ -1,6 +1,5 @@
 <?php
 
-use Artisan;
 use App\User;
 use App\Host;
 use App\Site;
@@ -34,6 +33,12 @@ class AcceptanceTest extends TestCase
 
         $this->visit('/')->see('Larabelle');
         $this->visit('/')->see('http://larabelle.com');
+
+        $this->visit('/latest')->see('Larabelle');
+        $this->visit('/latest')->see('http://larabelle.com');
+
+        $this->visit('/popular')->see('Larabelle');
+        $this->visit('/popular')->see('http://larabelle.com');
     }
 
     public function testSubmittingSites()
