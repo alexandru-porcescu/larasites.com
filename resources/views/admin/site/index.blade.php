@@ -26,7 +26,7 @@
                 <small>
                     @if ($site->approved_at)
                         @if ($site->featured_at)
-                            {!! Html::linkAction('Admin\SiteController@unfeature', 'Remove Feature', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
+                            <a href="#" class="btn btn-sm btn-success-outline disabled" disabled>Featured</a>
                         @else
                             {!! Html::linkAction('Admin\SiteController@feature', 'Feature', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
                         @endif
