@@ -17,7 +17,6 @@
                     @include('site', compact('site'))
                 @endforeach
             </div><!-- .cards -->
-            <br>
             {!! $paginator->render() !!}
         </div><!-- .l-wrapper -->
     </div><!-- .l-section -->
