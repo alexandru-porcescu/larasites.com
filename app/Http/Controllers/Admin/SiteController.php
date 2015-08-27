@@ -91,7 +91,7 @@ class SiteController extends Controller
      */
     public function show($id)
     {
-        $site = Site::findOrFail($id);
+        $site = Site::with('votes.user', 'host.submissions.user')->findOrFail($id);
 
         return view('admin.site.show', compact('site'));
     }

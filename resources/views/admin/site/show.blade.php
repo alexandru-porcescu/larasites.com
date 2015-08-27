@@ -19,11 +19,29 @@
             </a>
         </div>
         <div class="media-body">
-            <h4 class="media-heading">{!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}</h4>
+            <p><b>Description</b></p>
             <p>{{ $site->description }}</p>
-            <small>
-                <p class="text-muted">Submitted by {!! Html::linkAction('Admin\UserController@show', '@' . $site->user->twitter_nickname, [$site->user->twitter_id]) !!}</p>
-            </small>
+
+            <p><b>Submissions</b></p>
+
+            @foreach ($site->host->submissions as $submission)
+                <p>
+                    {!! Html::linkAction('Admin\UserController@show', '@'.$submission->user->twitter_nickname, [$submission->user->twitter_id]) !!}
+                    submitted
+                    {!! Html::link($submission->url, null, ['target' => '_blank']) !!}
+                    {!! timeago($submission->created_at) !!}
+                </p>
+            @endforeach
+
+            <p><b>Votes</b></p>
+
+            @foreach ($site->votes as $vote)
+                <p>
+                    {!! Html::linkAction('Admin\UserController@show', '@'.$vote->user->twitter_nickname, [$vote->user->twitter_id]) !!}
+                    voted for this site
+                    {!! timeago($vote->created_at) !!}
+                </p>
+            @endforeach
         </div>
     </div>
 

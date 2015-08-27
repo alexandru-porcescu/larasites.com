@@ -53,11 +53,4 @@ class Site extends Model
 
         return new Color($vibe);
     }
-
-    public function getHostAttribute()
-    {
-        $url = UrlImmutable::createFromUrl($this->url);
-
-        return $url->getHost();
-    }
 }
