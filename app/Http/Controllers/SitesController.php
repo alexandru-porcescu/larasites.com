@@ -22,7 +22,7 @@ class SitesController extends Controller
 
         $user = Auth::user();
 
-        return view('welcome', compact('sites', 'user', 'paginator'));
+        return view('sites', compact('sites', 'user', 'paginator'));
     }
 
     public function showLatest(Request $request)
@@ -36,7 +36,7 @@ class SitesController extends Controller
 
         $user = Auth::user();
 
-        return view('welcome', compact('sites', 'user', 'paginator'));
+        return view('sites', compact('sites', 'user', 'paginator'));
     }
 
     public function showPopular(Request $request)
@@ -50,6 +50,6 @@ class SitesController extends Controller
 
         $user = Auth::user();
 
-        return view('welcome', compact('sites', 'user', 'paginator'));
+        return view('sites', compact('sites', 'user', 'paginator'));
     }
 }
