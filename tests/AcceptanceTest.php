@@ -13,7 +13,7 @@ class AcceptanceTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function testApprovedSites()
+    public function testApprovedAndFeaturedSites()
     {
         $user = new User;
         $user->twitter_id = 1;
@@ -30,6 +30,7 @@ class AcceptanceTest extends TestCase
         $site->approved_at = Carbon::now();
         $site->approved_by = $user->id;
         $site->user_id = $user->id;
+        $site->featured_at = Carbon::now();
         $site->save();
 
         $this->visit('/')->see('Larabelle');
