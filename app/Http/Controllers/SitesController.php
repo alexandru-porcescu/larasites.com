@@ -22,7 +22,13 @@ class SitesController extends Controller
 
         $user = Auth::user();
 
-        return view('sites', compact('sites', 'user', 'paginator'));
+        if ($user) {
+            $userVotes = $user->votes()->lists('site_id')->all();
+        } else {
+            $userVotes = [];
+        }
+
+        return view('sites', compact('sites', 'user', 'paginator', 'userVotes'));
     }
 
     public function showLatest(Request $request)
@@ -36,7 +42,13 @@ class SitesController extends Controller
 
         $user = Auth::user();
 
-        return view('sites', compact('sites', 'user', 'paginator'));
+        if ($user) {
+            $userVotes = $user->votes()->lists('site_id')->all();
+        } else {
+            $userVotes = [];
+        }
+
+        return view('sites', compact('sites', 'user', 'paginator', 'userVotes'));
     }
 
     public function showPopular(Request $request)
@@ -50,6 +62,12 @@ class SitesController extends Controller
 
         $user = Auth::user();
 
-        return view('sites', compact('sites', 'user', 'paginator'));
+        if ($user) {
+            $userVotes = $user->votes()->lists('site_id')->all();
+        } else {
+            $userVotes = [];
+        }
+
+        return view('sites', compact('sites', 'user', 'paginator', 'userVotes'));
     }
 }
