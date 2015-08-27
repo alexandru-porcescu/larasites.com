@@ -28,6 +28,7 @@
             {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($site->creator->twitter_nickname), [$site->creator->twitter_id]) !!}
             {!! timeago($site->created_at) !!}
         </p>
+        <p><small>{!! Html::linkAction('Admin\SiteController@index', 'Show All') !!}</small></p>
     @empty
         <p class="text-muted">Nothing to show right now…</p>
     @endforelse
