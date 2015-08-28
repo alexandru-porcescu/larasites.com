@@ -1,6 +1,6 @@
 <?php
 
-class LegalTest extends TestCase
+class DocsTest extends TestCase
 {
     /**
      * A basic functional test example.

@@ -19,7 +19,7 @@
                     </div>
                 @else
                     <div class="alert alert--info js-alert" role="alert">
-                        <p class="alert__message"><b>Hey!</b> We feature sites that are functional, performant and pretty. <a href="{{ action('PageController@showContributorsGuide') }}">See our Contributors Guide</a>.</p>
+                        <p class="alert__message"><b>Hey!</b> We feature sites that are functional, performant and pretty. <a href="{{ action('DocsController@showContributorsGuide') }}">See our Contributors Guide</a>.</p>
                     </div>
                 @endif
             </div>

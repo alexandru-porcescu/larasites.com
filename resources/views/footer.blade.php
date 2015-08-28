@@ -43,9 +43,9 @@
                     </div>
 
                     <ol class="list">
-                        <li><a href="{{ action('PageController@showTermsOfService') }}">Terms of Service</a></li>
-                        <li><a href="{{ action('PageController@showPrivacyPolicy') }}">Privacy Policy</a></li>
-                        <li><a href="{{ action('PageController@showContributorsGuide') }}">Contributors Guide</a></li>
+                        <li><a href="{{ action('DocsController@showTermsOfService') }}">Terms of Service</a></li>
+                        <li><a href="{{ action('DocsController@showPrivacyPolicy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ action('DocsController@showContributorsGuide') }}">Contributors Guide</a></li>
                     </ol>
                 </div>
             </div>
