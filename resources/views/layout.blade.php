@@ -11,6 +11,12 @@
         <meta property="og:title" content="Larasites">
         <meta property="og:description" content="Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.">
         <meta property="og:image" content="{{ url('apple-touch-icon.png') }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@larasites">
+        <meta name="twitter:creator" content="@nextct">
+        <meta name="twitter:title" content="Larasites">
+        <meta name="twitter:description" content="Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.">
+        <meta name="twitter:image" content="{{ url('apple-touch-icon.png') }}">
         <link rel="apple-touch-icon" href="{{ url('apple-touch-icon.png') }}">
         {!! Html::style(elixir('css/style.css')) !!}
         <!-- Web Font -->
