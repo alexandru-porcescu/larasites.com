@@ -1,6 +1,14 @@
 @extends('admin.layout')
 
 @section('content')
+    <ol class="breadcrumb">
+        <li><a href="/"><b>Larasites.com</b></a></li>
+        <li><a href="{{ action('Admin\DashboardController@index') }}">admin</a></li>
+        <li><a href="{{ action('Admin\HostController@index') }}">hosts</a></li>
+        <li class="active">{{ strtolower($host->name) }}</li>
+    </ol>
+
+    <hr>
     <p class="lead">{{ $host->name }}</p>
     <hr>
 
@@ -21,7 +29,7 @@
 
     <hr>
 
-    {!! Form::open(['method' => 'delete', 'url' => action('Admin\HostController@destroy', [$host->name])]) !!}
+    {!! Form::open(['method' => 'delete', 'url' => action('Admin\HostController@destroy', [$host->id])]) !!}
     {!! Form::submit('Delete', ['class' => 'btn btn-secondary btn-danger']) !!}
     {!! Form::close() !!}
 @stop

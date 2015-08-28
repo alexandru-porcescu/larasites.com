@@ -33,7 +33,7 @@
             @forelse ($hosts as $host)
                 <p>
                     {!! Html::linkAction('Admin\SiteController@create', 'Create site', ['host' => $host->name], ['class' => 'btn btn-secondary btn-sm']) !!}
-                    {!! Html::linkAction('Admin\HostController@show', $host->name, [$host->name]) !!}
+                    {!! Html::linkAction('Admin\HostController@show', $host->name, [$host->id]) !!}
                     was created {!! timeago($host->created_at) !!}
                 </p>
             @empty

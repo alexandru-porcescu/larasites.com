@@ -15,7 +15,9 @@ class HostController extends Controller
      */
     public function index()
     {
-        //
+        $hosts = Host::orderBy('created_at', 'desc')->paginate();
+
+        return view('admin.host.index', compact('hosts'));
     }
 
     /**
@@ -42,12 +44,12 @@ class HostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  name  $string
+     * @param  id  $int
      * @return Response
      */
-    public function show($name)
+    public function show($id)
     {
-        $host = Host::where('name', $name)->firstOrFail();
+        $host = Host::findOrFail($id);
 
         $submissions = $host
             ->submissions()
@@ -85,12 +87,12 @@ class HostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  string  $name
+     * @param  int  $id
      * @return Response
      */
-    public function destroy($name)
+    public function destroy($id)
     {
-        $host = Host::where('name', $name)->firstOrFail();
+        $host = Host::findOrFail($id);
 
         $host->delete();
 

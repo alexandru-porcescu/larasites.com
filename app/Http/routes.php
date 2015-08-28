@@ -45,7 +45,7 @@ $opts = [
 Route::group($opts, function () {
     Route::get('/', 'DashboardController@index');
 
-    Route::resource('host', 'HostController', ['only' => ['show', 'destroy']]);
+    Route::resource('host', 'HostController', ['only' => ['index', 'show', 'destroy']]);
 
     Route::get('site/{site}/approve', 'SiteController@approve');
 
