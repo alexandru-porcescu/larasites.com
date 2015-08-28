@@ -10,12 +10,27 @@ git clone git@github.com:we-are-next/www.larasites.com.git larasites
 cd larasites
 composer install
 npm install
+cp .env.example .env
 ```
 
 #### Running Tests
 
 ```sh
 npm test
+```
+
+#### Working Locally
+
+Check out the example `.env` file for what's needed to get up and running.
+
+##### Twitter Application
+
+You'll need to create a Twitter application to work locally.  Unfortunately
+Twitter applications don't allow port numbers in their callback URL's... so
+you'll have to run the development server on port 80.
+
+```sh
+sudo php artisan serve --port 80
 ```
 
 #### Building Assets
