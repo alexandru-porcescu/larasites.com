@@ -5,6 +5,7 @@
 
 [![Build Status](https://travis-ci.org/we-are-next/www.larasites.com.svg?branch=master)](https://travis-ci.org/we-are-next/www.larasites.com)
 [![Coding Standards](https://img.shields.io/badge/CS-PSR--2-yellow.svg)](http://www.php-fig.org/psr/psr-2/)
+[![GitHub license](https://img.shields.io/github/license/we-are-next/www.larasites.com.svg)](https://github.com/we-are-next/www.larasites.com/blob/master/license)
 
 #### Installation
 
