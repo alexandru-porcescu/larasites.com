@@ -3,6 +3,8 @@
 > Showcasing the best websites built with [Laravel](http://laravel.com/)
 > & [Lumen](http://lumen.laravel.com/).
 
+[![Build Status](https://travis-ci.org/we-are-next/www.larasites.com.svg?branch=master)](https://travis-ci.org/we-are-next/www.larasites.com)
+
 #### Installation
 
 ```sh
@@ -29,8 +31,11 @@ You'll need to create a Twitter application to work locally.  Unfortunately
 Twitter applications don't allow port numbers in their callback URL's... so
 you'll have to run the development server on port 80.
 
+If you use the credentials provided in the example `.env` file then you'll need
+to run the development server as follows:
+
 ```sh
-sudo php artisan serve --port 80
+sudo php artisan serve --port 80 --host larasites.local
 ```
 
 You can create your own test application
