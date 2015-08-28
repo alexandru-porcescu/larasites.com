@@ -3,7 +3,7 @@
 class DocsTest extends TestCase
 {
     /**
-     * A basic functional test example.
+     * Make sure the various documentation pages exist.
      *
      * @return void
      */
