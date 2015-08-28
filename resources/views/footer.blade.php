@@ -29,9 +29,10 @@
                         </div>
                         <div class="col col-1-2">
                             <ol class="list">
-                                <li><a href="https://larachat.co">Larachat</a></li>
                                 <li><a href="https://laravel-news.com">Laravel News</a></li>
+                                <li><a href="http://www.laravelpodcast.com">Laravel Podcast</a></li>
                                 <li><a href="http://laravel.io">Laravel.io</a></li>
+                                <li><a href="https://larachat.co">Larachat</a></li>
                             </ol>
                         </div>
                     </div>
