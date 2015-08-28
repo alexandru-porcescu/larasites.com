@@ -7,6 +7,10 @@
         <title>{{ $title or 'Larasites – Showcasing the best websites made using Laravel & Lumen' }}</title>
         <meta name="description" content="Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.">
         <meta name="keywords" content="laravel, lumen, php, open-source, framework, web, artisans, larasites, websites">
+        <meta name="og:url" content="{{ URL::current() }}">
+        <meta name="og:title" content="Larasites">
+        <meta name="og:description" content="Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.">
+        <meta name="og:image" content="{{ url('apple-touch-icon.png') }}">
         <link rel="apple-touch-icon" href="{{ url('apple-touch-icon.png') }}">
         {!! Html::style(elixir('css/style.css')) !!}
         <!-- Web Font -->
