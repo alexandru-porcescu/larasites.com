@@ -2,8 +2,7 @@
   "private": true,
   "scripts": {
     "pretest": "phplint 'app/**/*.php' 'database/**/*.php' 'tests/**/*.php' 'resources/views/**/*.php'",
-    "test": "vendor/bin/phpcs app/ --standard=PSR2 --colors -p -n && vendor/bin/phpunit",
-    "styleguide": "node sg-server.js"
+    "test": "vendor/bin/phpcs app/ --standard=PSR2 --colors -p -n && vendor/bin/phpunit"
   },
   "dependencies": {
     "bootstrap": "^3.3.5"
@@ -11,12 +10,6 @@
   "devDependencies": {
     "phplint": "^1.5.2",
     "laravel-elixir": "^3.0.0",
-    "chokidar": "^1.0.5",
-    "connect-livereload": "^0.5.3",
-    "gulp": "^3.9.0",
-    "gulp-util": "^3.0.6",
-    "opn": "^3.0.2",
-    "superstatic": "^2.2.1",
-    "tiny-lr": "^0.1.6"
+    "gulp": "^3.9.0"
   }
 }
