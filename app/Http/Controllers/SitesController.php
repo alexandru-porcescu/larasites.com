@@ -70,6 +70,11 @@ class SitesController extends Controller
             $userVotes = [];
         }
 
-        return view('sites', compact('sites', 'user', 'paginator', 'userVotes'));
+        return view('sites.index', compact(
+            'sites',
+            'user',
+            'paginator',
+            'userVotes'
+        ));
     }
 }
