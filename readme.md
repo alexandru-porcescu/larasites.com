@@ -70,3 +70,7 @@ Maximum Tries           : 3
 Environment             : production
 Daemon                  : yes
 ```
+
+### License
+
+MIT © [Next](http://www.wearenext.co.za)
