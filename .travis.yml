@@ -1,8 +1,11 @@
 language: php
 php:
-  - 5.6
+- 5.6
 before_script:
-  - composer config -g github-oauth.github.com ${GH_TOKEN}
-  - npm install
+- composer config -g github-oauth.github.com ${GH_TOKEN}
+- npm install
 script:
-  - npm test
+- npm test
+env:
+  global:
+    secure: gP9mzalQTMhGCr7F4ZUyOHBCf4ZoMjvurnkevwIq/6KxTD4oknLlgslvQSNzkmTTrPHu387cOuP2eh5m26zBIfg8uA+SajemseKmMSxZ4yYYBuJZ0Kg3WhB3y3vsI2YY0PyTY0BjGFcfPcxL+m3NGVcU0vmMFZlku092PXdj6mD3rfw4RcEADGB5wywHC8Qc63i6zSv+L3u++BfJMIG953nYBiKEyqF0KIUZ9y2mONfab/dMl105koMqhV2m0Irpu7qUMg7b9qqnIY069J8BeA6lwqwWLzOoaWG1hzX1zLJ3S4ZWB/1VsyZVyRZSI9ZT9BU3M0C5U9lsuJAvxCTOlNE+qeiwnw3oYipwwziOECTcMEvIyBTMkimbNDv9pmKCxs7F3vFJvruyyzjdstxQwsg5dKW1jYmGunJqUqXUxGN4ve5eZ99BjNo3jKDhrQ31tJ6IAjuzKvLSc9+raR5js5aiDadLvKR0SdIyjlSAIbU/KTwVlHEz9U6/UxhgVsbm96nmY9x9LFM+InEqJtqROsVKJKaPigbcUW8V6L+mRXJyDwmoiiBs0i9WhRnwABSucvLAmdT8PokpdeewwAquADRlVXJ8LqKEJgmEts6tbencjBjFB+Sm6lAwt5Ja3hdsyyat0HToW3tx1bzSg+ch4Ssitz26Wz3WSY9Upa+Rvak=
