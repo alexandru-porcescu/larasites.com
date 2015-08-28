@@ -38,6 +38,9 @@ You can create your own test application
 
 #### Building Assets
 
+Larasites uses [Laravel Elixir](http://laravel.com/docs/5.1/elixir) and
+[Gulp](http://gulpjs.com/) to build assets.
+
 Production assets are included in version control, to get them deployed you'll
 need to build them and commit the changes.
 
