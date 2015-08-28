@@ -1,14 +1,16 @@
 # Contributors Guide
 
-###The Short Version
+**Updated**: June 26, 2015
+
+### The Short Version
 
 Some rules, protips and advice for contributing to Larasites.com:
 
 > Larasites is a website showcase. That means we're as interested in the design as we are in the functionality and performance.
 
-- Please ensure that you have a Google-able Logo. It's a minimum requirement. 
-- Please submit work you own from an official twitter account – its good for you, and for us. 
-- If you are submitting another person's work, share from your personal twitter account  
+- Please ensure that you have a Google-able Logo. It's a minimum requirement.
+- Please submit work you own from an official twitter account – its good for you, and for us.
+- If you are submitting another person's work, share from your personal twitter account
 - Only submit sites made with Laravel or Lumen (obviously)
 - If you made a site thats already been added and would like to be credited, please email us larasitessupport@wearenext.co.za
 
