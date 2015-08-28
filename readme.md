@@ -33,6 +33,9 @@ you'll have to run the development server on port 80.
 sudo php artisan serve --port 80
 ```
 
+You can create your own test application
+[here](https://apps.twitter.com/app/new).
+
 #### Building Assets
 
 Production assets are included in version control, to get them deployed you'll
