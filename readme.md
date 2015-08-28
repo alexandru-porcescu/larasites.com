@@ -18,6 +18,16 @@ npm install
 npm test
 ```
 
+#### Building Assets
+
+Production assets are included in version control, to get them deployed you'll
+need to build them and commit the changes.
+
+```sh
+gulp --production
+git commit -a -m 'builds assets'
+```
+
 #### Deploy Script
 
 ```sh
