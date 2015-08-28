@@ -11,7 +11,7 @@ class DocsController extends Controller
      */
     public function showTermsOfService()
     {
-        return view('terms-of-service');
+        return view('docs.terms-of-service');
     }
 
     /**
@@ -19,7 +19,7 @@ class DocsController extends Controller
      */
     public function showPrivacyPolicy()
     {
-        return view('privacy-policy');
+        return view('docs.privacy-policy');
     }
 
     /**
@@ -27,6 +27,6 @@ class DocsController extends Controller
      */
     public function showContributorsGuide()
     {
-        return view('contributors-guide');
+        return view('docs.contributors-guide');
     }
 }
