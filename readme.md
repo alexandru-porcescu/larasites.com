@@ -28,7 +28,7 @@ php artisan migrate --force
 
 #### Queue Worker(s)
 
-A queue worker needs to be running in order to run background jobs.
+A queue worker needs to be running in order to process background jobs.
 
 ```
 Connection              : database
