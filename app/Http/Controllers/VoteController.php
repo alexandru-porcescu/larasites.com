@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use DB;
 use URL;
+use Auth;
 use App\Site;
 use App\Vote;
-use Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class VotingController extends Controller
+class VoteController extends Controller
 {
     /**
      * @param Illuminate\Http\Request $request

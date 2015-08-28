@@ -19,7 +19,7 @@ Route::get('auth', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('logout', 'Auth\AuthController@logout');
 
-Route::get('vote/{site}', 'VotingController@submitVote');
+Route::get('vote/{site}', 'VoteController@submitVote');
 
 Route::get('submit', 'SubmitController@showSubmitForm');
 Route::post('submit/submit', 'SubmitController@submitSubmitForm');
