@@ -31,8 +31,9 @@ You'll need to create a Twitter application to work locally.  Unfortunately
 Twitter applications don't allow port numbers in their callback URL's... so
 you'll have to run the development server on port 80.
 
-If you use the credentials provided in the example `.env` file then you'll need
-to run the development server as follows:
+If you use the [provided
+credentials](https://github.com/we-are-next/www.larasites.com/blob/968e321208bd9e8c7ba1417030b2a0116021b3eb/.env.example#L20-L22),
+then you'll need to run the development server as follows:
 
 ```sh
 sudo php artisan serve --port 80 --host larasites.local
