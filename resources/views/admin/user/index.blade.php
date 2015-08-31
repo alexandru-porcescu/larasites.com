@@ -12,7 +12,7 @@
     @foreach ($users as $key => $user)
         @if ($key > 0) <hr> @endif
         <div class="media">
-            <a class="media-left" href="{{ action('Admin\UserController@show', [$user->twitter_id]) }}">
+            <a class="media-left" href="{{ action('Admin\UserController@show', [$user->id]) }}">
                 <img class="media-object img-circle" width="60" src="{{ $user->cloudinary_secure_url }}">
             </a>
             <div class="media-body">

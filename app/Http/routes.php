@@ -57,5 +57,5 @@ Route::group($opts, function () {
 
     Route::resource('site', 'SiteController', ['except' => ['destroy']]);
 
-    Route::resource('user', 'UserController', ['only' => ['show', 'index']]);
+    Route::resource('user', 'UserController', ['only' => ['show', 'index', 'create', 'store']]);
 });

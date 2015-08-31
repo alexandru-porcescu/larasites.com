@@ -17,7 +17,7 @@ class SitesController extends Controller
      */
     public function showFeatured(Request $request)
     {
-        $sites = Site::with('user')
+        $sites = Site::with('user', 'builder')
             ->whereNotNull('featured_at')
             ->orderBy('featured_at', 'desc')
             ->whereNotNull('approved_at')
@@ -32,7 +32,7 @@ class SitesController extends Controller
      */
     public function showLatest(Request $request)
     {
-        $sites = Site::with('user')
+        $sites = Site::with('user', 'builder')
             ->orderBy('approved_at', 'desc')
             ->whereNotNull('approved_at')
             ->paginate();
@@ -46,7 +46,7 @@ class SitesController extends Controller
      */
     public function showPopular(Request $request)
     {
-        $sites = Site::with('user')
+        $sites = Site::with('user', 'builder')
             ->orderBy('vote_count', 'desc')
             ->whereNotNull('approved_at')
             ->paginate();

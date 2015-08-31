@@ -19,7 +19,7 @@
                     {!! Html::linkAction('Admin\SiteController@approve', 'Approve', [$site->id], ['class' => 'btn btn-secondary btn-sm']) !!}
                     {!! Html::linkAction('Admin\SiteController@show', $site->title, [$site->id]) !!}
                     was created by
-                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($site->creator->twitter_nickname), [$site->creator->twitter_id]) !!}
+                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($site->creator->twitter_nickname), [$site->creator->id]) !!}
                     {!! timeago($site->created_at) !!}
                 </p>
             @empty
@@ -46,7 +46,7 @@
 
             @forelse ($submissions as $submission)
                 <p>
-                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($submission->user->twitter_nickname), [$submission->user->twitter_id]) !!}
+                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($submission->user->twitter_nickname), [$submission->user->id]) !!}
                     submitted {!! Html::link($submission->url, null, ['target' => '_blank']) !!} {!! timeago($submission->created_at) !!}
                 </p>
             @empty
@@ -59,7 +59,7 @@
 
             @forelse ($votes as $vote)
                 <p>
-                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($vote->user->twitter_nickname), [$vote->user->twitter_id]) !!} voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->id]) !!} {!! timeago($vote->created_at) !!}
+                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($vote->user->twitter_nickname), [$vote->user->id]) !!} voted for {!! Html::linkAction('Admin\SiteController@show', $vote->site->title, [$vote->site->id]) !!} {!! timeago($vote->created_at) !!}
                 </p>
             @empty
                 <p class="text-muted">Nothing to show right now…</p>
@@ -71,7 +71,7 @@
 
             @forelse ($users as $user)
                 <p>
-                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($user->twitter_nickname), [$user->twitter_id]) !!} signed up {!! timeago($user->created_at) !!}
+                    {!! Html::linkAction('Admin\UserController@show', '@' . strtolower($user->twitter_nickname), [$user->id]) !!} signed up {!! timeago($user->created_at) !!}
                 </p>
             @empty
                 <p class="text-muted">Nothing to show right now…</p>

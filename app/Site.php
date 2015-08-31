@@ -54,6 +54,11 @@ class Site extends Model
         return $this->belongsTo(User::class, 'featured_by');
     }
 
+    public function builder()
+    {
+        return $this->belongsTo(User::class, 'built_by');
+    }
+
     public function getRgbAttribute()
     {
         return implode(',', [$this->red, $this->green, $this->blue]);

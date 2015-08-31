@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Jobs\ProcessTwitterAvatar;
 
 class UserController extends Controller
 {
@@ -27,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -38,7 +39,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'twitter_id'              => ['required', 'numeric', 'unique:users,id'],
+            'twitter_nickname'        => ['required'],
+            'twitter_avatar'          => ['required', 'url'],
+            'twitter_avatar_original' => ['required', 'url'],
+        ]);
+
+        $user = new User;
+
+        $user->twitter_id = $request->input('twitter_id');
+        $user->twitter_nickname = $request->input('twitter_nickname');
+        $user->twitter_avatar = $request->input('twitter_avatar');
+        $user->twitter_avatar_original = $request->input('twitter_avatar_original');
+        $user->save();
+
+        $this->dispatchFrom(ProcessTwitterAvatar::class, $request, [
+            'user' => $user,
+        ]);
+
+        return redirect()->action('Admin\UserController@show', [$user->id]);
+    }
+
+    /**
+        ]);
     }
 
     /**
@@ -49,7 +73,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('twitter_id', $id)->with('submissions')->firstOrFail();
+        $user = User::with('submissions')->findOrFail($id);
 
         $submissions = $user->submissions()->orderBy('created_at', 'desc')->get();
 

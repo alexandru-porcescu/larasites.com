@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Auth;
 use App\Host;
 use App\Site;
+use App\User;
 use Cloudinary\Uploader;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SiteController extends Controller
 {
@@ -106,7 +107,15 @@ class SiteController extends Controller
     {
         $site = Site::findOrFail($id);
 
-        return view('admin.site.edit', compact('site'));
+        $userOptions = ['0' => 'None'];
+
+        $users = User::orderBy('twitter_nickname', 'asc')->get();
+
+        foreach ($users as $user) {
+            $userOptions[$user->id] = '@' . $user->twitter_nickname;
+        }
+
+        return view('admin.site.edit', compact('site', 'userOptions'));
     }
 
     /**
@@ -132,6 +141,7 @@ class SiteController extends Controller
             'red'         => ['required', 'numeric', 'min:0', 'max:255'],
             'green'       => ['required', 'numeric', 'min:0', 'max:255'],
             'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
+            'built_by'    => ['numeric', 'exists:users,id'],
         ], $messages);
 
         $site->url = $request->input('url');
@@ -140,6 +150,7 @@ class SiteController extends Controller
         $site->red = $request->input('red');
         $site->green = $request->input('green');
         $site->blue = $request->input('blue');
+        $site->built_by = (int) $request->input('built_by') ? $request->input('built_by') : null;
 
         if ($site->image_url !== $request->input('image_url')) {
             $response = Uploader::upload($request->input('image_url'));

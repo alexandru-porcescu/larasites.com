@@ -9,7 +9,7 @@
     </ol>
 
     <hr>
-    <p class="lead">{{ '@' . $user->twitter_nickname }}</p>
+    <p class="lead"><a href="https://www.twitter.com/{{ $user->twitter_nickname }}" title="View on Twitter" target="_blank">{{ '@' . $user->twitter_nickname }}</a></p>
     <hr>
 
     <div class="row">
@@ -20,7 +20,6 @@
             <p><b>Details</b></p>
             <p>Joined {!! timeago($user->created_at) !!}</p>
             <p>Last authenticated {!! timeago($user->created_at) !!}</p>
-            <p>{!! Html::link('https://www.twitter.com/' . $user->twitter_nickname, 'View on Twitter', ['class' => 'btn btn-sm btn-secondary', 'target' => '_blank']) !!}</p>
 
             <br>
 
