@@ -22,9 +22,6 @@
         <div class="col-md-9">
             <p><b>Description</b></p>
             <p>{{ $site->description }}</p>
-            @if ($site->builder)
-                <p>Made by {!! Html::linkAction('Admin\UserController@show', '@' . $site->builder->twitter_nickname, [$site->builder->id]) !!}</p>
-            @endif
             <br>
 
             <p><b>Details</b></p>
@@ -34,6 +31,10 @@
 
             @if ($site->approved_at)
                 <p>Approved by {!! Html::linkAction('Admin\UserController@show', '@' . $site->approver->twitter_nickname, [$site->approver->id]) !!} {!! timeago($site->approved_at) !!}</p>
+            @endif
+
+            @if ($site->builder)
+                <p>Made by {!! Html::linkAction('Admin\UserController@show', '@' . $site->builder->twitter_nickname, [$site->builder->id]) !!}</p>
             @endif
 
             <p>Created by {!! Html::linkAction('Admin\UserController@show', '@' . $site->creator->twitter_nickname, [$site->creator->id]) !!} {!! timeago($site->created_at) !!}</p>
