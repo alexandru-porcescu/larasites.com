@@ -142,9 +142,11 @@ class SiteController extends Controller
             'green'       => ['required', 'numeric', 'min:0', 'max:255'],
             'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
             'built_by'    => ['numeric', 'exists:users,id'],
+            'slug'        => ['unique:sites,slug,' . $site->id],
         ], $messages);
 
         $site->url = $request->input('url');
+        $site->slug = $request->input('slug') ? $request->input('slug') : null;
         $site->title = $request->input('title');
         $site->description = $request->input('description');
         $site->red = $request->input('red');

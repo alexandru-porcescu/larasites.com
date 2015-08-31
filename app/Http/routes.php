@@ -13,6 +13,8 @@ Route::get('/latest', 'SitesController@showLatest');
 
 Route::get('/popular', 'SitesController@showPopular');
 
+Route::get('/sites/{slug}', 'SiteDetailController@show');
+
 Route::get('auth', 'Auth\AuthController@redirectToProvider');
 
 Route::get('auth/callback', 'Auth\AuthController@handleProviderCallback');
