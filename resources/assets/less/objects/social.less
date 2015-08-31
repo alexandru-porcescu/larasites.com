@@ -1,0 +1,29 @@
+/* -------------------------------------------------------------------------- *\
+   $SOCIAL
+\* -------------------------------------------------------------------------- */
+
+.social {
+    .clearfix();
+
+    /**
+     * Link
+     */
+
+    .social__link {
+        color: @color-gray;
+        float: left;
+        font-size: 2em; /* 32 / 16 */
+        margin-left: 0.5em;
+        text-decoration: none;
+        transition: color 0.25s;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:focus,
+        &:hover {
+            color: @color-primary;
+        }
+    }
+}

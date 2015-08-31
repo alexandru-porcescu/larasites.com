@@ -9,8 +9,6 @@
 /**
  * ANCHOR
  * CLEARFIX
- * TRANSFORM
- * TRANSITION
  */
 
 
@@ -25,7 +23,7 @@
     border-bottom: 1px solid @color-gray;
     color: @color-gray-dark;
     text-decoration: none;
-    .transition(border-color 0.25s, color 0.25s;);
+    transition: border-color 0.25s, color 0.25s;
 
     &:focus,
     &:hover {
@@ -64,42 +62,4 @@
     &:after {
         clear: both;
     }
-}
-
-
-
-
-
-/* -------------------------------------------------------------------------- *\
-   $TRANSFORM
-\* -------------------------------------------------------------------------- */
-
-/**
- * Example Usage: .transform(rotateX(90deg));
- */
-
-.transform(@function) {
-    -webkit-transform: @function;
-       -moz-transform: @function;
-         -o-transform: @function;
-            transform: @function;
-}
-
-
-
-
-
-/* -------------------------------------------------------------------------- *\
-   $TRANSITION
-\* -------------------------------------------------------------------------- */
-
-/**
- * Example Usage: .transition(color 0.25s, opacity 0.25s;);
- */
-
-.transition(@transition) {
-    -webkit-transition: @transition;
-       -moz-transition: @transition;
-         -o-transition: @transition;
-            transition: @transition;
 }
