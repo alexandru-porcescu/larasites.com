@@ -8,7 +8,7 @@ matrix:
 before_script:
     - composer config -g github-oauth.github.com ${GH_TOKEN}
     - composer install
-    - npm install
+    - npm install phplint
 script:
     - npm test
 env:
