@@ -55,7 +55,7 @@
     </div>
 
     <div class="form-group {{ $errors->has('built_by') ? 'has-error' : '' }}">
-        <label class="control-label">Builder</label>
+        <label class="control-label">Made by</label>
         {!! Form::select('built_by', $userOptions, null, ['class' => 'form-control']) !!}
     </div>
 
