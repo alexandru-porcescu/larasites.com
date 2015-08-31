@@ -12,7 +12,7 @@
     <a href="{{ $site->url }}" target="_blank">
         {{ League\Url\Url::createFromUrl($site->url)->getHost() }}</a>
         @if ($site->builder)
-            made by <a href="https://twitter.com/{{ $site->builder->twitter_nickname }}">{{ '@' . $site->builder->twitter_nickname }}</a>,
+            created by <a href="https://twitter.com/{{ $site->builder->twitter_nickname }}">{{ '@' . $site->builder->twitter_nickname }}</a>,
         @endif
         submitted by <a href="https://twitter.com/{{ $site->user->twitter_nickname }}">{{ '@' . $site->user->twitter_nickname }}</a>
     </a>
