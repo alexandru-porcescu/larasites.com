@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use App\Site;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
