@@ -31,7 +31,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
-        if ($this->shouldReport($e)) {
+        if ($this->shouldReport($e) && config('services.sentry.dsn')) {
             $client = new Raven_Client(config('services.sentry.dsn'), [
                 'curl_method' => 'async'
             ]);
