@@ -78,13 +78,19 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < 20; $i++) {
             $site = Site::create([
-                'user_id'     => $faker->randomElement($users)->id,
-                'url'         => $faker->url,
-                'title'       => $faker->sentence,
-                'description' => join("\n\n", $faker->paragraphs),
-                'vote_count'  => $faker->numberBetween(0, 100),
-                'approved_at' => Carbon::now(),
-                'approved_by' => $faker->randomElement($users)->id,
+                'user_id'               => $faker->randomElement($users)->id,
+                'url'                   => $faker->url,
+                'title'                 => $faker->sentence,
+                'image_url'             => $faker->imageUrl,
+                'cloudinary_url'        => $faker->imageUrl,
+                'cloudinary_secure_url' => $faker->imageUrl,
+                'cloudinary_public_id'  => $faker->randomNumber(6),
+                'description'           => join("\n\n", $faker->paragraphs),
+                'vote_count'            => $faker->numberBetween(0, 100),
+                'approved_at'           => Carbon::now(),
+                'approved_by'           => $faker->randomElement($users)->id,
+                'created_by'            => $faker->randomElement($users)->id,
+                'created_at'            => Carbon::now(),
             ]);
 
             if ($faker->randomDigit % 5 === 0) {
