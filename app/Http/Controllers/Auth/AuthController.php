@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use App\Jobs\ProcessTwitterAvatar::class;
+use App\Jobs\ProcessTwitterAvatar;
 
 class AuthController extends Controller
 {
