@@ -12,7 +12,9 @@ class SiteDetailController extends Controller
 {
     public function show(Request $request, $slug)
     {
-        $site = Site::where('slug', $slug)->firstOrFail();
+        $site = Site::where('slug', $slug)
+            ->whereNotNull('approved_at')
+            ->firstOrFail();
 
         $user = Auth::user();
 
