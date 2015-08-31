@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Site;
-use App\Host;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pagination\PaginationPresenter;
