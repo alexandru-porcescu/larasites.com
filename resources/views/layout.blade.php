@@ -5,17 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ $title or 'Larasites – Showcasing the best websites made using Laravel & Lumen' }}</title>
-        <meta name="description" content="Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.">
+        <meta name="description" content="{{ $description or 'Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.' }}">
         <meta name="keywords" content="laravel, lumen, php, open-source, framework, web, artisans, larasites, websites">
         <meta property="og:url" content="{{ URL::current() }}">
         <meta property="og:title" content="Larasites">
-        <meta property="og:description" content="Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.">
+        <meta property="og:description" content="{{ $description or 'Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.' }}">
         <meta property="og:image" content="{{ url('apple-touch-icon.png') }}">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@larasites">
         <meta name="twitter:creator" content="@nextct">
         <meta name="twitter:title" content="Larasites">
-        <meta name="twitter:description" content="Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.">
+        <meta name="twitter:description" content="{{ $description or 'Larasites is a curated collection of the best websites made using the open source PHP framework, Laravel.' }}">
         <meta name="twitter:image" content="{{ url('apple-touch-icon.png') }}">
         <link rel="apple-touch-icon" href="{{ url('apple-touch-icon.png') }}">
         {!! Html::style(elixir('css/style.css')) !!}

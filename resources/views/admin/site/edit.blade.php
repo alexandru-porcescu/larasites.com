@@ -24,6 +24,11 @@
         {!! Form::text('url', null, ['class' => 'form-control']) !!}
     </div>
 
+    <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
+        <label class="control-label">Slug</label>
+        {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+    </div>
+
     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
         <label class="control-label">Title</label>
         {!! Form::text('title', null, ['class' => 'form-control']) !!}
