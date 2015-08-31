@@ -107,7 +107,7 @@ class SiteController extends Controller
     {
         $site = Site::findOrFail($id);
 
-        $userOptions = ['0' => 'None'];
+        $userOptions = ['' => 'None'];
 
         $users = User::orderBy('twitter_nickname', 'asc')->get();
 
