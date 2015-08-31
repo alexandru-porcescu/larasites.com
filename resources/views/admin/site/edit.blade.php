@@ -54,6 +54,11 @@
         </div>
     </div>
 
+    <div class="form-group {{ $errors->has('built_by') ? 'has-error' : '' }}">
+        <label class="control-label">Builder</label>
+        {!! Form::select('built_by', $userOptions, null, ['class' => 'form-control']) !!}
+    </div>
+
     <hr>
 
     {!! Form::submit('Update', ['class' => 'btn btn-secondary']) !!}
