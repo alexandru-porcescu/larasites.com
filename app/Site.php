@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Color;
 use Carbon\Carbon;
 use League\Url\UrlImmutable;
 
@@ -55,13 +54,14 @@ class Site extends Model
         return $this->belongsTo(User::class, 'featured_by');
     }
 
-    public function getColorAttribute()
+    public function getRgbAttribute()
     {
-        $rgb = [$this->red, $this->green, $this->blue];
+        return implode(',', [$this->red, $this->green, $this->blue]);
+    }
 
-        $vibe = Color::rgbToHex($rgb);
-
-        return new Color($vibe);
+    public function getRgbCssAttribute()
+    {
+        return 'rgb(' . $this->rgb . ')';
     }
 
     public function featureBy(User $user)
