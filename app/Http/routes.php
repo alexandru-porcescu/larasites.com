@@ -35,6 +35,8 @@ Route::get('privacy-policy', 'DocsController@showPrivacyPolicy');
 
 Route::get('contributors-guide', 'DocsController@showContributorsGuide');
 
+Route::get('sitemap.xml', 'SitemapController@index');
+
 $opts = [
     'namespace'  => 'Admin',
     'prefix'     => 'admin',
