@@ -17,7 +17,7 @@
             <a href="{{ action('Admin\SiteController@show', [$site->id]) }}" target="_blank" style="">
                 <img class="img-responsive" src="{{ cloudinary_url($site->cloudinary_public_id, ['secure' => true, 'width' => 150]) }}">
             </a>
-            <p><div style="background:#{{ $site->color->getHex() }};width:150px;height:44px;"></div></p>
+            <p><div style="background: {{ $site->rgbCss }}; width: 150px; height: 44px;"></div></p>
         </div>
         <div class="col-md-9">
             <p><b>Description</b></p>
