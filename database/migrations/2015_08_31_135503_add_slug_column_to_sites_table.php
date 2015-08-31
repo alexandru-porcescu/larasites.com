@@ -15,6 +15,12 @@ class AddSlugColumnToSitesTable extends Migration
         Schema::table('sites', function ($table) {
             $table->string('slug')->nullable();
         });
+
+        foreach (DB::table('sites')->get() as $row) {
+            DB::table('sites')->where('id', $row->id)->update([
+                'slug' => str_slug($row->title)
+            ]);
+        }
     }
 
     /**
