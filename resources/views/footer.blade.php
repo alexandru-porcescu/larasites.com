@@ -10,6 +10,7 @@
                     <p>Larasites is a showcase of the world’s best Laravel and Lumen powered websites. We’re constantly
                        amazed by what people are doing with Laravel. So, get inspired. Ship something and share it
                        here.</p>
+                    <p><a href="https://twitter.com/larasites">Twitter</a></p>
                     <p><a href="https://github.com/we-are-next/www.larasites.com">Contribute on GitHub</a></p>
                 </div>
 
