@@ -49,7 +49,6 @@ class SubmitController extends Controller
         }
 
         $submission = new Submission;
-        $submission->observe(new SubmissionObserver);
         $submission->url = (string) $url;
         $submission->user_id = Auth::user()->id;
         $submission->save();
