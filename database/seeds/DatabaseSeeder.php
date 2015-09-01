@@ -25,110 +25,65 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $faker = Faker\Factory::create();
-        $user = factory(App\User::class, 'admin')->make([
-            'twitter_id' => '42204825',
-            'twitter_nickname' => 'waynethebrain'
-        ]);
+        $users = [
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '42204825',
+                'twitter_nickname' => 'waynethebrain'
+            ]),
 
-        $user = factory(App\User::class, 'admin')->make([
-            'twitter_id' => '4475091',
-            'twitter_nickname' => 'shawnroos'
-        ]);
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '4475091',
+                'twitter_nickname' => 'shawnroos'
+            ]),
 
-        $user = factory(App\User::class, 'admin')->make([
-            'twitter_id' => '79140061',
-            'twitter_nickname' => 'assertchris'
-        ]);
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '79140061',
+                'twitter_nickname' => 'assertchris'
+            ]),
 
-        $user = factory(App\User::class, 'admin')->make([
-            'twitter_id' => '45637904',
-            'twitter_nickname' => 'mikkelz_za'
-        ]);
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '45637904',
+                'twitter_nickname' => 'mikkelz_za'
+            ]),
 
-        $user = factory(App\User::class, 'admin')->make([
-            'twitter_id' => '104805799',
-            'twitter_nickname' => 'waller_texas'
-        ]);
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '104805799',
+                'twitter_nickname' => 'waller_texas'
+            ]),
 
-        $user = factory(App\User::class, 'normal')->make([
-            'twitter_id' => '2445311347',
-            'twitter_nickname' => 'WarraManley'
-        ]);
-        // $users = [
-        //     User::create([
-        //         'twitter_id'            => '42204825',
-        //         'twitter_nickname'      => 'waynethebrain',
-        //         'twitter_avatar'        => $faker->imageUrl(64, 64),
-        //         'cloudinary_url'        => $faker->imageUrl(30, 30),
-        //         'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-        //         'is_admin'              => 1,
-        //         'authenticated_at'      => Carbon::now(),
-        //     ]),
-        //     User::create([
-        //         'twitter_id'            => '4475091',
-        //         'twitter_nickname'      => 'shawnroos',
-        //         'twitter_avatar'        => $faker->imageUrl(64, 64),
-        //         'cloudinary_url'        => $faker->imageUrl(30, 30),
-        //         'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-        //         'is_admin'              => 1,
-        //         'authenticated_at'      => Carbon::now(),
-        //     ]),
-        //     User::create([
-        //         'twitter_id'            => '79140061',
-        //         'twitter_nickname'      => 'assertchris',
-        //         'twitter_avatar'        => $faker->imageUrl(64, 64),
-        //         'cloudinary_url'        => $faker->imageUrl(30, 30),
-        //         'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-        //         'is_admin'              => 1,
-        //         'authenticated_at'      => Carbon::now(),
-        //     ]),
-        //     User::create([
-        //         'twitter_id'            => '45637904',
-        //         'twitter_nickname'      => 'mikkelz_za',
-        //         'twitter_avatar'        => $faker->imageUrl(64, 64),
-        //         'cloudinary_url'        => $faker->imageUrl(30, 30),
-        //         'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-        //         'is_admin'              => 1,
-        //         'authenticated_at'      => Carbon::now(),
-        //     ]),
-        //     User::create([
-        //         'twitter_id'            => '104805799',
-        //         'twitter_nickname'      => 'waller_texas',
-        //         'twitter_avatar'        => $faker->imageUrl(64, 64),
-        //         'cloudinary_url'        => $faker->imageUrl(30, 30),
-        //         'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-        //         'is_admin'              => 1,
-        //         'authenticated_at'      => Carbon::now(),
-        //     ]),
-        // ];
+            factory(App\User::class, 'normal')->create([
+                'twitter_id' => '2445311347',
+                'twitter_nickname' => 'WarraManley'
+            ])
+        ];
 
-        // $sites = [];
+        $sites = [];
 
-        // for ($i = 0; $i < 20; $i++) {
-        //     $site = Site::create([
-        //         'user_id'               => $faker->randomElement($users)->id,
-        //         'url'                   => $faker->url,
-        //         'title'                 => $faker->sentence,
-        //         'image_url'             => $faker->imageUrl,
-        //         'cloudinary_url'        => $faker->imageUrl,
-        //         'cloudinary_secure_url' => $faker->imageUrl,
-        //         'cloudinary_public_id'  => $faker->randomNumber(6),
-        //         'description'           => join("\n\n", $faker->paragraphs),
-        //         'vote_count'            => $faker->numberBetween(0, 100),
-        //         'approved_at'           => Carbon::now(),
-        //         'approved_by'           => $faker->randomElement($users)->id,
-        //         'created_by'            => $faker->randomElement($users)->id,
-        //         'created_at'            => Carbon::now(),
-        //     ]);
+        for ($i = 0; $i < 20; $i++) {
+            $site = Site::create([
+                'user_id'               => $faker->randomElement($users)->id,
+                'url'                   => $faker->url,
+                'title'                 => $faker->sentence,
+                'image_url'             => $faker->imageUrl,
+                'cloudinary_url'        => $faker->imageUrl,
+                'cloudinary_secure_url' => $faker->imageUrl,
+                'cloudinary_public_id'  => $faker->randomNumber(6),
+                'description'           => join("\n\n", $faker->paragraphs),
+                'vote_count'            => $faker->numberBetween(0, 100),
+                'approved_at'           => Carbon::now(),
+                'approved_by'           => $faker->randomElement($users)->id,
+                'created_by'            => $faker->randomElement($users)->id,
+                'created_at'            => Carbon::now(),
+            ]);
 
-        //     if ($faker->randomDigit % 5 === 0) {
-        //         $site->featured_by = $faker->randomElement($users)->id;
-        //         $site->featured_at = Carbon::now();
-        //         $site->save();
-        //     }
+            if ($faker->randomDigit % 5 === 0) {
+                $site->featured_by = $faker->randomElement($users)->id;
+                $site->featured_at = Carbon::now();
+                $site->save();
+            }
 
-        //     $sites[] = $site;
-        // }
+            $sites[] = $site;
+        }
 
         Model::reguard();
     }
