@@ -25,8 +25,6 @@ class SubmitController extends Controller
 
     public function submitSubmitForm(Request $request)
     {
-        // Submission::observe(new SubmissionObserver);
-
         $url = UrlImmutable::createFromUrl($request->input('url'));
 
         $input = [
@@ -50,20 +48,9 @@ class SubmitController extends Controller
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
-        $host = Host::withTrashed()
-                ->where('name', (string) $url->getHost())
-                ->first();
-
-        // if (! $host) {
-        //     $host = new Host;
-        //     $host->name = $url->getHost();
-        //     $host->save();
-        // }
-
         $submission = new Submission;
         $submission->observe(new SubmissionObserver);
         $submission->url = (string) $url;
-        $submission->host_id = $host->id;
         $submission->user_id = Auth::user()->id;
         $submission->save();
 
