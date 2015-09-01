@@ -25,53 +25,36 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $faker = Faker\Factory::create();
-
         $users = [
-            User::create([
-                'twitter_id'            => '42204825',
-                'twitter_nickname'      => 'waynethebrain',
-                'twitter_avatar'        => $faker->imageUrl(64, 64),
-                'cloudinary_url'        => $faker->imageUrl(30, 30),
-                'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-                'is_admin'              => 1,
-                'authenticated_at'      => Carbon::now(),
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '42204825',
+                'twitter_nickname' => 'waynethebrain'
             ]),
-            User::create([
-                'twitter_id'            => '4475091',
-                'twitter_nickname'      => 'shawnroos',
-                'twitter_avatar'        => $faker->imageUrl(64, 64),
-                'cloudinary_url'        => $faker->imageUrl(30, 30),
-                'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-                'is_admin'              => 1,
-                'authenticated_at'      => Carbon::now(),
+
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '4475091',
+                'twitter_nickname' => 'shawnroos'
             ]),
-            User::create([
-                'twitter_id'            => '79140061',
-                'twitter_nickname'      => 'assertchris',
-                'twitter_avatar'        => $faker->imageUrl(64, 64),
-                'cloudinary_url'        => $faker->imageUrl(30, 30),
-                'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-                'is_admin'              => 1,
-                'authenticated_at'      => Carbon::now(),
+
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '79140061',
+                'twitter_nickname' => 'assertchris'
             ]),
-            User::create([
-                'twitter_id'            => '45637904',
-                'twitter_nickname'      => 'mikkelz_za',
-                'twitter_avatar'        => $faker->imageUrl(64, 64),
-                'cloudinary_url'        => $faker->imageUrl(30, 30),
-                'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-                'is_admin'              => 1,
-                'authenticated_at'      => Carbon::now(),
+
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '45637904',
+                'twitter_nickname' => 'mikkelz_za'
             ]),
-            User::create([
-                'twitter_id'            => '104805799',
-                'twitter_nickname'      => 'waller_texas',
-                'twitter_avatar'        => $faker->imageUrl(64, 64),
-                'cloudinary_url'        => $faker->imageUrl(30, 30),
-                'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-                'is_admin'              => 1,
-                'authenticated_at'      => Carbon::now(),
+
+            factory(App\User::class, 'admin')->create([
+                'twitter_id' => '104805799',
+                'twitter_nickname' => 'waller_texas'
             ]),
+
+            factory(App\User::class, 'normal')->create([
+                'twitter_id' => '2445311347',
+                'twitter_nickname' => 'WarraManley'
+            ])
         ];
 
         $sites = [];
