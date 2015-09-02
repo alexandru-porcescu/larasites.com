@@ -12,6 +12,7 @@ before_script:
 script:
 - npm test
 after_success:
+- php artisan clear-compiled
 - phpunit --coverage-clover build/logs/clover.xml
 - vendor/bin/test-reporter
 env:
