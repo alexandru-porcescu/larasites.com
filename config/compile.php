@@ -14,7 +14,11 @@ return [
     */
 
     'files' => [
-        //
+        app_path('Site.php'),
+        app_path('User.php'),
+        app_path('Http/Controllers/Controller.php'),
+        app_path('Http/Controllers/SitesController.php'),
+        app_path('Pagination/PaginationPresenter.php'),
     ],
 
     /*
