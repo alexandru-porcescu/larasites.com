@@ -21,6 +21,11 @@ class Host extends Model
         return $this->belongsTo(Site::class);
     }
 
+    /**
+     * The Host URL is used purely as a suggestion a Site canonical URL.
+     *
+     * @return string
+     */
     public function getUrlAttribute()
     {
         return 'http://' . $this->name;
