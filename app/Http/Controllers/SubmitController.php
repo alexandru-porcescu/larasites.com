@@ -32,17 +32,10 @@ class SubmitController extends Controller
             'protocol' => (string) $url->getScheme(),
         ];
 
-        $messages = [
-            'url.url'      => 'That doesn\'t appear to be a valid url.',
-            'url.required' => 'Whoops! You need to type something in first.',
-            'url.unique'   => 'You have already submitted that url.',
-            'protocol.in'  => 'The url protocol is not supported, please use http or https.'
-        ];
-
         $validator = Validator::make($input, [
             'url'      => 'required|url|unique:submissions,url,NULL,id,user_id,'.Auth::user()->id,
             'protocol' => 'in:http,https',
-        ], $messages);
+        ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);

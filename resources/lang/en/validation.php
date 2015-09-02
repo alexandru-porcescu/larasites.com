@@ -87,8 +87,13 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'url' => [
+            'url'      => 'That doesn\'t appear to be a valid url.',
+            'required' => 'You need to type something in first.',
+            'unique'   => 'You\'ve already submitted that url.',
+        ],
+        'protocol' => [
+            'in' => 'Unsupported protocol, please use http or https.'
         ],
     ],
 
