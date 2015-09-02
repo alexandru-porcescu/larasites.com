@@ -15,12 +15,12 @@ use Carbon\Carbon;
 
 $factory->defineAs(App\User::class, 'admin', function ($faker) {
     return [
-        'twitter_id'            => '99999999',
-        'twitter_nickname'      => 'testuser',
+        'twitter_id'            => $faker->randomNumber,
+        'twitter_nickname'      => $faker->word,
         'twitter_avatar'        => $faker->imageUrl(64, 64),
         'cloudinary_url'        => $faker->imageUrl(30, 30),
         'cloudinary_secure_url' => $faker->imageUrl(30, 30),
-        'is_admin'              => 1,
+        'is_admin'              => $faker->boolean,
         'authenticated_at'      => Carbon::now(),
     ];
 });
