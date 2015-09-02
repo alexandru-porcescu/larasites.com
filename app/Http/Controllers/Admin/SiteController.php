@@ -46,10 +46,6 @@ class SiteController extends Controller
     {
         $host = Host::where('name', $request->input('host'))->firstOrFail();
 
-        $messages = [
-            'url_responds' => 'The :attribute responded with a non-200 status code, please make sure it\'s a valid url.'
-        ];
-
         $this->validate($request, [
             'url'         => ['required', 'url', 'active_url', 'unique:sites'],
             'title'       => ['required', 'unique:sites'],
@@ -58,7 +54,7 @@ class SiteController extends Controller
             'red'         => ['required', 'numeric', 'min:0', 'max:255'],
             'green'       => ['required', 'numeric', 'min:0', 'max:255'],
             'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
-        ], $messages);
+        ]);
 
         $site = new Site;
         $site->url = $request->input('url');

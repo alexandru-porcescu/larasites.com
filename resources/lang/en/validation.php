@@ -92,6 +92,9 @@ return [
             'required' => 'You need to type something in first.',
             'unique'   => 'You\'ve already submitted that url.',
         ],
+        'image_url' => [
+            'url_responds' => 'The :attribute responded with a non-200 status code, please make sure it\'s a valid url.',
+        ],
         'protocol' => [
             'in' => 'Unsupported protocol, please use http or https.'
         ],
