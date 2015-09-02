@@ -11,10 +11,8 @@ class SubmissionObserver
     {
         $url = UrlImmutable::createFromUrl($model->url);
 
-        $hostUrl = $url->getHost();
-
         $host = Host::withTrashed()
-            ->where('name', (string) $hostUrl)
+            ->where('name', (string) $url->getHost())
             ->first();
 
         if (! $host) {
