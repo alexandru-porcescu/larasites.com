@@ -9,6 +9,7 @@ use App\Host;
 use Validator;
 use League\Url\UrlImmutable;
 use App\Http\Controllers\Controller;
+use App\Observers\SubmissionObserver;
 
 class SubmitController extends Controller
 {
@@ -47,19 +48,8 @@ class SubmitController extends Controller
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
-        $host = Host::withTrashed()
-                ->where('name', (string) $url->getHost())
-                ->first();
-
-        if (! $host) {
-            $host = new Host;
-            $host->name = $url->getHost();
-            $host->save();
-        }
-
         $submission = new Submission;
         $submission->url = (string) $url;
-        $submission->host_id = $host->id;
         $submission->user_id = Auth::user()->id;
         $submission->save();
 
