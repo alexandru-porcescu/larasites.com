@@ -7,4 +7,4 @@ engines:
       ignore_warnings: true
 ratings:
   paths:
-  - "**.php"
+  - "app/**/*.php"
