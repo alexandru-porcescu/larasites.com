@@ -125,10 +125,6 @@ class SiteController extends Controller
     {
         $site = Site::findOrFail($id);
 
-        $messages = [
-            'url_responds' => 'The :attribute responded with a non-200 status code, please make sure it\'s a valid url.'
-        ];
-
         $this->validate($request, [
             'url'         => ['required', 'url', 'active_url', 'unique:sites,url,'.$site->id],
             'title'       => ['required', 'unique:sites,title,'.$site->id],
@@ -139,7 +135,7 @@ class SiteController extends Controller
             'blue'        => ['required', 'numeric', 'min:0', 'max:255'],
             'built_by'    => ['numeric', 'exists:users,id'],
             'slug'        => ['unique:sites,slug,' . $site->id],
-        ], $messages);
+        ]);
 
         $site->url = $request->input('url');
         $site->slug = $request->input('slug') ? $request->input('slug') : null;
