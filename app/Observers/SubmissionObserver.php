@@ -10,7 +10,9 @@ class SubmissionObserver
     public function saving($model)
     {
         $url = UrlImmutable::createFromUrl($model->url);
+
         $hostUrl = $url->getHost();
+
         $host = Host::withTrashed()
             ->where('name', (string) $hostUrl)
             ->first();
