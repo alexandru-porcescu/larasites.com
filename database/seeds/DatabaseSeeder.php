@@ -25,33 +25,29 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $faker = Faker\Factory::create();
+
         $users = [
             factory(App\User::class, 'admin')->create([
                 'twitter_id' => '42204825',
                 'twitter_nickname' => 'waynethebrain'
             ]),
-
             factory(App\User::class, 'admin')->create([
                 'twitter_id' => '4475091',
                 'twitter_nickname' => 'shawnroos'
             ]),
-
             factory(App\User::class, 'admin')->create([
                 'twitter_id' => '79140061',
                 'twitter_nickname' => 'assertchris'
             ]),
-
             factory(App\User::class, 'admin')->create([
                 'twitter_id' => '45637904',
                 'twitter_nickname' => 'mikkelz_za'
             ]),
-
             factory(App\User::class, 'admin')->create([
                 'twitter_id' => '104805799',
                 'twitter_nickname' => 'waller_texas'
             ]),
-
-            factory(App\User::class, 'normal')->create([
+            factory(App\User::class, 'default')->create([
                 'twitter_id' => '2445311347',
                 'twitter_nickname' => 'WarraManley'
             ])

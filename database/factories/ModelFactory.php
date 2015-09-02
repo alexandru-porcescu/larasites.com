@@ -1,5 +1,7 @@
 <?php
+
 use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -24,7 +26,7 @@ $factory->defineAs(App\User::class, 'admin', function ($faker) {
 });
 
 
-$factory->defineAs(App\User::class, 'normal', function ($faker) {
+$factory->defineAs(App\User::class, 'default', function ($faker) {
     return [
         'twitter_id'            => '99999999',
         'twitter_nickname'      => 'testuser',
