@@ -6,7 +6,6 @@
 [![Build Status](https://travis-ci.org/we-are-next/www.larasites.com.svg?branch=master)](https://travis-ci.org/we-are-next/www.larasites.com)
 [![Code Climate](https://codeclimate.com/github/we-are-next/www.larasites.com/badges/gpa.svg)](https://codeclimate.com/github/we-are-next/www.larasites.com)
 [![Test Coverage](https://codeclimate.com/github/we-are-next/www.larasites.com/badges/coverage.svg)](https://codeclimate.com/github/we-are-next/www.larasites.com/coverage)
-[![GitHub license](https://img.shields.io/github/license/we-are-next/www.larasites.com.svg)](https://github.com/we-are-next/www.larasites.com/blob/master/license)
 
 #### Installation
 
