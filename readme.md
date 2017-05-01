@@ -1,3 +1,7 @@
+🚨 **DEPRECATION NOTICE:** This project is no longer active. 🚨
+
+---
+
 # Larasites
 
 > Showcasing the best websites built with [Laravel](http://laravel.com/)
