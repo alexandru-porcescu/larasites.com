@@ -87,4 +87,4 @@ Daemon                  : yes
 
 ### License
 
-MIT © [Next](http://www.wearenext.co.za)
+MIT © [Wayne Ashley Berry](https://wayne.cloud)
